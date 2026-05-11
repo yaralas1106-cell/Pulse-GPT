@@ -2,7 +2,7 @@
 
 > 自然语言驱动的 EDM 音乐生成与 Ableton Live 智能编辑系统
 
-**TOMI**（**T**rack-aware **O**rchestration via **M**ulti-modal **I**nference）是一个基于 PulseFormer 模型的 AI 音乐 Agent，支持通过对话生成多轨 MIDI、实时推送到 Ableton Live，并用自然语言指令编辑 DAW 中的 MIDI clip。
+本项目是一个基于 PulseFormer 模型的 AI 音乐 Agent，支持通过对话生成多轨 MIDI、实时推送到 Ableton Live，并用自然语言指令编辑 DAW 中的 MIDI clip。
 
 ---
 
