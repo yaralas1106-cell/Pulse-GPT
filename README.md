@@ -1,4 +1,4 @@
-# TOMI-GPT — AI Music Agent
+# PULSE-GPT — AI Music Agent
 
 > 自然语言驱动的 EDM 音乐生成与 Ableton Live 智能编辑系统
 
