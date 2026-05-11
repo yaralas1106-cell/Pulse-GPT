@@ -1,0 +1,8 @@
+ref_pce=3.445 ref_pr=0.646
+pf_pce=3.155  pf_pce_se=0.041
+pf_pr=0.500   pf_pr_se=0.063
+pf_kl=0.1172   pf_kl_se=0.0191
+mm_pce=3.535  mm_pce_se=0.015
+mm_pr=0.638   mm_pr_se=0.032
+mm_kl=0.0724   mm_kl_se=0.0176
+N_ref=68928 N_pf=5270 N_mm=19500

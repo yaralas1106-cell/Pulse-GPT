@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: paper_draft_condensed.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: IEEEtran.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: references.bib
+Warning--I didn't find a database entry for "huang2020pop"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in raffel2016lakh
+Warning--empty journal in kilgour2019frechet
+
+Done.
+You've used 42 entries,
+            4087 wiz_defined-function locations,
+            1017 strings with 15565 characters,
+and the built_in function-call counts, 26796 in all, are:
+= -- 1895
+> -- 835
+< -- 112
++ -- 423
+- -- 180
+* -- 1233
+:= -- 3948
+add.period$ -- 85
+call.type$ -- 42
+change.case$ -- 38
+chr.to.int$ -- 255
+cite$ -- 44
+duplicate$ -- 2060
+empty$ -- 2569
+format.name$ -- 214
+if$ -- 6307
+int.to.chr$ -- 0
+int.to.str$ -- 42
+missing$ -- 429
+newline$ -- 149
+num.names$ -- 42
+pop$ -- 1160
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 2103
+stack$ -- 0
+substring$ -- 648
+swap$ -- 1397
+text.length$ -- 27
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 42
+warning$ -- 2
+while$ -- 84
+width$ -- 44
+write$ -- 379
+(There were 3 warnings)

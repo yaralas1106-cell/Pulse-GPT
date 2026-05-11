@@ -1,0 +1,8 @@
+ref_pce=3.534 ref_pr=0.608
+pf_pce=3.155  pf_pce_se=0.038
+pf_pr=0.497   pf_pr_se=0.064
+pf_kl=0.1960   pf_kl_se=0.0220
+tm_pce=3.568  tm_pce_se=0.007
+tm_pr=0.678   tm_pr_se=0.034
+tm_kl=0.0358   tm_kl_se=0.0111
+N_ref=121951 N_pf=5270 N_tm=5270

@@ -1,0 +1,181 @@
+\relax 
+\bibstyle{sn-mathphys-num}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{dhariwal2020jukebox,donahue2023singsong}
+\citation{huang2019music,payne2019musenet,dong2020muspy}
+\Newlabel{2}{2}
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{perez2018film}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces PulseFormer System Architecture. The system integrates structural conditioning, Time-Major tokenization, and temporal anchor stitching for multi-track DAW stem generation.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:pipeline}{{1}{2}{PulseFormer System Architecture. The system integrates structural conditioning, Time-Major tokenization, and temporal anchor stitching for multi-track DAW stem generation}{figure.1}{}}
+\citation{dong2018musegan}
+\citation{huang2019music,huang2020remi}
+\citation{hsiao2021compound,zeng2021musicbert}
+\citation{ens2020mmm}
+\citation{donahue2019lakhnes}
+\citation{copet2023simple}
+\citation{agostinelli2023musiclm}
+\citation{von2022figaro}
+\citation{wu2023musemorphose}
+\citation{luo2024bandcontrolnet}
+\citation{hsiao2021compound}
+\citation{vaswani2017attention}
+\citation{dao2022flashattention}
+\citation{perez2018film}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{3}{section.2}\protected@file@percent }
+\newlabel{sec:related_work}{{2}{3}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{3}{section.3}\protected@file@percent }
+\newlabel{sec:methodology}{{3}{3}{Methodology}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Architecting the Time-Major Compound Token Space}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{eq:embedding}{{1}{3}{Architecting the Time-Major Compound Token Space}{equation.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Vocabulary sizes for the Time-Major 5-dimensional compound token representation. Each musical event is encoded as a tuple $(v^{\mathrm  {type}}, v^{\mathrm  {pitch}}, v^{\mathrm  {pos}}, v^{\mathrm  {dur}}, v^{\mathrm  {vel}})$ with independent prediction heads per dimension. All values are derived from the \textsc  {pulse\_dataset\_v6} training corpus.}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:vocab}{{1}{3}{Vocabulary sizes for the Time-Major 5-dimensional compound token representation. Each musical event is encoded as a tuple $(v^{\mathrm {type}}, v^{\mathrm {pitch}}, v^{\mathrm {pos}}, v^{\mathrm {dur}}, v^{\mathrm {vel}})$ with independent prediction heads per dimension. All values are derived from the \textsc {pulse\_dataset\_v6} training corpus}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Causal Transformer Architecture}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}FiLM Conditioning: Energy-Level Modulation}{3}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:film}{{3.3}{3}{FiLM Conditioning: Energy-Level Modulation}{subsection.3.3}{}}
+\newlabel{eq:film}{{2}{3}{FiLM Conditioning: Energy-Level Modulation}{equation.2}{}}
+\newlabel{eq:film_mlp}{{3}{3}{FiLM Conditioning: Energy-Level Modulation}{equation.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Inference Pipeline}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Structural Density Conditioning \& Section-Level Scheduling}{4}{subsection.3.5}\protected@file@percent }
+\newlabel{sec:cond}{{3.5}{4}{Structural Density Conditioning \& Section-Level Scheduling}{subsection.3.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Temporal Anchor Stitching}{4}{subsection.3.6}\protected@file@percent }
+\newlabel{sec:stitching}{{3.6}{4}{Temporal Anchor Stitching}{subsection.3.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}DAW Post-Processing Rules}{4}{subsection.3.7}\protected@file@percent }
+\newlabel{sec:postproc}{{3.7}{4}{DAW Post-Processing Rules}{subsection.3.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}Multimedia Tool Integration: DAW Workflow Export}{4}{subsection.3.8}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces PulseFormer Steerable Multi-Track Inference}}{5}{algorithm.1}\protected@file@percent }
+\newlabel{alg:pulseformer}{{1}{5}{Inference Pipeline}{algorithm.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Section-level scheduling pipeline. Each structural section is generated independently under its own $\mathbf  {E}_{\mathrm  {level}}$ prefix; the Temporal Anchor Stitching procedure concatenates sections at the engineering level. Structural density monotonicity is a property of the external scheduler, not the Transformer.}}{5}{figure.2}\protected@file@percent }
+\newlabel{fig:macro_pipeline}{{2}{5}{Section-level scheduling pipeline. Each structural section is generated independently under its own $\mathbf {E}_{\mathrm {level}}$ prefix; the Temporal Anchor Stitching procedure concatenates sections at the engineering level. Structural density monotonicity is a property of the external scheduler, not the Transformer}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9}Rendered-Audio and Production Workflow Protocol}{5}{subsection.3.9}\protected@file@percent }
+\newlabel{sec:audio_workflow_protocol}{{3.9}{5}{Rendered-Audio and Production Workflow Protocol}{subsection.3.9}{}}
+\newlabel{sec:soft_mask}{{3.9}{5}{Soft Harmonic Masking}{section*.3}{}}
+\citation{fradet2024gigamidi}
+\citation{raffel2016lakh}
+\citation{ens2020mmm}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments \& Evaluation}{6}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Dataset \& Model Specifications}{6}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:dataset}{{4.1}{6}{Dataset \& Model Specifications}{subsection.4.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Dataset partition summary. All models and all baselines were evaluated exclusively on the held-out test set. No hyper-parameter selection or early stopping used test-set labels.}}{6}{table.2}\protected@file@percent }
+\newlabel{tab:split}{{2}{6}{Dataset partition summary. All models and all baselines were evaluated exclusively on the held-out test set. No hyper-parameter selection or early stopping used test-set labels}{table.2}{}}
+\newlabel{sec:baseline_protocol}{{4.1}{6}{Baseline Training Protocol}{section*.6}{}}
+\citation{hsiao2021compound}
+\citation{ens2020mmm,hsiao2021compound}
+\citation{faul2007gpower}
+\citation{yang2012machine}
+\citation{mckay2006jsymbolic}
+\citation{lartillot2007mir}
+\citation{zelechowski2021edm}
+\citation{mckay2006jsymbolic}
+\citation{lartillot2007mir}
+\citation{zelechowski2021edm}
+\citation{mckay2006jsymbolic}
+\newlabel{sec:energy_annotation}{{4.1}{7}{Structural Density Label Annotation Methodology}{section*.8}{}}
+\newlabel{eq:yang_arousal}{{9}{7}{Structural Density Label Annotation Methodology}{equation.9}{}}
+\newlabel{eq:energy}{{10}{7}{Structural Density Label Annotation Methodology}{equation.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Feature vector $\bm  {\phi }_t$ in Eq.~\eqref  {eq:energy} and the empirically calibrated weights $\bm  {w}^*$.}}{7}{table.3}\protected@file@percent }
+\newlabel{tab:phi_features}{{3}{7}{Feature vector $\boldsymbol {\phi }_t$ in Eq.~\eqref {eq:energy} and the empirically calibrated weights $\boldsymbol {w}^*$}{table.3}{}}
+\citation{ens2020mmm}
+\citation{hsiao2021compound}
+\citation{faul2007gpower}
+\newlabel{eq:rms}{{11}{8}{Structural Density Label Annotation Methodology}{equation.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces $D_t$ Distribution by Structural Section Label ($N=646$ bars)}}{8}{table.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Controlled Comparison: Trained Baselines and Zero-Shot Transfer Probes}{8}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:sota}{{4.2}{8}{Controlled Comparison: Trained Baselines and Zero-Shot Transfer Probes}{subsection.4.2}{}}
+\citation{yang2020evaluation}
+\citation{yang2020evaluation}
+\citation{wu2023musemorphose}
+\citation{toussaint2013geometry,mckay2006jsymbolic}
+\citation{ens2020mmm}
+\citation{hsiao2021compound}
+\citation{hawthorne2019enabling}
+\citation{thickstun2023anticipatory}
+\newlabel{eq:bas}{{13}{9}{Controlled Comparison: Trained Baselines and Zero-Shot Transfer Probes}{equation.13}{}}
+\newlabel{eq:jdm}{{14}{9}{Controlled Comparison: Trained Baselines and Zero-Shot Transfer Probes}{equation.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Objective comparison with representative symbolic baselines ($N\!=\!64$ per system: 8 prompts$\times $8 restarts, mean$\pm $SD). GPS: Grooving Pattern Similarity (DROP/BUILDUP sections only). BAS\,=\,1.000 for all trained models by construction (shared 16th-note-grid tokenizer). Mono.\,$^{\dagger }$: structural section monotonicity. $^{\ddagger }$MMM: 8\% drum-only samples excluded from QN\%/EB\%/PCHE/ISR\%.}}{10}{table.5}\protected@file@percent }
+\newlabel{tab:sota}{{5}{10}{Objective comparison with representative symbolic baselines ($N\!=\!64$ per system: 8 prompts$\times $8 restarts, mean$\pm $SD). GPS: Grooving Pattern Similarity (DROP/BUILDUP sections only). BAS\,=\,1.000 for all trained models by construction (shared 16th-note-grid tokenizer). Mono.\,$^{\dagger }$: structural section monotonicity. $^{\ddagger }$MMM: 8\% drum-only samples excluded from QN\%/EB\%/PCHE/ISR\%}{table.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Objective metric comparison across evaluated systems. Pretrained zero-shot models (hatched) show limited transfer; BAS\,=\,1.000 is a shared representation property.}}{10}{figure.3}\protected@file@percent }
+\newlabel{fig:sota_comparison}{{3}{10}{Objective metric comparison across evaluated systems. Pretrained zero-shot models (hatched) show limited transfer; BAS\,=\,1.000 is a shared representation property}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Output-level co-activation on the 8-prompt MOS MIDI set. Values are means with bootstrap 95\% CIs; -- indicates no detected kick-conditioned onset pairs.}}{10}{table.6}\protected@file@percent }
+\newlabel{tab:coactivation_current}{{6}{10}{Output-level co-activation on the 8-prompt MOS MIDI set. Values are means with bootstrap 95\% CIs; -- indicates no detected kick-conditioned onset pairs}{table.6}{}}
+\citation{ens2020mmm}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Failure Case Visualization: The ``Drop'' Scenario}{11}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Structural Token-Distance vs. Established Paradigms}{11}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Cross-Attention Complexity for Concurrent Events ($N=1{,}277$ event pairs, mean\,$\pm $\,SD).}}{11}{table.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Failure case visualization. (A)~Track-Major (MMM): context-sensitive drum-only collapse at 512/1024-token budgets. (B)~CP-Transformer: multi-track content without structural density control. (C)~PulseFormer: full polyphony under explicit FiLM + Scheduler conditioning.}}{12}{figure.4}\protected@file@percent }
+\newlabel{fig:failure_case}{{4}{12}{Failure case visualization. (A)~Track-Major (MMM): context-sensitive drum-only collapse at 512/1024-token budgets. (B)~CP-Transformer: multi-track content without structural density control. (C)~PulseFormer: full polyphony under explicit FiLM + Scheduler conditioning}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Extracted generative self-attention matrices (final layer). \textbf  {Left}: Track-Major topology — diffuse attention gradient; \textbf  {Right}: Time-Major topology — concentrated local attention peak induced by concurrent-event interleaving.}}{12}{figure.5}\protected@file@percent }
+\newlabel{fig:attention_map}{{5}{12}{Extracted generative self-attention matrices (final layer). \textbf {Left}: Track-Major topology — diffuse attention gradient; \textbf {Right}: Time-Major topology — concentrated local attention peak induced by concurrent-event interleaving}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Component Ablation Study}{12}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:ablation}{{4.5}{12}{Component Ablation Study}{subsection.4.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Aggregate Attention Statistics ($N=50$ sequences, final 2 layers, mean\,$\pm $\,SD). Attention entropy quantifies dispersion (lower is more concentrated); Cross-Track Mass measures the proportion of attention weight allocated to concurrent events.}}{13}{table.8}\protected@file@percent }
+\newlabel{tab:attention_stats}{{8}{13}{Aggregate Attention Statistics ($N=50$ sequences, final 2 layers, mean\,$\pm $\,SD). Attention entropy quantifies dispersion (lower is more concentrated); Cross-Track Mass measures the proportion of attention weight allocated to concurrent events}{table.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Component Ablation Study. Sequential addition of core modules from baseline to full PulseFormer. Metrics for rows 1--4 evaluate \emph  {local model capability} on 8-bar loops (validation set). The final row (Sectional Stitching) evaluates \emph  {hybrid-controller target adherence} over 128-bar arrangements, where structural adherence (PR) reflects both FiLM-conditioned generation and the deterministic Ramp Scheduler. $\Delta _{\mathrm  {sync}}$: cross-track onset deviation (ms); GC\%: groove consistency; PR: Pearson $r$ vs.\ target density ramp; ISR\%: in-scale note rate.}}{13}{table.9}\protected@file@percent }
+\newlabel{tab:ablation}{{9}{13}{Component Ablation Study. Sequential addition of core modules from baseline to full PulseFormer. Metrics for rows 1--4 evaluate \emph {local model capability} on 8-bar loops (validation set). The final row (Sectional Stitching) evaluates \emph {hybrid-controller target adherence} over 128-bar arrangements, where structural adherence (PR) reflects both FiLM-conditioned generation and the deterministic Ramp Scheduler. $\Delta _{\mathrm {sync}}$: cross-track onset deviation (ms); GC\%: groove consistency; PR: Pearson $r$ vs.\ target density ramp; ISR\%: in-scale note rate}{table.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Pipeline Decomposition: Rule Enforcement vs.\ Model Response}{13}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:decomp}{{4.6}{13}{Pipeline Decomposition: Rule Enforcement vs.\ Model Response}{subsection.4.6}{}}
+\newlabel{eq:delta_trk}{{15}{13}{Metrics}{equation.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Ablation heatmap: each row is an architecture variant; cells show actual metric values, color-coded red (worst) to green (best). Blue borders mark full PulseFormer.}}{14}{figure.6}\protected@file@percent }
+\newlabel{fig:ablation_heatmap}{{6}{14}{Ablation heatmap: each row is an architecture variant; cells show actual metric values, color-coded red (worst) to green (best). Blue borders mark full PulseFormer}{figure.6}{}}
+\newlabel{eq:ckb}{{16}{14}{Metrics}{equation.16}{}}
+\newlabel{eq:mrep}{{17}{14}{Metrics}{equation.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Perceptual Evaluation: MOS Study (N=25)}{14}{subsection.4.7}\protected@file@percent }
+\newlabel{sec:mos}{{4.7}{14}{Perceptual Evaluation: MOS Study (N=25)}{subsection.4.7}{}}
+\citation{krippendorff2011computing}
+\citation{koo2016guideline}
+\citation{koo2016guideline}
+\citation{sturm2014mml}
+\citation{danielsen2006presence}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Pipeline Decomposition Ablation. Each condition removes one component; all others remain active. 8 held-out 128-bar prompts. $r_\rho $: Pearson $r$, per-bar note count vs.\ E-level arc. $\Delta _\mathrm  {trk}$: track activation error (Eq.~\ref {eq:delta_trk}). $C_\mathrm  {KB}$: kick--bass onset co-occurrence~\%. $S_\emptyset $: degenerate section rate~\%. $M_\mathrm  {rep}$: melodic 4-gram consistency (Eq.~\ref {eq:mrep}). Bold = best per column.}}{15}{table.10}\protected@file@percent }
+\newlabel{tab:decomp}{{10}{15}{Pipeline Decomposition Ablation. Each condition removes one component; all others remain active. 8 held-out 128-bar prompts. $r_\rho $: Pearson $r$, per-bar note count vs.\ E-level arc. $\Delta _\mathrm {trk}$: track activation error (Eq.~\ref {eq:delta_trk}). $C_\mathrm {KB}$: kick--bass onset co-occurrence~\%. $S_\emptyset $: degenerate section rate~\%. $M_\mathrm {rep}$: melodic 4-gram consistency (Eq.~\ref {eq:mrep}). Bold = best per column}{table.10}{}}
+\newlabel{sec:irr}{{4.7}{15}{Inter-Rater Reliability}{section*.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Inter-rater reliability for the MOS study ($N=25$). $\alpha $: Krippendorff's ordinal alpha; $\kappa $: Fleiss' kappa; ICC: ICC(2,1). Benchmarks: $\alpha /\kappa \geq 0.80$ strong, $\geq 0.61$ moderate, $\geq 0.41$ fair (Landis \& Koch 1977); ICC$\geq 0.75$ good~\cite  {koo2016guideline}.}}{15}{table.11}\protected@file@percent }
+\newlabel{tab:irr}{{11}{15}{Inter-rater reliability for the MOS study ($N=25$). $\alpha $: Krippendorff's ordinal alpha; $\kappa $: Fleiss' kappa; ICC: ICC(2,1). Benchmarks: $\alpha /\kappa \geq 0.80$ strong, $\geq 0.61$ moderate, $\geq 0.41$ fair (Landis \& Koch 1977); ICC$\geq 0.75$ good~\cite {koo2016guideline}}{table.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces MOS Listening Test Results (8 prompts $\times $ 25 participants = 200 ratings per system, mean\,$\pm $\,SD, Likert 1--5). Significance tested via Linear Mixed-Effects Model (LMM) pairwise contrast analysis; \textbf  {***} $p<0.001$, \textbf  {**} $p<0.01$, \textit  {n.s.} not significant.}}{15}{table.12}\protected@file@percent }
+\newlabel{tab:mos}{{12}{15}{MOS Listening Test Results (8 prompts $\times $ 25 participants = 200 ratings per system, mean\,$\pm $\,SD, Likert 1--5). Significance tested via Linear Mixed-Effects Model (LMM) pairwise contrast analysis; \textbf {***} $p<0.001$, \textbf {**} $p<0.01$, \textit {n.s.} not significant}{table.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces MOS results ($N=25$, 8 prompts, LMM pairwise contrast). $^{***}p{<}0.001$; $^{**}p{<}0.01$; \textit  {ns}. PF is statistically close to the Human Anchor on GT ($p=0.88$) and outperforms baselines on SC.}}{16}{figure.7}\protected@file@percent }
+\newlabel{fig:mos}{{7}{16}{MOS results ($N=25$, 8 prompts, LMM pairwise contrast). $^{***}p{<}0.001$; $^{**}p{<}0.01$; \textit {ns}. PF is statistically close to the Human Anchor on GT ($p=0.88$) and outperforms baselines on SC}{figure.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{16}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{16}{Discussion}{section.5}{}}
+\citation{koo2016guideline}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{17}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{6}{17}{Conclusion}{section.6}{}}
+\bibdata{references}
+\bibcite{dhariwal2020jukebox}{{1}{2020}{{Dhariwal et~al.}}{{}}}
+\bibcite{donahue2023singsong}{{2}{2023}{{Donahue et~al.}}{{}}}
+\bibcite{huang2019music}{{3}{2019}{{Huang et~al.}}{{}}}
+\bibcite{payne2019musenet}{{4}{2019}{{Payne}}{{}}}
+\bibcite{dong2020muspy}{{5}{2020}{{Dong et~al.}}{{}}}
+\bibcite{perez2018film}{{6}{2018}{{Perez et~al.}}{{}}}
+\bibcite{dong2018musegan}{{7}{2018}{{Dong et~al.}}{{}}}
+\bibcite{huang2020remi}{{8}{2020}{{Huang and Yang}}{{}}}
+\bibcite{hsiao2021compound}{{9}{2021}{{Hsiao et~al.}}{{}}}
+\bibcite{zeng2021musicbert}{{10}{2021}{{Zeng et~al.}}{{}}}
+\bibcite{ens2020mmm}{{11}{2020}{{Ens and Pasquier}}{{}}}
+\bibcite{donahue2019lakhnes}{{12}{2019}{{Donahue et~al.}}{{}}}
+\bibcite{copet2023simple}{{13}{2023}{{Copet et~al.}}{{}}}
+\bibcite{agostinelli2023musiclm}{{14}{2023}{{Agostinelli et~al.}}{{}}}
+\bibcite{von2022figaro}{{15}{2022}{{von R{\"u}tte et~al.}}{{}}}
+\bibcite{wu2023musemorphose}{{16}{2023}{{Wu and Yang}}{{}}}
+\bibcite{luo2024bandcontrolnet}{{17}{2024}{{Luo et~al.}}{{}}}
+\bibcite{vaswani2017attention}{{18}{2017}{{Vaswani et~al.}}{{}}}
+\bibcite{dao2022flashattention}{{19}{2022}{{Dao et~al.}}{{}}}
+\bibcite{fradet2024gigamidi}{{20}{2024}{{Fradet et~al.}}{{}}}
+\bibcite{raffel2016lakh}{{21}{2016}{{Raffel}}{{}}}
+\bibcite{faul2007gpower}{{22}{2007}{{Faul et~al.}}{{}}}
+\bibcite{yang2012machine}{{23}{2012}{{Yang and Chen}}{{}}}
+\bibcite{mckay2006jsymbolic}{{24}{2006}{{McKay and Fujinaga}}{{}}}
+\bibcite{lartillot2007mir}{{25}{2007}{{Lartillot and Toiviainen}}{{}}}
+\bibcite{zelechowski2021edm}{{26}{2021}{{Zelechowski et~al.}}{{}}}
+\bibcite{yang2020evaluation}{{27}{2020}{{Yang and Lerch}}{{}}}
+\bibcite{toussaint2013geometry}{{28}{2013}{{Toussaint}}{{}}}
+\bibcite{hawthorne2019enabling}{{29}{2019}{{Hawthorne et~al.}}{{}}}
+\bibcite{thickstun2023anticipatory}{{30}{2023}{{Thickstun et~al.}}{{}}}
+\bibcite{krippendorff2011computing}{{31}{2011}{{Krippendorff}}{{}}}
+\bibcite{koo2016guideline}{{32}{2016}{{Koo and Mae}}{{}}}
+\bibcite{sturm2014mml}{{33}{2014}{{Sturm}}{{}}}
+\bibcite{danielsen2006presence}{{34}{2006}{{Danielsen}}{{}}}
+\gdef \@abspage@last{19}

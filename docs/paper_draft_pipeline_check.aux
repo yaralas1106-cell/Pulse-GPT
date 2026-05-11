@@ -1,0 +1,181 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{dhariwal2020jukebox,donahue2023singsong}
+\citation{huang2019music,payne2019musenet,dong2020muspy}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
+\citation{dong2018musegan}
+\citation{huang2019music}
+\citation{huang2020remi}
+\citation{ens2020mmm}
+\citation{donahue2019lakhnes}
+\citation{payne2019musenet,liu2022symphony}
+\citation{luo2024bandcontrolnet}
+\citation{liu2024bandcondinet}
+\citation{multiscale2024}
+\citation{recurrentfocused2024}
+\citation{raffel2014pretty,raffel2016lakh,manilow2019cutting}
+\citation{huang2020remi}
+\citation{fradet2021miditok}
+\citation{von2022figaro}
+\citation{zeng2021musicbert}
+\citation{hsiao2021compound}
+\citation{zeng2021musicbert}
+\citation{hsiao2021compound}
+\citation{copet2023simple}
+\citation{agostinelli2023musiclm}
+\citation{hsiao2021compound}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related_work}{{II}{2}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Symbolic Multi-Track Music Generation}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Representational Advances: From MIDI to High-Dimensional Tokens}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Controllability and Structural Steering}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Methodology}{2}{section.3}\protected@file@percent }
+\newlabel{sec:methodology}{{III}{2}{Methodology}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Architecting the Time-Major Compound Token Space}{2}{subsection.3.1}\protected@file@percent }
+\newlabel{eq:embedding}{{1}{2}{Architecting the Time-Major Compound Token Space}{equation.1}{}}
+\citation{vaswani2017attention}
+\citation{dao2022flashattention}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Complete PulseFormer generation pipeline. Starting from user-supplied prefix conditioning (Genre, BPM, Key, Energy Level, Structure Tag), the system constructs a Time-Major interleaved token sequence, passes it through a 6-layer causal Transformer with a flat causal LM head over compound event tokens, applies dual algorithmic masks (Energy Density and Diatonic Scale), generates each structural section independently, and stitches all sections into a coherent multi-minute arrangement via Temporal Anchor Offset alignment.}}{3}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:pipeline}{{1}{3}{Complete PulseFormer generation pipeline. Starting from user-supplied prefix conditioning (Genre, BPM, Key, Energy Level, Structure Tag), the system constructs a Time-Major interleaved token sequence, passes it through a 6-layer causal Transformer with a flat causal LM head over compound event tokens, applies dual algorithmic masks (Energy Density and Diatonic Scale), generates each structural section independently, and stitches all sections into a coherent multi-minute arrangement via Temporal Anchor Offset alignment}{figure.caption.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Vocabulary sizes for the Time-Major compound token representation. All values are derived from the training corpus. The flat (serialised) vocabulary used by the causal LM head has $V=18{,}792$ tokens total.}}{3}{table.caption.2}\protected@file@percent }
+\newlabel{tab:vocab}{{I}{3}{Vocabulary sizes for the Time-Major compound token representation. All values are derived from the training corpus. The flat (serialised) vocabulary used by the causal LM head has $V=18{,}792$ tokens total}{table.caption.2}{}}
+\newlabel{eq:params}{{2}{3}{Architecting the Time-Major Compound Token Space}{equation.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Theoretical Analysis: Attention Topology under Time-Major Encoding}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:attention_topology}{{\mbox  {III-B}}{3}{Theoretical Analysis: Attention Topology under Time-Major Encoding}{subsection.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Sequence alignment strategies. Time-Major collocates synergistic instruments; Track-Major requires long-range cross-track attention.}}{3}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:time_major}{{\caption@xref {fig:time_major}{ on input line 183}}{3}{Theoretical Analysis: Attention Topology under Time-Major Encoding}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Causal Transformer Architecture}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Inference Pipeline}{3}{subsection.3.4}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces PulseFormer Steerable Multi-Track Inference}}{4}{algorithm.1}\protected@file@percent }
+\newlabel{alg:pulseformer}{{1}{4}{PulseFormer Steerable Multi-Track Inference}{algorithm.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Structural Density Conditioning \& Section-Level Scheduling}{4}{subsection.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Section-level scheduling pipeline. Each structural section is generated independently under its own $\mathbf  {E}_{\mathrm  {level}}$ prefix (structural density control identifier); the Temporal Anchor Stitching procedure concatenates sections at the engineering level. Structural density monotonicity across sections is a property of the external scheduler, not of the Transformer's attention mechanism.}}{4}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:macro_pipeline}{{3}{4}{Section-level scheduling pipeline. Each structural section is generated independently under its own $\mathbf {E}_{\mathrm {level}}$ prefix (structural density control identifier); the Temporal Anchor Stitching procedure concatenates sections at the engineering level. Structural density monotonicity across sections is a property of the external scheduler, not of the Transformer's attention mechanism}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-F}}Temporal Anchor Stitching}{4}{subsection.3.6}\protected@file@percent }
+\newlabel{sec:stitching}{{\mbox  {III-F}}{4}{Temporal Anchor Stitching}{subsection.3.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-G}}DAW Post-Processing Rules}{4}{subsection.3.7}\protected@file@percent }
+\newlabel{sec:postproc}{{\mbox  {III-G}}{4}{DAW Post-Processing Rules}{subsection.3.7}{}}
+\citation{raffel2016lakh}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-H}}Multimedia Tool Integration: DAW Workflow Export}{5}{subsection.3.8}\protected@file@percent }
+\newlabel{sec:soft_mask}{{\mbox  {III-H}}{5}{Soft Harmonic Masking}{section*.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiments \& Evaluation}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Dataset \& Model Specifications}{5}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:dataset}{{\mbox  {IV-A}}{5}{Dataset \& Model Specifications}{subsection.4.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Dataset partition summary. All models and all baselines were evaluated exclusively on the held-out test set. No hyper-parameter selection or early stopping used test-set labels.}}{5}{table.caption.8}\protected@file@percent }
+\newlabel{tab:split}{{II}{5}{Dataset partition summary. All models and all baselines were evaluated exclusively on the held-out test set. No hyper-parameter selection or early stopping used test-set labels}{table.caption.8}{}}
+\citation{faul2007gpower}
+\citation{yang2012machine}
+\citation{mckay2006jsymbolic}
+\citation{lartillot2007mir}
+\citation{zelechowski2021edm}
+\citation{mckay2006jsymbolic}
+\citation{lartillot2007mir}
+\citation{zelechowski2021edm}
+\citation{mckay2006jsymbolic}
+\newlabel{sec:baseline_protocol}{{\mbox  {IV-A}}{6}{Baseline Training Protocol}{section*.9}{}}
+\newlabel{sec:energy_annotation}{{\mbox  {IV-A}}{6}{Structural Density Label Annotation Methodology}{section*.11}{}}
+\newlabel{eq:yang_arousal}{{9}{6}{Structural Density Label Annotation Methodology}{equation.9}{}}
+\newlabel{eq:energy}{{10}{6}{Structural Density Label Annotation Methodology}{equation.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Feature vector $\bm  {\phi }_t$ in Eq.~\eqref  {eq:energy} and the empirically calibrated weights $\bm  {w}^*$.}}{6}{table.caption.12}\protected@file@percent }
+\newlabel{tab:phi_features}{{III}{6}{Feature vector $\boldsymbol {\phi }_t$ in Eq.~\eqref {eq:energy} and the empirically calibrated weights $\boldsymbol {w}^*$}{table.caption.12}{}}
+\citation{huang2018music}
+\citation{ens2020mmm}
+\citation{hsiao2021compound}
+\citation{faul2007gpower}
+\newlabel{eq:rms}{{11}{7}{Structural Density Label Annotation Methodology}{equation.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces $D_t$ Distribution by Structural Section Label ($N=646$ bars)}}{7}{table.caption.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Comparison with Representative Symbolic Baselines}{7}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:sota}{{\mbox  {IV-B}}{7}{Comparison with Representative Symbolic Baselines}{subsection.4.2}{}}
+\citation{toussaint2013geometry,mckay2006jsymbolic}
+\citation{huang2018music}
+\citation{ens2020mmm}
+\citation{hsiao2021compound}
+\citation{hawthorne2019enabling}
+\citation{thickstun2023anticipatory}
+\newlabel{eq:bas}{{13}{8}{Comparison with Representative Symbolic Baselines}{equation.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Objective comparison with representative symbolic baselines ($N\!=\!64$ per system: 8 prompts~$\times $~8 independent restarts; mean\,$\pm $\,SD; Mann-Whitney $U$, two-sided; effect sizes: Cohen's $d$ Hedges-corrected). \textit  {Trained}: re-trained on our Electronic Music corpus, 50-epoch budget, identical train/test split. \textit  {ZS}: official pretrained checkpoint, zero-shot on held-out test prompts. BAS: Beat-level Alignment Score (Eq.~\eqref  {eq:bas}).}}{8}{table.caption.14}\protected@file@percent }
+\newlabel{tab:sota}{{V}{8}{Objective comparison with representative symbolic baselines ($N\!=\!64$ per system: 8 prompts~$\times $~8 independent restarts; mean\,$\pm $\,SD; Mann-Whitney $U$, two-sided; effect sizes: Cohen's $d$ Hedges-corrected). \textit {Trained}: re-trained on our Electronic Music corpus, 50-epoch budget, identical train/test split. \textit {ZS}: official pretrained checkpoint, zero-shot on held-out test prompts. BAS: Beat-level Alignment Score (Eq.~\eqref {eq:bas})}{table.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Comparison across all six evaluated systems. Pretrained zero-shot models (hatched) show limited transfer to the proposed Electronic Music stem-generation protocol. BAS and GC\% quantify perceptual rhythmic alignment; $\Delta _{\mathrm  {sync}}$ measures engineering timing precision.}}{8}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:sota_comparison}{{4}{8}{Comparison across all six evaluated systems. Pretrained zero-shot models (hatched) show limited transfer to the proposed Electronic Music stem-generation protocol. BAS and GC\% quantify perceptual rhythmic alignment; $\Delta _{\mathrm {sync}}$ measures engineering timing precision}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Failure Case Visualization: The ``Drop'' Scenario}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Failure Case Visualization. (A) Track-Major models show large onset drift in dense passages. (B) The evaluated token-compression baseline lacks macro-structural tags and produces a flatter density profile. (C) The complete PulseFormer pipeline stacks dense polyphony on the DAW grid under explicit structural-density conditioning.}}{8}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:failure_case}{{5}{8}{Failure Case Visualization. (A) Track-Major models show large onset drift in dense passages. (B) The evaluated token-compression baseline lacks macro-structural tags and produces a flatter density profile. (C) The complete PulseFormer pipeline stacks dense polyphony on the DAW grid under explicit structural-density conditioning}{figure.caption.16}{}}
+\citation{ens2020mmm}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Structural Token-Distance vs. Established Paradigms}{9}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Cross-Attention Complexity for Concurrent Events ($N=1{,}277$ event pairs, mean\,$\pm $\,SD).}}{9}{table.caption.17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Extracted generative self-attention matrices (final layer). \textbf  {Left (M1)}: The Track-Major topology is associated with a diffuse attention gradient, consistent with limited cross-track synchronisation. \textbf  {Right (M2)}: The Time-Major topology produces a concentrated local attention peak, consistent with the substantially reduced $\Delta _{sync}$ observed empirically.}}{9}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:attention_map}{{6}{9}{Extracted generative self-attention matrices (final layer). \textbf {Left (M1)}: The Track-Major topology is associated with a diffuse attention gradient, consistent with limited cross-track synchronisation. \textbf {Right (M2)}: The Time-Major topology produces a concentrated local attention peak, consistent with the substantially reduced $\Delta _{sync}$ observed empirically}{figure.caption.18}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Aggregate Attention Statistics ($N=50$ sequences, final 2 layers, mean\,$\pm $\,SD). Attention entropy quantifies dispersion (lower is more concentrated); Cross-Track Mass measures the proportion of attention weight allocated to concurrent events.}}{9}{table.caption.19}\protected@file@percent }
+\newlabel{tab:attention_stats}{{VII}{9}{Aggregate Attention Statistics ($N=50$ sequences, final 2 layers, mean\,$\pm $\,SD). Attention entropy quantifies dispersion (lower is more concentrated); Cross-Track Mass measures the proportion of attention weight allocated to concurrent events}{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Component Ablation Study}{9}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:ablation}{{\mbox  {IV-E}}{9}{Component Ablation Study}{subsection.4.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Component Ablation Study. Sequential addition of core modules from baseline to full PulseFormer, tracking key topological, structural, and harmonic metrics.}}{9}{table.caption.20}\protected@file@percent }
+\newlabel{tab:ablation}{{VIII}{9}{Component Ablation Study. Sequential addition of core modules from baseline to full PulseFormer, tracking key topological, structural, and harmonic metrics}{table.caption.20}{}}
+\citation{huang2018music}
+\citation{krippendorff2011computing}
+\citation{koo2016guideline}
+\citation{koo2016guideline}
+\citation{koo2016guideline}
+\citation{sturm2014mml}
+\citation{danielsen2006presence}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Ablation heatmap: each row is an architecture variant; cells show actual metric values, color-coded red (worst) to green (best). Blue borders mark full PulseFormer. Removing any module causes measurable degradation, confirming each component's independent necessity.}}{10}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:ablation_heatmap}{{7}{10}{Ablation heatmap: each row is an architecture variant; cells show actual metric values, color-coded red (worst) to green (best). Blue borders mark full PulseFormer. Removing any module causes measurable degradation, confirming each component's independent necessity}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-F}}Perceptual Evaluation: MOS Study (N=25)}{10}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:mos}{{\mbox  {IV-F}}{10}{Perceptual Evaluation: MOS Study (N=25)}{subsection.4.6}{}}
+\newlabel{sec:irr}{{\mbox  {IV-F}}{10}{Inter-Rater Reliability}{section*.23}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IX}{\ignorespaces Inter-rater reliability for the MOS study ($N=25$). $\alpha $: Krippendorff's ordinal alpha; $\kappa $: Fleiss' kappa; ICC: ICC(2,1). Benchmarks: $\alpha /\kappa \geq 0.80$ strong, $\geq 0.61$ moderate, $\geq 0.41$ fair (Landis \& Koch 1977); ICC$\geq 0.75$ good~\cite  {koo2016guideline}.}}{10}{table.caption.24}\protected@file@percent }
+\newlabel{tab:irr}{{IX}{10}{Inter-rater reliability for the MOS study ($N=25$). $\alpha $: Krippendorff's ordinal alpha; $\kappa $: Fleiss' kappa; ICC: ICC(2,1). Benchmarks: $\alpha /\kappa \geq 0.80$ strong, $\geq 0.61$ moderate, $\geq 0.41$ fair (Landis \& Koch 1977); ICC$\geq 0.75$ good~\cite {koo2016guideline}}{table.caption.24}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {X}{\ignorespaces MOS Listening Test Results ($N=25$ participants, mean\,$\pm $\,SD, Likert 1--5). Wilcoxon signed-rank with Bonferroni correction; \textbf  {***} $p<0.001$, \textbf  {**} $p<0.01$, \textit  {n.s.} not significant.}}{10}{table.caption.26}\protected@file@percent }
+\newlabel{tab:mos}{{X}{10}{MOS Listening Test Results ($N=25$ participants, mean\,$\pm $\,SD, Likert 1--5). Wilcoxon signed-rank with Bonferroni correction; \textbf {***} $p<0.001$, \textbf {**} $p<0.01$, \textit {n.s.} not significant}{table.caption.26}{}}
+\citation{luo2024bandcontrolnet}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces MOS results ($N=25$, 95\,\% CI; Wilcoxon vs.\ PulseFormer). Stars above bars: sig.\ vs.\ {\color  {cMGen}\textbf  {REMI}} / {\color  {cTM}\textbf  {MMM-Trans}}: $^{***}p{<}0.001$; $^{**}p{<}0.01$; $^{\dagger }p{<}0.10$; \textit  {ns}. PF is statistically close to the Human Anchor on GT in this stimulus set ($p=0.93$) and scores higher than the evaluated baselines on SC.}}{11}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:mos}{{\caption@xref {fig:mos}{ on input line 756}}{11}{Results}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Discussion}{11}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{V}{11}{Discussion}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{11}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{VI}{11}{Conclusion}{section.6}{}}
+\bibstyle{IEEEtran}
+\bibdata{references}
+\bibcite{dhariwal2020jukebox}{1}
+\bibcite{donahue2023singsong}{2}
+\bibcite{huang2019music}{3}
+\bibcite{payne2019musenet}{4}
+\bibcite{dong2020muspy}{5}
+\bibcite{dong2018musegan}{6}
+\bibcite{huang2020remi}{7}
+\bibcite{ens2020mmm}{8}
+\bibcite{donahue2019lakhnes}{9}
+\bibcite{liu2022symphony}{10}
+\bibcite{luo2024bandcontrolnet}{11}
+\bibcite{liu2024bandcondinet}{12}
+\bibcite{multiscale2024}{13}
+\bibcite{recurrentfocused2024}{14}
+\bibcite{raffel2014pretty}{15}
+\bibcite{raffel2016lakh}{16}
+\bibcite{manilow2019cutting}{17}
+\bibcite{fradet2021miditok}{18}
+\bibcite{von2022figaro}{19}
+\bibcite{zeng2021musicbert}{20}
+\bibcite{hsiao2021compound}{21}
+\bibcite{copet2023simple}{22}
+\bibcite{agostinelli2023musiclm}{23}
+\bibcite{vaswani2017attention}{24}
+\bibcite{dao2022flashattention}{25}
+\bibcite{faul2007gpower}{26}
+\bibcite{yang2012machine}{27}
+\bibcite{mckay2006jsymbolic}{28}
+\bibcite{lartillot2007mir}{29}
+\bibcite{zelechowski2021edm}{30}
+\bibcite{huang2018music}{31}
+\bibcite{toussaint2013geometry}{32}
+\bibcite{hawthorne2019enabling}{33}
+\bibcite{thickstun2023anticipatory}{34}
+\bibcite{krippendorff2011computing}{35}
+\bibcite{koo2016guideline}{36}
+\bibcite{sturm2014mml}{37}
+\bibcite{danielsen2006presence}{38}
+\@writefile{toc}{\contentsline {section}{References}{12}{section*.29}\protected@file@percent }
+\gdef \@abspage@last{12}

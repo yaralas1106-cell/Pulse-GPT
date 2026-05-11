@@ -1,0 +1,141 @@
+﻿\begin{tikzpicture}[
+    node distance=0.6cm and 0.35cm,
+    cond/.style={rectangle, draw, rounded corners=3pt, fill=violet!18,
+                 minimum width=5.6em, minimum height=2.4em,
+                 text centered, font=\small\bfseries, align=center},
+    proc/.style={rectangle, draw, fill=blue!10, minimum width=32em,
+                 minimum height=2.4em, text centered, font=\small\bfseries,
+                 rounded corners=4pt, align=center},
+    tok/.style={rectangle, draw, fill=cyan!18, minimum width=4.8em,
+                minimum height=2.2em, text centered, font=\small, align=center},
+    head/.style={rectangle, draw, fill=orange!22, minimum width=4.4em,
+                 minimum height=2.2em, text centered, font=\small\bfseries,
+                 rounded corners=2pt, align=center},
+    msk/.style={rectangle, draw, fill=red!14, minimum width=11em,
+                minimum height=2.2em, text centered, font=\small,
+                rounded corners=3pt, align=center},
+    seg/.style={rectangle, draw, fill=green!18, minimum width=6em,
+                minimum height=2.4em, text centered, font=\small\bfseries,
+                rounded corners=3pt, align=center},
+    outbox/.style={rectangle, draw, fill=yellow!20, minimum width=32em,
+                   minimum height=2.6em, text centered, font=\small\bfseries,
+                   rounded corners=5pt, align=center},
+    arr/.style={->, >=latex, thick},
+    darr/.style={->, >=latex, thick, dashed},
+    lbl/.style={font=\scriptsize\itshape, text=gray!55!black, align=right}
+]
+
+%% 鈹€鈹€鈹€ ROW 0 : USER CONDITIONING INPUTS 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[cond] (c1) {Genre\\HOUSE/TECHNO};
+\node[cond, right=0.4cm of c1] (c2) {BPM\\120\,--\,132};
+\node[cond, right=0.4cm of c2] (c3) {Key Sig.\\ $\mathcal{K}_{key}$};
+\node[cond, right=0.4cm of c3] (c4) {\textbf{Energy Level}\\ $\mathbf{E}\!\in\!\{1..9\}$};
+\node[cond, right=0.4cm of c4] (c5) {Structure Tag\\INTRO / DROP};
+\node[lbl, left=0.3cm of c1] {\textbf{(1)}\\User\\Prompt};
+
+%% 鈹€鈹€鈹€ ROW 1 : TOKENIZER 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[proc, below=0.75cm of c3] (tkz) {%
+  \textbf{5D Time-Major Tokenizer}\quad
+  $\mathcal{E}(x_i)=\sum_{F\in\mathcal{F}} W_F\bigl(\mathrm{id}_F(x_i)\bigr)$\quad
+  $\mathcal{F}=\{Type,\ Pitch,\ TimePos,\ Duration,\ Velocity\}$};
+\node[lbl, left=0.3cm of tkz.west] {\textbf{(2)}};
+
+\draw[arr] (c1.south) -- ++(0,-0.3) -| ([xshift=-7.0em]tkz.north);
+\draw[arr] (c2.south) -- ++(0,-0.3) -| ([xshift=-3.5em]tkz.north);
+\draw[arr] (c3.south) -- (tkz.north);
+\draw[arr] (c4.south) -- ++(0,-0.3) -| ([xshift= 3.5em]tkz.north);
+\draw[arr] (c5.south) -- ++(0,-0.3) -| ([xshift= 7.0em]tkz.north);
+
+%% 鈹€鈹€鈹€ ROW 2 : TIME-MAJOR SEQUENCE VISUAL 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[tok, below=0.8cm of tkz, xshift=-6.8cm] (ta1) {KICK\\$t_0$};
+\node[tok, right=0.18cm of ta1]               (ta2) {BASS\\$t_0$};
+\node[tok, right=0.18cm of ta2]               (ta3) {CHORD\\$t_0$};
+\node[draw=none, right=0.3cm of ta3, font=\bfseries\large] (dot1) {$\cdots$};
+\node[tok, right=0.3cm of dot1]               (tb1) {KICK\\$t_k$};
+\node[tok, right=0.18cm of tb1]               (tb2) {BASS\\$t_k$};
+\node[tok, right=0.18cm of tb2]               (tb3) {CHORD\\$t_k$};
+\node[draw=none, right=0.3cm of tb3, font=\bfseries\large] (dot2) {$\cdots$};
+\node[tok, right=0.3cm of dot2]               (tc1) {KICK\\$t_n$};
+\node[tok, right=0.18cm of tc1]               (tc2) {BASS\\$t_n$};
+\node[tok, right=0.18cm of tc2]               (tc3) {CHORD\\$t_n$};
+
+\node[draw, dashed, rounded corners, inner sep=4pt, fit=(ta1)(ta3),
+      fill=cyan!5, label={[font=\tiny,yshift=-1pt]above:Time Block $t_0$}] {};
+\node[draw, dashed, rounded corners, inner sep=4pt, fit=(tb1)(tb3),
+      fill=cyan!5, label={[font=\tiny,yshift=-1pt]above:Time Block $t_k$}] {};
+\node[draw, dashed, rounded corners, inner sep=4pt, fit=(tc1)(tc3),
+      fill=cyan!5, label={[font=\tiny,yshift=-1pt]above:Time Block $t_n$}] {};
+\node[lbl, left=0.3cm of ta1] {\textbf{(3)}\\Time-Major\\Sequence};
+
+\draw[arr] (tkz.south) -- ++(0,-0.3) -| (ta2.north);
+
+%% 鈹€鈹€鈹€ ROW 3 : CAUSAL TRANSFORMER 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[proc, below=0.85cm of tb2] (tfm) {%
+  \textbf{PulseFormer: Causal Transformer Decoder}\quad
+  6\,Layers\,$\times$\,8\,Heads\,$\cdot$\,$d_{\rm model}=512$\,
+  $\cdot$\,$\approx$28.6M params\quad
+  $A = \mathrm{Softmax}\!\left(\!\tfrac{QK^\top}{\sqrt{d_k}}+M\!\right)\!V$};
+\node[lbl, left=0.3cm of tfm.west] {\textbf{(4)}};
+
+\draw[arr] (ta1.south) -- ++(0,-0.3) -| ([xshift=-7em]tfm.north);
+\draw[arr] (tb2.south) -- (tfm.north);
+\draw[arr] (tc3.south) -- ++(0,-0.3) -| ([xshift= 7em]tfm.north);
+
+%% 鈹€鈹€鈹€ ROW 4 : MULTI-HEAD PREDICTION 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[head, below=0.85cm of tfm, xshift=-5.6cm] (h1) {Type\\Head};
+\node[head, right=0.3cm of h1] (h2) {Pitch\\Head};
+\node[head, right=0.3cm of h2] (h3) {TimePos\\Head};
+\node[head, right=0.3cm of h3] (h4) {Duration\\Head};
+\node[head, right=0.3cm of h4] (h5) {Velocity\\Head};
+\node[lbl, left=0.25cm of h1] {\textbf{(5)}\\5-Head\\Output};
+
+\draw[arr] (tfm.south) -- ++(0,-0.3) -| ([xshift=-5.6em]h1.north);
+\draw[arr] (tfm.south) -- ++(0,-0.3) -| (h2.north);
+\draw[arr] (tfm.south)               -- (h3.north);
+\draw[arr] (tfm.south) -- ++(0,-0.3) -| (h4.north);
+\draw[arr] (tfm.south) -- ++(0,-0.3) -| ([xshift= 5.6em]h5.north);
+
+%% 鈹€鈹€鈹€ ROW 5 : MASKING CONSTRAINTS 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[msk, below=0.75cm of h2] (em) {%
+  \textbf{Energy Density Mask}\\$M_{\rm energy}\!\to z_k^{(t)}$};
+\node[msk, right=0.5cm of em] (dm) {%
+  \textbf{Diatonic Scale Mask}\\$\tilde{z}_k=-\infty$ if $k\!\notin\!\mathcal{K}_{\rm scale}$};
+\node[lbl, left=0.25cm of em] {\textbf{(6)}\\Algorithmic\\Masking};
+
+\draw[arr] (h1.south) -- ++(0,-0.3) -| (em.north);
+\draw[arr] (h2.south) -- (em.north);
+\draw[arr] (h3.south) -- ++(0,-0.2) -| (em.north);
+\draw[darr] (h3.south) -- ++(0,-0.2) -| (dm.north);
+\draw[arr] (h4.south) -- ++(0,-0.3) -| (dm.north);
+\draw[arr] (h5.south) -- ++(0,-0.3) -| (dm.north);
+
+%% 鈹€鈹€鈹€ ROW 6 : STRUCTURE SEGMENTS 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[seg, below=0.75cm of em, xshift=-3.5cm] (s1) {Intro\\Energy 1--3};
+\node[seg, right=0.45cm of s1]                (s2) {Build\\Energy 4--7};
+\node[seg, right=0.45cm of s2]                (s3) {Drop\\Energy 8--9};
+\node[lbl, left=0.25cm of s1] {\textbf{(7)}\\Sectional\\Generation};
+
+\draw[arr] (em.south) -- ++(0,-0.3) -| (s1.north);
+\draw[arr] (em.south) -- (s2.north);
+\draw[arr] (dm.south) -- ++(0,-0.3) -| (s3.north);
+
+%% 鈹€鈹€鈹€ ROW 7 : TEMPORAL STITCHING 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[proc, below=0.75cm of s2] (stitch) {%
+  \textbf{Temporal Anchor Stitching}\quad
+  $TimePos_{N+1} = TimePos_N + \Delta T_{\rm offset}$\quad
+  $\Rightarrow$ Zero-latency cross-section grid alignment};
+\node[lbl, left=0.3cm of stitch.west] {\textbf{(8)}};
+
+\draw[arr] (s1.south) -- ++(0,-0.3) -| ([xshift=-5em]stitch.north);
+\draw[arr] (s2.south) -- (stitch.north);
+\draw[arr] (s3.south) -- ++(0,-0.3) -| ([xshift= 5em]stitch.north);
+
+%% 鈹€鈹€鈹€ ROW 8 : FINAL OUTPUT 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
+\node[outbox, below=0.75cm of stitch] (out) {%
+  \textbf{Multi-Track MIDI Output}
+  $\;\Rightarrow\;$ DAW-Native Session (Ableton Live) ready for human co-creation};
+\node[lbl, left=0.3cm of out.west] {\textbf{(9)}\\Final\\Output};
+
+\draw[arr] (stitch.south) -- (out.north);
+
+\end{tikzpicture}%

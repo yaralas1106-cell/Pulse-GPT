@@ -1,0 +1,210 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{dhariwal2020jukebox,donahue2023singsong}
+\citation{huang2019music,payne2019musenet,dong2020muspy}
+\citation{vaswani2017attention,dai2019transformer}
+\citation{snoman2013dance,senior2011mixing}
+\citation{danielsen2006presence}
+\citation{ens2020mmm,donahue2019lakhnes,liu2022symphony}
+\citation{thickstun2023anticipatory}
+\citation{katharopoulos2020transformers}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
+\citation{dong2018musegan}
+\citation{huang2019music}
+\citation{huang2020pop}
+\citation{ens2020mmm}
+\citation{donahue2019lakhnes}
+\citation{payne2019musenet,liu2022symphony}
+\citation{raffel2014pretty,raffel2016lakh,manilow2019cutting}
+\citation{huang2020remi}
+\citation{fradet2021miditok}
+\citation{von2022figaro}
+\citation{zeng2021musicbert}
+\citation{hsiao2021compound}
+\citation{copet2023simple}
+\citation{agostinelli2023musiclm}
+\citation{hsiao2021compound}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related_work}{{II}{2}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Symbolic Multi-Track Music Generation}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Representational Advances: From MIDI to High-Dimensional Tokens}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Controllability and Structural Steering}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Methodology}{2}{section.3}\protected@file@percent }
+\newlabel{sec:methodology}{{III}{2}{Methodology}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Architecting the 5D Time-Major Token Space}{2}{subsection.3.1}\protected@file@percent }
+\newlabel{eq:embedding}{{1}{2}{Architecting the 5D Time-Major Token Space}{equation.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Vocabulary sizes for each dimension of the 5D token tuple. All values are derived from the training corpus. The flat (serialised) vocabulary used by the causal LM head has $V=18{,}792$ tokens total.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:vocab}{{I}{2}{Vocabulary sizes for each dimension of the 5D token tuple. All values are derived from the training corpus. The flat (serialised) vocabulary used by the causal LM head has $V=18{,}792$ tokens total}{table.1}{}}
+\citation{su2024roformer}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Complete PulseFormer generation pipeline. Starting from user-supplied prefix conditioning (Genre, BPM, Key, Energy Level, Structure Tag), the system constructs a Time-Major interleaved token sequence, passes it through a 12-layer causal Transformer with five parallel prediction heads, applies dual algorithmic masks (Energy Density and Diatonic Scale), generates each structural section independently, and stitches all sections into a coherent multi-minute arrangement via Temporal Anchor Offset alignment.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:pipeline}{{1}{3}{Complete PulseFormer generation pipeline. Starting from user-supplied prefix conditioning (Genre, BPM, Key, Energy Level, Structure Tag), the system constructs a Time-Major interleaved token sequence, passes it through a 12-layer causal Transformer with five parallel prediction heads, applies dual algorithmic masks (Energy Density and Diatonic Scale), generates each structural section independently, and stitches all sections into a coherent multi-minute arrangement via Temporal Anchor Offset alignment}{figure.1}{}}
+\newlabel{eq:params}{{2}{3}{Architecting the 5D Time-Major Token Space}{equation.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Theoretical Analysis: Attention Topology under Time-Major Encoding}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:attention_topology}{{\mbox  {III-B}}{3}{Theoretical Analysis: Attention Topology under Time-Major Encoding}{subsection.3.2}{}}
+\newlabel{eq:track_dist}{{3}{3}{Theoretical Analysis: Attention Topology under Time-Major Encoding}{equation.3}{}}
+\newlabel{eq:time_dist}{{4}{3}{Theoretical Analysis: Attention Topology under Time-Major Encoding}{equation.4}{}}
+\citation{hsiao2021compound}
+\citation{vaswani2017attention}
+\citation{dao2022flashattention}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Sequence alignment strategies. Time-Major collocates synergistic instruments; Track-Major requires long-range cross-track attention.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:time_major}{{\mbox  {III-B}}{4}{Theoretical Analysis: Attention Topology under Time-Major Encoding}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Causal Transformer Architecture}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Algorithmic Generation Pipeline}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Energy Indicators \& Macro-Structural Orchestration}{4}{subsection.3.5}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces PulseFormer Steerable Multi-Track Inference}}{4}{algorithm.1}\protected@file@percent }
+\newlabel{alg:pulseformer}{{1}{4}{Algorithmic Generation Pipeline}{algorithm.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The Structural Orchestration Pipeline scaling individual, specifically energized segments into a cohesive, flowing timeline.}}{4}{figure.3}\protected@file@percent }
+\newlabel{fig:macro_pipeline}{{3}{4}{The Structural Orchestration Pipeline scaling individual, specifically energized segments into a cohesive, flowing timeline}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-F}}Temporal Anchor Stitching}{4}{subsection.3.6}\protected@file@percent }
+\newlabel{sec:stitching}{{\mbox  {III-F}}{4}{Temporal Anchor Stitching}{subsection.3.6}{}}
+\citation{raffel2016lakh}
+\newlabel{prop:ramp}{{1}{5}{}{proposition.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-G}}Micro-Scale Transformational Operations}{5}{subsection.3.7}\protected@file@percent }
+\newlabel{sec:soft_mask}{{\mbox  {III-G}}{5}{Soft Harmonic Masking}{section*.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Soft Harmonic Penalty ablation: Chromatic Note Rate (CNR\%) at four $\tau $ values and three Energy Levels. CNR derived analytically from the penalty formula assuming a uniform prior, $N_{\text  {in}}=7$, $N_{\text  {out}}=5$ pitches.}}{5}{table.2}\protected@file@percent }
+\newlabel{tab:shp}{{II}{5}{Soft Harmonic Penalty ablation: Chromatic Note Rate (CNR\%) at four $\tau $ values and three Energy Levels. CNR derived analytically from the penalty formula assuming a uniform prior, $N_{\text {in}}=7$, $N_{\text {out}}=5$ pitches}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiments \& Evaluation}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Dataset \& Model Specifications}{5}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:dataset}{{\mbox  {IV-A}}{5}{Dataset \& Model Specifications}{subsection.4.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Dataset partition summary. All models and all baselines were evaluated exclusively on the held-out test set. No hyper-parameter selection or early stopping used test-set labels.}}{5}{table.3}\protected@file@percent }
+\newlabel{tab:split}{{III}{5}{Dataset partition summary. All models and all baselines were evaluated exclusively on the held-out test set. No hyper-parameter selection or early stopping used test-set labels}{table.3}{}}
+\citation{faul2007gpower}
+\citation{yang2012machine}
+\citation{mckay2006jsymbolic}
+\citation{lartillot2007mir}
+\citation{zelechowski2021edm}
+\citation{yang2012machine}
+\citation{mckay2006jsymbolic}
+\citation{lartillot2007mir}
+\citation{zelechowski2021edm}
+\citation{mckay2006jsymbolic}
+\citation{zelechowski2021edm}
+\newlabel{sec:energy_annotation}{{\mbox  {IV-A}}{6}{Energy Label Annotation Methodology}{section*.5}{}}
+\newlabel{eq:yang_arousal}{{12}{6}{Energy Label Annotation Methodology}{equation.12}{}}
+\newlabel{eq:energy}{{13}{6}{Energy Label Annotation Methodology}{equation.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Feature vector $\bm  {\phi }_t$ in Eq.~\eqref  {eq:energy}: definition, normalisation, and Yang \& Chen~\cite  {yang2012machine} counterpart.}}{6}{table.4}\protected@file@percent }
+\newlabel{tab:phi_features}{{IV}{6}{Feature vector $\boldsymbol {\phi }_t$ in Eq.~\eqref {eq:energy}: definition, normalisation, and Yang \& Chen~\cite {yang2012machine} counterpart}{table.4}{}}
+\newlabel{eq:rms}{{14}{6}{Energy Label Annotation Methodology}{equation.14}{}}
+\citation{faul2007gpower}
+\citation{toussaint2013geometry,mckay2006jsymbolic}
+\citation{huang2018music}
+\citation{ens2020mmm}
+\citation{hsiao2021compound}
+\citation{hawthorne2019enabling}
+\citation{thickstun2023anticipatory}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces $D_t$ Distribution by Structural Section Label ($N=646$ bars)}}{7}{table.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Comparison Against SOTA Prior Arts}{7}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:sota}{{\mbox  {IV-B}}{7}{Comparison Against SOTA Prior Arts}{subsection.4.2}{}}
+\newlabel{eq:bas}{{16}{7}{Comparison Against SOTA Prior Arts}{equation.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Objective comparison vs.\ SOTA ($N\!=\!64$ per system: 8 prompts~$\times $~8 independent restarts; mean\,$\pm $\,SD; Mann-Whitney $U$, two-sided; effect sizes: Cohen's $d$ Hedges-corrected). \textit  {Trained}: re-trained on our EDM corpus, 50k-step budget, identical train/test split. \textit  {ZS}: official pretrained checkpoint, zero-shot on held-out test prompts. BAS: Beat-level Alignment Score (Eq.~\eqref  {eq:bas}).}}{7}{table.6}\protected@file@percent }
+\newlabel{tab:sota}{{VI}{7}{Objective comparison vs.\ SOTA ($N\!=\!64$ per system: 8 prompts~$\times $~8 independent restarts; mean\,$\pm $\,SD; Mann-Whitney $U$, two-sided; effect sizes: Cohen's $d$ Hedges-corrected). \textit {Trained}: re-trained on our EDM corpus, 50k-step budget, identical train/test split. \textit {ZS}: official pretrained checkpoint, zero-shot on held-out test prompts. BAS: Beat-level Alignment Score (Eq.~\eqref {eq:bas})}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Comparison across all six systems. Pretrained zero-shot models (hatched) fail EDM structural requirements despite scale advantage. BAS and GC\% quantify perceptual rhythmic alignment; $\Delta _{\mathrm  {sync}}$ measures engineering timing precision.}}{7}{figure.4}\protected@file@percent }
+\newlabel{fig:sota_comparison}{{4}{7}{Comparison across all six systems. Pretrained zero-shot models (hatched) fail EDM structural requirements despite scale advantage. BAS and GC\% quantify perceptual rhythmic alignment; $\Delta _{\mathrm {sync}}$ measures engineering timing precision}{figure.4}{}}
+\citation{ens2020mmm}
+\citation{huang2018music}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Structural Token-Distance vs. Established Paradigms}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Cross-Attention Complexity for Concurrent Events ($N=1{,}277$ event pairs, mean\,$\pm $\,SD).}}{8}{table.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Extracted generative self-attention matrices (final layer). \textbf  {Left (M1)}: The Track-Major topology is associated with a diffuse attention gradient, consistent with limited cross-track synchronisation. \textbf  {Right (M2)}: The Time-Major topology produces a concentrated local attention peak, consistent with the substantially reduced $\Delta _{sync}$ observed empirically.}}{8}{figure.5}\protected@file@percent }
+\newlabel{fig:attention_map}{{5}{8}{Extracted generative self-attention matrices (final layer). \textbf {Left (M1)}: The Track-Major topology is associated with a diffuse attention gradient, consistent with limited cross-track synchronisation. \textbf {Right (M2)}: The Time-Major topology produces a concentrated local attention peak, consistent with the substantially reduced $\Delta _{sync}$ observed empirically}{figure.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Aggregate Attention Statistics ($N=50$ sequences, final 2 layers, mean\,$\pm $\,SD). Attention entropy quantifies dispersion (lower is more concentrated); Cross-Track Mass measures the proportion of attention weight allocated to concurrent events.}}{8}{table.8}\protected@file@percent }
+\newlabel{tab:attention_stats}{{VIII}{8}{Aggregate Attention Statistics ($N=50$ sequences, final 2 layers, mean\,$\pm $\,SD). Attention entropy quantifies dispersion (lower is more concentrated); Cross-Track Mass measures the proportion of attention weight allocated to concurrent events}{table.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Expanded Perceptual Evaluation: MOS Study ($N=25$)}{8}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:mos}{{\mbox  {IV-D}}{8}{Expanded Perceptual Evaluation: MOS Study ($N=25$)}{subsection.4.4}{}}
+\citation{krippendorff2011computing}
+\citation{koo2016guideline}
+\citation{koo2016guideline}
+\citation{sturm2014mml}
+\newlabel{sec:irr}{{\mbox  {IV-D}}{9}{Inter-Rater Reliability}{section*.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IX}{\ignorespaces Inter-rater reliability for the MOS study ($N=25$). $\alpha $: Krippendorff's ordinal alpha; $\kappa $: Fleiss' kappa; ICC: ICC(2,1). Benchmarks: $\alpha /\kappa \geq 0.80$ strong, $\geq 0.61$ moderate, $\geq 0.41$ fair (Landis \& Koch 1977); ICC$\geq 0.75$ good~\cite  {koo2016guideline}.}}{9}{table.9}\protected@file@percent }
+\newlabel{tab:irr}{{IX}{9}{Inter-rater reliability for the MOS study ($N=25$). $\alpha $: Krippendorff's ordinal alpha; $\kappa $: Fleiss' kappa; ICC: ICC(2,1). Benchmarks: $\alpha /\kappa \geq 0.80$ strong, $\geq 0.61$ moderate, $\geq 0.41$ fair (Landis \& Koch 1977); ICC$\geq 0.75$ good~\cite {koo2016guideline}}{table.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {X}{\ignorespaces MOS Listening Test Results ($N=25$ participants, mean\,$\pm $\,SD, Likert 1--5). Wilcoxon signed-rank with Bonferroni correction; \textbf  {***} $p<0.001$, \textbf  {**} $p<0.01$, \textit  {n.s.} not significant.}}{9}{table.10}\protected@file@percent }
+\newlabel{tab:mos}{{X}{9}{MOS Listening Test Results ($N=25$ participants, mean\,$\pm $\,SD, Likert 1--5). Wilcoxon signed-rank with Bonferroni correction; \textbf {***} $p<0.001$, \textbf {**} $p<0.01$, \textit {n.s.} not significant}{table.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces MOS results ($N=25$, 95\,\% CI; Wilcoxon vs.\ PulseFormer). Stars above bars: sig.\ vs.\ {\color  {cMGen}\textbf  {REMI}} / {\color  {cTM}\textbf  {MMM-Trans}}: $^{***}p{<}0.001$; $^{**}p{<}0.01$; $^{\dagger }p{<}0.10$; \textit  {ns}. PF $\approx $ Human Anchor (GT, $p=0.93$); dominates SC ($p{<}0.001$, $d{>}1.9$).}}{9}{figure.6}\protected@file@percent }
+\newlabel{fig:mos}{{\mbox  {IV-D}}{9}{Results}{figure.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{9}{section.5}\protected@file@percent }
+\newlabel{sec:conclusion}{{V}{9}{Conclusion}{section.5}{}}
+\citation{copet2023simple}
+\citation{hsiao2021compound}
+\citation{caillon2021rave}
+\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  A: Digital Audio Workstation Engine Integration}{10}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  B: Supplementary Evaluation \& Ablations}{10}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-A}}Distribution Alignment: KL Divergence vs.\ Masking Temperature}{10}{subsection.Appendix.B.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces KL divergence between generated and reference pitch distributions across masking temperatures $\tau $. Soft masking (PulseFormer) achieves a well-defined minimum at $\tau ^{*}\!\approx \!0.42$, outperforming both the unconstrained baseline and the over-constraining hard mask.}}{10}{figure.7}\protected@file@percent }
+\newlabel{fig:kl_tau}{{7}{10}{KL divergence between generated and reference pitch distributions across masking temperatures $\tau $. Soft masking (PulseFormer) achieves a well-defined minimum at $\tau ^{*}\!\approx \!0.42$, outperforming both the unconstrained baseline and the over-constraining hard mask}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-B}}Control Fidelity and Structural Monotonicity}{11}{subsection.Appendix.B.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {XI}{\ignorespaces Control Fidelity and Structural Adherence ($N=100$, mean\,$\pm $\,SD). Columns are grouped: \textbf  {Learned} metrics (MAE, RMSE, $r$) quantify model conditioning quality; \textbf  {Enforced}$^{\dagger }$ metric (Mono.) is guaranteed by the deterministic Ramp Scheduler for the full system.}}{11}{table.11}\protected@file@percent }
+\newlabel{tab:control}{{XI}{11}{Control Fidelity and Structural Adherence ($N=100$, mean\,$\pm $\,SD). Columns are grouped: \textbf {Learned} metrics (MAE, RMSE, $r$) quantify model conditioning quality; \textbf {Enforced}$^{\dagger }$ metric (Mono.) is guaranteed by the deterministic Ramp Scheduler for the full system}{table.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-C}}Long-Range Structure Consistency}{11}{subsection.Appendix.B.3}\protected@file@percent }
+\newlabel{sec:structure_consistency}{{\mbox  {B-C}}{11}{Long-Range Structure Consistency}{subsection.Appendix.B.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {XII}{\ignorespaces Structure Consistency Classification Results ($N=89$ sequences, 5-fold CV)}}{11}{table.12}\protected@file@percent }
+\newlabel{tab:struct_cls}{{XII}{11}{Structure Consistency Classification Results ($N=89$ sequences, 5-fold CV)}{table.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Left: Normalized confusion matrix for section classification from acoustic features only (no prompt access). Near-diagonal structure confirms structural encoding. Right: Feature importance—note density and polyphony are the dominant discriminators, confirming the model modulates these properties across sections.}}{11}{figure.8}\protected@file@percent }
+\newlabel{fig:structure_consistency}{{8}{11}{Left: Normalized confusion matrix for section classification from acoustic features only (no prompt access). Near-diagonal structure confirms structural encoding. Right: Feature importance—note density and polyphony are the dominant discriminators, confirming the model modulates these properties across sections}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-D}}Randomized-Time Control: Isolating Temporal Grouping from Ordering Bias}{11}{subsection.Appendix.B.4}\protected@file@percent }
+\newlabel{sec:shuffled_ablation}{{\mbox  {B-D}}{11}{Randomized-Time Control: Isolating Temporal Grouping from Ordering Bias}{subsection.Appendix.B.4}{}}
+\citation{raffel2014mir_eval,kilgour2019frechet}
+\citation{ens2020mmm}
+\citation{huang2018music}
+\citation{ens2020mmm}
+\citation{huang2020pop}
+\@writefile{lot}{\contentsline {table}{\numberline {XIII}{\ignorespaces Randomized-Time Control ablation ($N=32$ samples, mean\,$\pm $\,SD). \textbf  {Shuffled-Time}: time-slot grouping preserved, track order within each slot randomised per bar. Significance markers apply to the \emph  {adjacent row above}: $^{***}$ Shuffled-Time vs.\ Track-Major; $^{**}$/$^{*}$ Time-Major vs.\ Shuffled-Time.}}{12}{table.13}\protected@file@percent }
+\newlabel{tab:shuffled_ablation}{{XIII}{12}{Randomized-Time Control ablation ($N=32$ samples, mean\,$\pm $\,SD). \textbf {Shuffled-Time}: time-slot grouping preserved, track order within each slot randomised per bar. Significance markers apply to the \emph {adjacent row above}: $^{***}$ Shuffled-Time vs.\ Track-Major; $^{**}$/$^{*}$ Time-Major vs.\ Shuffled-Time}{table.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-E}}Distributional Proximity to Human Ground Truth}{12}{subsection.Appendix.B.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {B-F}}Generative Quality: Objective Comparison with SOTA Baseline}{12}{subsection.Appendix.B.6}\protected@file@percent }
+\newlabel{sec:genqual}{{\mbox  {B-F}}{12}{Generative Quality: Objective Comparison with SOTA Baseline}{subsection.Appendix.B.6}{}}
+\bibstyle{IEEEtran}
+\bibdata{references}
+\bibcite{dhariwal2020jukebox}{1}
+\bibcite{donahue2023singsong}{2}
+\@writefile{lot}{\contentsline {table}{\numberline {XIV}{\ignorespaces Generative Quality Evaluation: PulseFormer vs.\ Baselines ($N=500$ bootstrap, mean\,$\pm $\,95\%\,CI). PR = Polyphonic Ratio (Drop window); PCE = Pitch Class Entropy. \textbf  {KL\textsuperscript  {chr}} = chromatic KL ($D_{\rm  KL}$ over all 12 pitch classes, raw); \textbf  {KL\textsuperscript  {ks}$^\star $} = \emph  {key-normalised} in-scale KL (renormalised to the 7-PC diatonic subset common to both systems); KL\textsuperscript  {ks} is the \textbf  {primary fairness-corrected metric} as recommended for key-conditioned vs.\ unconditioned comparison. $p$-values: Mann-Whitney $U$ vs.\ PulseFormer.}}{13}{table.14}\protected@file@percent }
+\newlabel{tab:compreval}{{XIV}{13}{Generative Quality Evaluation: PulseFormer vs.\ Baselines ($N=500$ bootstrap, mean\,$\pm $\,95\%\,CI). PR = Polyphonic Ratio (Drop window); PCE = Pitch Class Entropy. \textbf {KL\textsuperscript {chr}} = chromatic KL ($D_{\rm KL}$ over all 12 pitch classes, raw); \textbf {KL\textsuperscript {ks}$^\star $} = \emph {key-normalised} in-scale KL (renormalised to the 7-PC diatonic subset common to both systems); KL\textsuperscript {ks} is the \textbf {primary fairness-corrected metric} as recommended for key-conditioned vs.\ unconditioned comparison. $p$-values: Mann-Whitney $U$ vs.\ PulseFormer}{table.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {XV}{\ignorespaces KL divergence ablation: isolating the Harmonic Mask contribution. $D_{\rm  KL}(\text  {Ref}\|\text  {System})$ vs.\ training-data reference (nats). In-scale KL: 7 C-minor PCs renormalised; no-mask: chromatic PCs restored to prior.}}{13}{table.15}\protected@file@percent }
+\newlabel{tab:klabl}{{XV}{13}{KL divergence ablation: isolating the Harmonic Mask contribution. $D_{\rm KL}(\text {Ref}\|\text {System})$ vs.\ training-data reference (nats). In-scale KL: 7 C-minor PCs renormalised; no-mask: chromatic PCs restored to prior}{table.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {AI}{\ignorespaces Active Energy Ramp Scheduler ($W=2$, cosine): per-boundary condition gradient $\Delta _{\max }$ for the default blueprint INTRO(3)$\to $VERSE(5)$\to $BUILD(7)$\to $DROP(9)$\to $OUTRO(3).}}{13}{table.1}\protected@file@percent }
+\newlabel{tab:ramp}{{AI}{13}{Active Energy Ramp Scheduler ($W=2$, cosine): per-boundary condition gradient $\Delta _{\max }$ for the default blueprint INTRO(3)$\to $VERSE(5)$\to $BUILD(7)$\to $DROP(9)$\to $OUTRO(3)}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {AII}{\ignorespaces Formula weights vs.\ OLS-Ridge learned weights ($N=646$ 4-bar windows, positive constraint, $\DOTSB \sum@ \slimits@ w_k=1$). Target: MIDI-RMS proxy (Eq.~\ref {eq:rms}).}}{13}{table.2}\protected@file@percent }
+\newlabel{tab:weights}{{AII}{13}{Formula weights vs.\ OLS-Ridge learned weights ($N=646$ 4-bar windows, positive constraint, $\sum w_k=1$). Target: MIDI-RMS proxy (Eq.~\ref {eq:rms})}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{References}{13}{section*.16}\protected@file@percent }
+\bibcite{huang2019music}{3}
+\bibcite{payne2019musenet}{4}
+\bibcite{dong2020muspy}{5}
+\bibcite{vaswani2017attention}{6}
+\bibcite{dai2019transformer}{7}
+\bibcite{snoman2013dance}{8}
+\bibcite{senior2011mixing}{9}
+\bibcite{danielsen2006presence}{10}
+\bibcite{ens2020mmm}{11}
+\bibcite{donahue2019lakhnes}{12}
+\bibcite{liu2022symphony}{13}
+\bibcite{thickstun2023anticipatory}{14}
+\bibcite{katharopoulos2020transformers}{15}
+\bibcite{dong2018musegan}{16}
+\bibcite{raffel2014pretty}{17}
+\bibcite{raffel2016lakh}{18}
+\bibcite{manilow2019cutting}{19}
+\bibcite{huang2020remi}{20}
+\bibcite{fradet2021miditok}{21}
+\bibcite{von2022figaro}{22}
+\bibcite{zeng2021musicbert}{23}
+\bibcite{hsiao2021compound}{24}
+\bibcite{copet2023simple}{25}
+\bibcite{agostinelli2023musiclm}{26}
+\bibcite{su2024roformer}{27}
+\bibcite{dao2022flashattention}{28}
+\bibcite{faul2007gpower}{29}
+\bibcite{yang2012machine}{30}
+\bibcite{mckay2006jsymbolic}{31}
+\bibcite{lartillot2007mir}{32}
+\bibcite{zelechowski2021edm}{33}
+\bibcite{toussaint2013geometry}{34}
+\bibcite{huang2018music}{35}
+\bibcite{hawthorne2019enabling}{36}
+\bibcite{krippendorff2011computing}{37}
+\bibcite{koo2016guideline}{38}
+\bibcite{sturm2014mml}{39}
+\bibcite{caillon2021rave}{40}
+\bibcite{raffel2014mir_eval}{41}
+\bibcite{kilgour2019frechet}{42}
+\gdef \@abspage@last{14}

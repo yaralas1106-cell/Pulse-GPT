@@ -1,0 +1,77 @@
+﻿========================================================================
+EXTENDED SOTA EVALUATION — zero-shot pretrained checkpoints
+========================================================================
+
+  PulseFormer (ours)
+    Δsync = 0.8 ± 0.2 ms
+    GC%   = 32.9 ± 4.5
+    ISR%  = 73.4 ± 3.0
+    Mono. = 100.0%
+
+  Music Transformer [ZS] (MAESTRO ckpt)
+    Δsync = 487.1 ± 134.0 ms
+    GC%   = 14.4 ± 3.7
+    ISR%  = 81.0 ± 4.0
+    Mono. = 33.3%
+
+  Anticipatory MT   [ZS] (LMD ckpt)
+    Δsync = 71.9 ± 27.2 ms
+    GC%   = 15.8 ± 3.3
+    ISR%  = 69.3 ± 4.9
+    Mono. = 29.2%
+
+  Music Transformer [train] (REMI)
+    Δsync = 0.9 ± 0.3 ms
+    GC%   = 15.9 ± 3.5
+    ISR%  = 68.0 ± 3.0
+    Mono. = 33.0%
+
+  MMM-Transformer   [train]
+    Δsync = 900.7 ± 33.3 ms
+    GC%   = 18.1 ± 2.4
+    ISR%  = 54.3 ± 5.9
+    Mono. = 33.0%
+
+  CP-Transformer    [train]
+    Δsync = 5.3 ± 1.2 ms
+    GC%   = 0.3 ± 0.3
+    ISR%  = 78.9 ± 2.5
+    Mono. = 33.0%
+
+────────────────────────────────────────────────────────────────────────
+Mann-Whitney U: PulseFormer vs pretrained zero-shot models
+────────────────────────────────────────────────────────────────────────
+
+  Music Transformer (MAESTRO):
+    Δsync: p=1.53e-09 ***
+    GC%:   p=0.000   ***
+    ISR%:  p=0.000   ***
+
+  Anticipatory MT (LMD):
+    Δsync: p=1.53e-09 ***
+    GC%:   p=0.000   ***
+    ISR%:  p=0.001   ***
+
+========================================================================
+LATEX ROWS TO ADD TO TABLE II
+========================================================================
+python : Traceback (most recent call last):
+所在位置 行:1 字符: 1
++ python extended_sota_eval.py 2>&1 | Out-File -Encoding utf8 sota_eval ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\BigData\PycharmProject\TOMI-GPT\extended_sota_eval.py", line 123, in <module>
+    print(r"""
+    ~~~~~^^^^^
+    % ── add these rows to the existing SOTA comparison table ─────────────────
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    Antic.\ MT (LMD~\cite{thickstun2023anticipatory}, ZS)   & $~~62\pm22^{***}$ & $16.1\pm4.3^{***}$ & $68.4\pm4.1^{*}$
+    & $33\%^{***}$ & $^{***}$ \\
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    """)
+    ^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\u2020' in position 142: illegal multibyte sequence

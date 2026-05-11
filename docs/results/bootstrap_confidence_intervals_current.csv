@@ -1,0 +1,5 @@
+metric,aggregation,system,n,mean,ci95_low,ci95_high,bootstrap_samples,source
+J_DM,per_file,MMM-Transformer,10,0.42861351,0.23757631,0.61195071,10000,full_jdm_current
+J_DM,per_file,PulseFormer,10,0.55933489,0.44610185,0.67049494,10000,full_jdm_current
+J_DM,per_bar,MMM-Transformer,98,0.48099287,0.42517007,0.53740282,10000,full_jdm_current
+J_DM,per_bar,PulseFormer,142,0.58636262,0.53764252,0.63494020,10000,full_jdm_current

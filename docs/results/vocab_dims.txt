@@ -1,0 +1,20 @@
+﻿Total flat vocab size: 18792
+
+  special      : 4  -> ['<PAD>', '<BOS>', '<EOS>', '<UNK>']
+  struct_tag   : 4  -> ['[STRUCT_BREAKDOWN]', '[STRUCT_DROP]', '[STRUCT_INTRO]', '[STRUCT_OUTRO]']
+  energy_tag   : 8  -> ['[ENERGY_LEVEL_1]', '[ENERGY_LEVEL_2]', '[ENERGY_LEVEL_3]', '[ENERGY_LEVEL_4]', '[ENERGY_LEVEL_5]', '[ENERGY_LEVEL_6]', '[ENERGY_LEVEL_7]', '[ENERGY_LEVEL_8]']
+  context_tag  : 121
+  other_tag    : 5
+  note tokens  : 18650
+  other        : 0
+
+Sample note tokens: ['D:HIHAT_CLOSED:p0:d1:v1', 'D:HIHAT_CLOSED:p0:d1:v2', 'D:HIHAT_CLOSED:p0:d1:v3', 'D:HIHAT_CLOSED:p0:d2:v1', 'D:HIHAT_CLOSED:p0:d2:v2', 'D:HIHAT_CLOSED:p0:d2:v3', 'D:HIHAT_CLOSED:p10:d1:v0', 'D:HIHAT_CLOSED:p10:d1:v1', 'D:HIHAT_CLOSED:p10:d1:v2', 'D:HIHAT_CLOSED:p10:d1:v3']
+
+=== 5D Dimension Vocabularies ===
+  TrackType / Instrument : 7  ['D:HIHAT_CLOSED', 'D:HIHAT_OPEN', 'D:KICK', 'D:SNARE', 'N:BASS', 'N:CHORD', 'N:MELODY']
+  Pitch (p*)             : 16  range: ['p0', 'p1', 'p2', 'p3', 'p4'] ... ['p11', 'p12', 'p13', 'p14', 'p15']
+  Duration (d*)          : 4  ['d1', 'd2', 'd3', 'd4']
+  Velocity (v*)          : 4  ['v0', 'v1', 'v2', 'v3']
+  TimePos (t*)           : 0 []
+
+  Note: if TimePos=0 it may be encoded positionally (not as a field)

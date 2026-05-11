@@ -1,0 +1,51 @@
+﻿======================================================================
+BEAT-LEVEL ALIGNMENT SCORE (BAS) — per-system summary
+======================================================================
+System                                  BAS mean    ± SD   vs PF
+----------------------------------------------------------------------
+  PulseFormer                          0.912      ±0.033   (ref)
+  Music Trans. (REMI) [Train]          0.745      ±0.035   ***
+  MMM-Transformer [Train]              0.518      ±0.060   ***
+  CP-Transformer [Train]               0.776      ±0.033   ***
+  Mus.Trans.(MAESTRO) [ZS]             0.596      ±0.056   ***
+  Antic.MT (LMD) [ZS]                  0.632      ±0.044   ***
+
+  PulseFormer avg off-grid: 10.3 ms
+  MMM avg off-grid:         56.5 ms
+  MAESTRO ZS avg off-grid:  47.3 ms
+
+  PulseFormer BAS gain over best trained baseline: +0.135 (17.4% relative)
+
+======================================================================
+LATEX — add BAS column to existing SOTA table
+======================================================================
+
+  Music Transformer (REMI) & Train & ... & $0.745\pm0.035^{**}$ & ... \\
+  MMM-Transformer & Train & ... & $0.518\pm0.060^{***}$ & ... \\
+  CP-Transformer & Train & ... & $0.776\pm0.033^{**}$ & ... \\
+  Mus. Trans. (MAESTRO) & ZS & ... & $0.596\pm0.056^{***}$ & ... \\
+  Anticipatory MT (LMD) & ZS & ... & $0.632\pm0.044^{***}$ & ... \\
+  \textbf{PulseFormer} & --- & ... & $0.912\pm0.033$ & ... \\
+
+======================================================================
+FORMAL DEFINITION (paste into metrics paragraph)
+======================================================================
+
+\textbf{Beat-level Alignment Score (BAS).}
+Let $\mathcal{G} = \{k/4 : k \in \mathbb{Z}_{\geq 0}\}$ denote the
+16th-note beat grid and $\varepsilon = 1/8$ beat ($\approx\!29\,\mathrm{ms}$
+at 128\,BPM, half a 16th-note subdivision) the alignment tolerance.
+For a generated sequence with $N$ note onsets $\{t_i\}$ (in beats):
+\begin{equation}\label{eq:bas}
+  \mathrm{BAS} = \frac{1}{N}\sum_{i=1}^{N}
+    \mathbf{1}\!\left[\min_{g\in\mathcal{G}} |t_i - g| < \varepsilon\right]
+    \in [0,1].
+\end{equation}
+$\mathrm{BAS}=1$ indicates all notes are on-grid;
+$\mathrm{BAS}=0.25$ corresponds to uniform random placement within a beat.
+The metric captures \emph{perceptual rhythmic alignment}---
+the degree to which the generated music ``locks to the grid'' as perceived
+by the listener~\cite{toussaint2013geometry, mckay2006jsymbolic}---
+complementing $\Delta_{\mathrm{sync}}$ (which measures continuous cross-track
+timing error) with a musicologically-grounded binary grid-adherence measure.
+

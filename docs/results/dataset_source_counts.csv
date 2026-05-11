@@ -1,0 +1,6 @@
+label,path,exists,bytes,sequence_rows
+gated_public_gigamidi,dataset/processed/gigamidi_sequences.jsonl,True,1380484530,117145
+public_lakh,dataset/processed/lakh_sequences.jsonl,True,83799152,6012
+restricted_proprietary_daw,dataset/processed/pulse_dataset_v5_clean.jsonl,True,57270379,3647
+restricted_als_daw_aux_small,dataset/als_data/pulse_dataset_als.jsonl,True,707107,18
+restricted_als_daw_aux_full,dataset/pulse_dataset_als.jsonl,True,4879534,73

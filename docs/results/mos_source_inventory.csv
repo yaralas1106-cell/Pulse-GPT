@@ -1,0 +1,10 @@
+label,stimulus_midis,rating_rows_by_model,rating_clips,appears_in_manuscript_mos_table
+CP-Transformer,0,0,0,True
+CP_Base,8,0,0,False
+Human,0,200,200,False
+Human (Anchor),0,0,0,True
+MMM,8,200,200,False
+MMM-Transformer,0,0,0,True
+PulseFormer,8,200,200,False
+PulseFormer (Ours),0,0,0,True
+REMI,8,200,200,False

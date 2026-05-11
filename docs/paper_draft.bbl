@@ -1,0 +1,545 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{34}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\url{https://doi.org/#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\bibcommenthead
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem[\protect\citeauthoryear{Dhariwal et~al.}{2020}]{dhariwal2020jukebox}
+\begin{botherref}
+\oauthor{\bsnm{Dhariwal}, \binits{P.}},
+\oauthor{\bsnm{Jun}, \binits{H.}},
+\oauthor{\bsnm{Payne}, \binits{C.}},
+\oauthor{\bsnm{Kim}, \binits{J.W.}},
+\oauthor{\bsnm{Radford}, \binits{A.}},
+\oauthor{\bsnm{Sutskever}, \binits{I.}}:
+Jukebox: A generative model for music.
+arXiv preprint arXiv:2005.00341
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 2
+\bibitem[\protect\citeauthoryear{Donahue et~al.}{2023}]{donahue2023singsong}
+\begin{bchapter}
+\bauthor{\bsnm{Donahue}, \binits{C.}},
+\bauthor{\bsnm{Caillon}, \binits{A.}},
+\bauthor{\bsnm{Roberts}, \binits{A.}},
+\bauthor{\bsnm{Manilow}, \binits{E.}},
+\bauthor{\bsnm{Esling}, \binits{P.}},
+\bauthor{\bsnm{Agostinelli}, \binits{A.}},
+\bauthor{\bsnm{Cherepkov}, \binits{M.}},
+\bauthor{\bsnm{Simon}, \binits{I.}},
+\bauthor{\bsnm{Hawthorne}, \binits{C.}},
+\bauthor{\bsnm{Zeghidour}, \binits{N.}}:
+\bctitle{Singsong: Generating musical accompaniments from singing}.
+In: \bbtitle{Proceedings of the International Conference on Machine Learning
+  (ICML)}
+(\byear{2023})
+\end{bchapter}
+\endbibitem
+
+%%% 3
+\bibitem[\protect\citeauthoryear{Huang et~al.}{2019}]{huang2019music}
+\begin{bchapter}
+\bauthor{\bsnm{Huang}, \binits{C.-Z.A.}},
+\bauthor{\bsnm{Vaswani}, \binits{A.}},
+\bauthor{\bsnm{Uszkoreit}, \binits{J.}},
+\bauthor{\bsnm{Shazeer}, \binits{N.}},
+\bauthor{\bsnm{Simon}, \binits{I.}},
+\bauthor{\bsnm{Hawthorne}, \binits{C.}},
+\bauthor{\bsnm{Dai}, \binits{A.M.}},
+\bauthor{\bsnm{Hoffman}, \binits{M.D.}},
+\bauthor{\bsnm{Dinculescu}, \binits{M.}},
+\bauthor{\bsnm{Eck}, \binits{D.}}:
+\bctitle{Music transformer}.
+In: \bbtitle{Proceedings of the International Conference on Learning
+  Representations (ICLR)}
+(\byear{2019})
+\end{bchapter}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{Payne}{2019}]{payne2019musenet}
+\begin{botherref}
+\oauthor{\bsnm{Payne}, \binits{C.}}:
+Musenet.
+OpenAI blog
+(2019)
+\end{botherref}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Dong et~al.}{2020}]{dong2020muspy}
+\begin{bchapter}
+\bauthor{\bsnm{Dong}, \binits{H.-W.}},
+\bauthor{\bsnm{Chen}, \binits{K.}},
+\bauthor{\bsnm{Dubnov}, \binits{S.}},
+\bauthor{\bsnm{McAuley}, \binits{J.}},
+\bauthor{\bsnm{Taylor}, \binits{I.}}:
+\bctitle{Muspy: A toolkit for symbolic music generation}.
+In: \bbtitle{Proceedings of the International Society for Music Information
+  Retrieval Conference (ISMIR)}
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 6
+\bibitem[\protect\citeauthoryear{Perez et~al.}{2018}]{perez2018film}
+\begin{bchapter}
+\bauthor{\bsnm{Perez}, \binits{E.}},
+\bauthor{\bsnm{Strub}, \binits{F.}},
+\bauthor{\bsnm{Vries}, \binits{H.}},
+\bauthor{\bsnm{Dumoulin}, \binits{V.}},
+\bauthor{\bsnm{Courville}, \binits{A.}}:
+\bctitle{{FiLM}: Visual reasoning with a general conditioning layer}.
+In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
+vol. \bseriesno{32}
+(\byear{2018})
+\end{bchapter}
+\endbibitem
+
+%%% 7
+\bibitem[\protect\citeauthoryear{Dong et~al.}{2018}]{dong2018musegan}
+\begin{bchapter}
+\bauthor{\bsnm{Dong}, \binits{H.-W.}},
+\bauthor{\bsnm{Hsiao}, \binits{W.-Y.}},
+\bauthor{\bsnm{Yang}, \binits{L.-C.}},
+\bauthor{\bsnm{Yang}, \binits{Y.-H.}}:
+\bctitle{Musegan: Multi-track sequential generative adversarial networks for
+  symbolic music generation and accompaniment}.
+In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence
+  (AAAI)},
+vol. \bseriesno{32},
+pp. \bfpage{34}--\blpage{41}
+(\byear{2018})
+\end{bchapter}
+\endbibitem
+
+%%% 8
+\bibitem[\protect\citeauthoryear{Huang and Yang}{2020}]{huang2020remi}
+\begin{bchapter}
+\bauthor{\bsnm{Huang}, \binits{Y.-S.}},
+\bauthor{\bsnm{Yang}, \binits{Y.-H.}}:
+\bctitle{Pop music transformer: Beat-based modeling and generation of
+  expressive pop piano compositions}.
+In: \bbtitle{Proceedings of the ACM International Conference on Multimedia},
+pp. \bfpage{1180}--\blpage{1188}
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 9
+\bibitem[\protect\citeauthoryear{Hsiao et~al.}{2021}]{hsiao2021compound}
+\begin{bchapter}
+\bauthor{\bsnm{Hsiao}, \binits{W.-Y.}},
+\bauthor{\bsnm{Liu}, \binits{J.-Y.}},
+\bauthor{\bsnm{Yin}, \binits{Y.-C.}},
+\bauthor{\bsnm{Yang}, \binits{Y.-H.}}:
+\bctitle{Compound word transformer: Learning to compose full-song music over
+  dynamic directed hypergraphs}.
+In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence
+  (AAAI)},
+vol. \bseriesno{35},
+pp. \bfpage{178}--\blpage{186}
+(\byear{2021})
+\end{bchapter}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Zeng et~al.}{2021}]{zeng2021musicbert}
+\begin{bchapter}
+\bauthor{\bsnm{Zeng}, \binits{M.}},
+\bauthor{\bsnm{Tan}, \binits{X.}},
+\bauthor{\bsnm{Wang}, \binits{R.}},
+\bauthor{\bsnm{Ju}, \binits{Z.}},
+\bauthor{\bsnm{Qin}, \binits{T.}},
+\bauthor{\bsnm{Liu}, \binits{T.-Y.}}:
+\bctitle{Musicbert: Symbolic music understanding with large-scale
+  pre-training}.
+In: \bbtitle{Findings of the Association for Computational Linguistics:
+  ACL-IJCNLP 2021},
+pp. \bfpage{791}--\blpage{800}
+(\byear{2021})
+\end{bchapter}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{Ens and Pasquier}{2020}]{ens2020mmm}
+\begin{botherref}
+\oauthor{\bsnm{Ens}, \binits{J.}},
+\oauthor{\bsnm{Pasquier}, \binits{P.}}:
+Mmm: Exploring conditional multi-track music generation with the transformer.
+arXiv preprint arXiv:2008.06048
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Donahue et~al.}{2019}]{donahue2019lakhnes}
+\begin{bchapter}
+\bauthor{\bsnm{Donahue}, \binits{C.}},
+\bauthor{\bsnm{Mao}, \binits{H.H.}},
+\bauthor{\bsnm{Li}, \binits{Y.}},
+\bauthor{\bsnm{Cottrell}, \binits{G.W.}},
+\bauthor{\bsnm{McAuley}, \binits{J.}}:
+\bctitle{Lakhnes: Improving multi-instrumental music generation with
+  cross-domain pre-training}.
+In: \bbtitle{Proceedings of the International Society for Music Information
+  Retrieval Conference (ISMIR)}
+(\byear{2019})
+\end{bchapter}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Copet et~al.}{2023}]{copet2023simple}
+\begin{bchapter}
+\bauthor{\bsnm{Copet}, \binits{J.}},
+\bauthor{\bsnm{Kreuk}, \binits{F.}},
+\bauthor{\bsnm{Gat}, \binits{I.}},
+\bauthor{\bsnm{Tal}, \binits{T.R.}},
+\bauthor{\bsnm{Kant}, \binits{D.}},
+\bauthor{\bsnm{Mellmann}, \binits{G.}},
+\bauthor{\bsnm{Copet}, \binits{A.}}, \betal:
+\bctitle{Simple and controllable music generation}.
+In: \bbtitle{Advances in Neural Information Processing Systems (NeurIPS)},
+vol. \bseriesno{36}
+(\byear{2023})
+\end{bchapter}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{Agostinelli
+  et~al.}{2023}]{agostinelli2023musiclm}
+\begin{botherref}
+\oauthor{\bsnm{Agostinelli}, \binits{A.}},
+\oauthor{\bsnm{Denk}, \binits{T.I.}},
+\oauthor{\bsnm{Borsos}, \binits{Z.}},
+\oauthor{\bsnm{Engel}, \binits{J.}},
+\oauthor{\bsnm{Verzetti}, \binits{M.}},
+\oauthor{\bsnm{Roberts}, \binits{A.}},
+\oauthor{\bsnm{Quitry}, \binits{H.}},
+\oauthor{\bsnm{Tagliasacchi}, \binits{M.}},
+\oauthor{\bsnm{Neil}, \binits{A.}}, et al.:
+Musiclm: Generating music from text.
+arXiv preprint arXiv:2301.11325
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 15
+\bibitem[\protect\citeauthoryear{von R{\"u}tte et~al.}{2022}]{von2022figaro}
+\begin{bchapter}
+\bauthor{\bsnm{R{\"u}tte}, \binits{D.}},
+\bauthor{\bsnm{Biggio}, \binits{L.}},
+\bauthor{\bsnm{Kilcher}, \binits{Y.}},
+\bauthor{\bsnm{Hofmann}, \binits{T.}}:
+\bctitle{Figaro: Generating symbolic music with fine-grained artistic control}.
+In: \bbtitle{Proceedings of the International Conference on Learning
+  Representations (ICLR)}
+(\byear{2022})
+\end{bchapter}
+\endbibitem
+
+%%% 16
+\bibitem[\protect\citeauthoryear{Wu and Yang}{2023}]{wu2023musemorphose}
+\begin{bchapter}
+\bauthor{\bsnm{Wu}, \binits{S.-L.}},
+\bauthor{\bsnm{Yang}, \binits{Y.-H.}}:
+\bctitle{{MuseMorphose}: Full-song and fine-grained piano music style transfer
+  with one transformer vae}.
+In: \bbtitle{IEEE/ACM Transactions on Audio, Speech, and Language Processing},
+vol. \bseriesno{31},
+pp. \bfpage{1953}--\blpage{1967}
+(\byear{2023})
+\end{bchapter}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{Luo et~al.}{2024}]{luo2024bandcontrolnet}
+\begin{botherref}
+\oauthor{\bsnm{Luo}, \binits{J.}},
+\oauthor{\bsnm{Yang}, \binits{X.}},
+\oauthor{\bsnm{Herremans}, \binits{D.}}:
+Bandcontrolnet: Parallel transformers-based steerable popular music generation
+  with fine-grained spatiotemporal features.
+arXiv preprint arXiv:2407.10462
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{Vaswani et~al.}{2017}]{vaswani2017attention}
+\begin{bchapter}
+\bauthor{\bsnm{Vaswani}, \binits{A.}},
+\bauthor{\bsnm{Shazeer}, \binits{N.}},
+\bauthor{\bsnm{Parmar}, \binits{N.}},
+\bauthor{\bsnm{Uszkoreit}, \binits{J.}},
+\bauthor{\bsnm{Jones}, \binits{L.}},
+\bauthor{\bsnm{Gomez}, \binits{A.N.}},
+\bauthor{\bsnm{Kaiser}, \binits{{\L}.}},
+\bauthor{\bsnm{Polosukhin}, \binits{I.}}:
+\bctitle{Attention is all you need}.
+In: \bbtitle{Advances in Neural Information Processing Systems (NeurIPS)},
+vol. \bseriesno{30}
+(\byear{2017})
+\end{bchapter}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{Dao et~al.}{2022}]{dao2022flashattention}
+\begin{bchapter}
+\bauthor{\bsnm{Dao}, \binits{T.}},
+\bauthor{\bsnm{Fu}, \binits{D.Y.}},
+\bauthor{\bsnm{Ermon}, \binits{S.}},
+\bauthor{\bsnm{Rudra}, \binits{A.}},
+\bauthor{\bsnm{R{\'e}}, \binits{C.}}:
+\bctitle{Flashattention: Fast and memory-efficient exact attention with
+  io-awareness}.
+In: \bbtitle{Advances in Neural Information Processing Systems (NeurIPS)}
+(\byear{2022})
+\end{bchapter}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Fradet et~al.}{2024}]{fradet2024gigamidi}
+\begin{bchapter}
+\bauthor{\bsnm{Fradet}, \binits{N.}},
+\bauthor{\bsnm{Gutowski}, \binits{N.}},
+\bauthor{\bsnm{Chhel}, \binits{F.}},
+\bauthor{\bsnm{Briot}, \binits{J.-P.}}:
+\bctitle{{GigaMIDI}: A large-scale dataset for symbolic music understanding and
+  generation}.
+In: \bbtitle{Proceedings of the International Society for Music Information
+  Retrieval Conference (ISMIR)}
+(\byear{2024})
+\end{bchapter}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Raffel}{2016}]{raffel2016lakh}
+\begin{botherref}
+\oauthor{\bsnm{Raffel}, \binits{C.}}:
+Learning-based methods for comparing sequences, with applications to
+  audio-to-midi alignment and matching.
+PhD thesis,
+Columbia University
+(2016)
+\end{botherref}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{Faul et~al.}{2007}]{faul2007gpower}
+\begin{barticle}
+\bauthor{\bsnm{Faul}, \binits{F.}},
+\bauthor{\bsnm{Erdfelder}, \binits{E.}},
+\bauthor{\bsnm{Lang}, \binits{A.-G.}},
+\bauthor{\bsnm{Buchner}, \binits{A.}}:
+\batitle{{G*Power} 3: A flexible statistical power analysis program for the
+  social, behavioral, and biomedical sciences}.
+\bjtitle{Behavior Research Methods}
+\bvolume{39}(\bissue{2}),
+\bfpage{175}--\blpage{191}
+(\byear{2007})
+\end{barticle}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{Yang and Chen}{2012}]{yang2012machine}
+\begin{barticle}
+\bauthor{\bsnm{Yang}, \binits{Y.-H.}},
+\bauthor{\bsnm{Chen}, \binits{H.H.}}:
+\batitle{Machine recognition of music emotion: A review}.
+\bjtitle{ACM Transactions on Intelligent Systems and Technology}
+\bvolume{3}(\bissue{3}),
+\bfpage{40}--\blpage{14030}
+(\byear{2012})
+\end{barticle}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{McKay and Fujinaga}{2006}]{mckay2006jsymbolic}
+\begin{bchapter}
+\bauthor{\bsnm{McKay}, \binits{C.}},
+\bauthor{\bsnm{Fujinaga}, \binits{I.}}:
+\bctitle{{jSymbolic}: A feature extractor for {MIDI} files}.
+In: \bbtitle{Proceedings of the International Computer Music Conference
+  (ICMC)},
+pp. \bfpage{302}--\blpage{305}
+(\byear{2006})
+\end{bchapter}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{Lartillot and
+  Toiviainen}{2007}]{lartillot2007mir}
+\begin{bchapter}
+\bauthor{\bsnm{Lartillot}, \binits{O.}},
+\bauthor{\bsnm{Toiviainen}, \binits{P.}}:
+\bctitle{A {Matlab} toolbox for musical feature extraction from audio}.
+In: \bbtitle{Proceedings of the International Conference on Digital Audio
+  Effects (DAFx)}
+(\byear{2007})
+\end{bchapter}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{Zelechowski et~al.}{2021}]{zelechowski2021edm}
+\begin{bchapter}
+\bauthor{\bsnm{Zelechowski}, \binits{M.}},
+\bauthor{\bsnm{Wiggins}, \binits{G.A.}},
+\bauthor{\bsnm{Dixon}, \binits{S.}}:
+\bctitle{A framework for the objective analysis of electronic dance music}.
+In: \bbtitle{Proceedings of the International Society for Music Information
+  Retrieval Conference (ISMIR)},
+pp. \bfpage{534}--\blpage{541}
+(\byear{2021})
+\end{bchapter}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{Yang and Lerch}{2020}]{yang2020evaluation}
+\begin{bchapter}
+\bauthor{\bsnm{Yang}, \binits{L.-C.}},
+\bauthor{\bsnm{Lerch}, \binits{A.}}:
+\bctitle{On the evaluation of generative models in music}.
+In: \bbtitle{Neural Computing and Applications},
+vol. \bseriesno{32},
+pp. \bfpage{4773}--\blpage{4784}
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Toussaint}{2013}]{toussaint2013geometry}
+\begin{bbook}
+\bauthor{\bsnm{Toussaint}, \binits{G.T.}}:
+\bbtitle{The Geometry of Musical Rhythm: What Makes a ``Good'' Rhythm Good?}
+\bpublisher{CRC Press}, \blocation{???}
+(\byear{2013})
+\end{bbook}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{Hawthorne
+  et~al.}{2019}]{hawthorne2019enabling}
+\begin{bchapter}
+\bauthor{\bsnm{Hawthorne}, \binits{C.}},
+\bauthor{\bsnm{Stasyuk}, \binits{A.}},
+\bauthor{\bsnm{Roberts}, \binits{A.}},
+\bauthor{\bsnm{Simon}, \binits{I.}},
+\bauthor{\bsnm{Huang}, \binits{C.-Z.A.}},
+\bauthor{\bsnm{Dieleman}, \binits{S.}},
+\bauthor{\bsnm{Eck}, \binits{D.}}:
+\bctitle{Enabling factorized piano music modeling and generation with the
+  {MAESTRO} dataset}.
+In: \bbtitle{International Conference on Learning Representations (ICLR)}
+(\byear{2019})
+\end{bchapter}
+\endbibitem
+
+%%% 30
+\bibitem[\protect\citeauthoryear{Thickstun
+  et~al.}{2023}]{thickstun2023anticipatory}
+\begin{botherref}
+\oauthor{\bsnm{Thickstun}, \binits{J.}},
+\oauthor{\bsnm{Yin}, \binits{D.}},
+\oauthor{\bsnm{Edwards}, \binits{H.}},
+\oauthor{\bsnm{Jin}, \binits{C.}},
+\oauthor{\bsnm{Likhachev}, \binits{M.}}, et al.:
+Anticipatory music transformer.
+Transactions on Machine Learning Research (TMLR)
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{Krippendorff}{2011}]{krippendorff2011computing}
+\begin{botherref}
+\oauthor{\bsnm{Krippendorff}, \binits{K.}}:
+Computing {Krippendorff}'s alpha-reliability.
+Departmental Papers (ASC),
+43
+(2011)
+\end{botherref}
+\endbibitem
+
+%%% 32
+\bibitem[\protect\citeauthoryear{Koo and Mae}{2016}]{koo2016guideline}
+\begin{barticle}
+\bauthor{\bsnm{Koo}, \binits{T.K.}},
+\bauthor{\bsnm{Mae}, \binits{M.Y.}}:
+\batitle{A guideline of selecting and reporting intraclass correlation
+  coefficients for reliability research}.
+\bjtitle{Journal of Chiropractic Medicine}
+\bvolume{15}(\bissue{2}),
+\bfpage{155}--\blpage{163}
+(\byear{2016})
+\end{barticle}
+\endbibitem
+
+%%% 33
+\bibitem[\protect\citeauthoryear{Sturm}{2014}]{sturm2014mml}
+\begin{bchapter}
+\bauthor{\bsnm{Sturm}, \binits{B.L.}}:
+\bctitle{A simple method to determine if a music information retrieval system
+  is a `horse''}.
+In: \bbtitle{IEEE Transactions on Multimedia},
+vol. \bseriesno{16},
+pp. \bfpage{1636}--\blpage{1644}.
+\bpublisher{IEEE}, \blocation{???}
+(\byear{2014})
+\end{bchapter}
+\endbibitem
+
+%%% 34
+\bibitem[\protect\citeauthoryear{Danielsen}{2006}]{danielsen2006presence}
+\begin{bbook}
+\bauthor{\bsnm{Danielsen}, \binits{A.}}:
+\bbtitle{Presence and Pleasure: The Funk Grooves of James Brown and
+  Parliament}.
+\bpublisher{Wesleyan University Press}, \blocation{???}
+(\byear{2006})
+\end{bbook}
+\endbibitem
+
+\end{thebibliography}

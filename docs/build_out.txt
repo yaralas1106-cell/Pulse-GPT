@@ -1,0 +1,330 @@
+﻿This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(paper_draft.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/ieeetran\IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/cite\cite.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.s
+ty (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty))
+ (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def)
+)) (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+ (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
+eys.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
+y (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y))) (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
+estring.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty)
+)) (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.st
+y) (C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
+sty)))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
+check.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
+unter.sty)))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.s
+ty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+common.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+latex.def)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.c
+ode.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex))
+)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.s
+ty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.s
+ty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeysl
+ibraryfiltered.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cf
+g)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-pdftex.def
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-common-pdf.def)))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+softpath.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+protocol.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.c
+ode.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser
+.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.basic.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.trigonometric.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.random.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.comparison.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.base.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.round.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.misc.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.integerarithmetics.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.c
+ode.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.
+code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.t
+ex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+points.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathconstruct.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathusage.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+scopes.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+graphicstate.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transformations.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+quick.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+objects.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathprocessing.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+arrows.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+shade.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+image.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+external.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+layers.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transparency.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+patterns.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+rdf.code.tex)))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodules
+hapes.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulep
+lot.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-0-65.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-1-18.sty))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty
+
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.st
+y
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.c
+ode.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+\tikz.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryplothandlers.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulem
+atrix.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.revi
+sion.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.code
+.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscore.
+code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfplotss
+ysgeneric.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgfplots
+library.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompati
+b\pgfplotsoldpgfsupp_loader.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompati
+b\pgfplotsoldpgfsupp_pgfutil-common-lists.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplots
+util.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure
+\pgfplotsliststructure.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure
+\pgfplotsliststructureext.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure
+\pgfplotsarray.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure
+\pgfplotsmatrix.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgfp
+lotstableshared.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure
+\pgfplotsdeque.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplots
+binary.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplots
+binary.data.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplots
+util.verb.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibra
+rypgfplots.surfshading.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibrar
+ypgfplots.surfshading.pgfsys-pdftex.def)))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplots
+colormap.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplots
+color.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsstack
+edplots.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsploth
+andlers.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmeshp
+lothandler.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmeshp
+lotimage.code.tex)))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.scal
+ing.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscoord
+processing.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.erro
+rbars.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.mark
+ers.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsticks
+.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.path
+s.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduled
+ecorations.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarydecorations.pathmorphing.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorati
+ons\pgflibrarydecorations.pathmorphing.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarydecorations.pathreplacing.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorati
+ons\pgflibrarydecorations.pathreplacing.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlibr
+arypgfplots.contourlua.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibraryplotmarks.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryplotmarks.code.tex)))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibraryshapes.geometric.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\p
+gflibraryshapes.geometric.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibraryarrows.code.tex
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryarrows.code.tex))
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarypositioning.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibraryfit.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarycalc.code.tex)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def) (paper_draft.aux)
+-- Lines per column: 56 (exact).
+
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
+(C:\Users\YaRa\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g)) (paper_draft.out) (paper_draft.out
+! I can't write on file `paper_draft.pdf'.
+(Press Enter to retry, or Control-C to exit; default file extension is `.pdf')
+Please type another file name for output
+! Emergency stop.
+\Hy@OutlineName ...utline goto name{#2}count#3{#4}
+                                                  
+l.1 ...\000o\000d\000u\000c\000t\000i\000o\000n}{}
+                                                  % 1
+pdflatex : pdflatex: major issue: So far, you have not checked for MiKTeX updates.
+At line:1 char:20
++ ... ation docs; pdflatex -interaction=nonstopmode paper_draft.tex 2>&1 |  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (pdflatex: major...MiKTeX updates.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on paper_draft.log.
