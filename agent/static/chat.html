@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOMI Music Agent</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0f14;--surface:#161921;--border:#232630;
+  --accent:#7c6af7;--accent2:#e066c8;--green:#22c55e;
+  --text:#e8eaf0;--muted:#6b7280;--dim:#374151;
+}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:"Inter",system-ui,sans-serif;display:flex;flex-direction:column}
+
+/* nav */
+header{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);gap:12px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.95rem;text-decoration:none;color:var(--text)}
+.logo-badge{font-size:.7rem;padding:2px 8px;border-radius:999px;background:#7c6af722;border:1px solid #7c6af744;color:#a78bfa}
+.mode-toggle{display:flex;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.mode-btn{padding:6px 14px;font-size:.78rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:var(--muted);transition:all .2s}
+.mode-btn.active-gen{background:linear-gradient(135deg,#7c6af7,#e066c8);color:#fff}
+.mode-btn.active-abl{background:var(--green);color:#fff}
+.header-right{display:flex;align-items:center;gap:8px}
+.btn-sm{padding:5px 12px;border-radius:8px;font-size:.75rem;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:opacity .2s;text-decoration:none;display:inline-block}
+.btn-sm:hover{opacity:.7}
+
+/* ableton status bar */
+#abl-bar{display:none;padding:6px 20px;background:#0d1a0d;border-bottom:1px solid #22c55e22;font-size:.75rem;color:var(--green);gap:10px;align-items:center}
+#abl-bar.show{display:flex}
+.track-chip{padding:2px 8px;border-radius:6px;background:#22c55e18;color:#86efac;font-size:.7rem}
+
+/* messages */
+#messages{flex:1;overflow-y:auto;padding:20px}
+#messages::-webkit-scrollbar{width:4px}
+#messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.msgs-inner{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+
+/* welcome */
+.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;gap:24px;text-align:center}
+.welcome-icon{font-size:3.5rem}
+.welcome h2{font-size:1.4rem;font-weight:800}
+.welcome p{font-size:.875rem;color:var(--muted)}
+.suggestions{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:480px;width:100%}
+.sug-btn{text-align:left;padding:10px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.78rem;cursor:pointer;transition:border-color .2s;line-height:1.4}
+.sug-btn:hover{border-color:var(--accent)}
+
+/* bubbles */
+.bubble{display:flex;gap:12px;align-items:flex-start}
+.bubble.user{flex-direction:row-reverse}
+.avatar{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.av-user{background:linear-gradient(135deg,#7c6af7,#e066c8)}
+.av-ai{background:var(--surface);border:1px solid var(--border)}
+.bubble-body{max-width:80%}
+.bubble-text{padding:12px 16px;border-radius:16px;font-size:.875rem;line-height:1.65;white-space:pre-wrap;word-break:break-word}
+.user .bubble-text{background:linear-gradient(135deg,#7c6af7,#e066c8);color:#fff;border-radius:16px 4px 16px 16px}
+.ai .bubble-text{background:var(--surface);border:1px solid var(--border);border-radius:4px 16px 16px 16px}
+
+/* tool steps */
+.steps{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+.step{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;font-size:.75rem;background:var(--surface);border:1px solid var(--border)}
+.step-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.step-dot.running{background:#f59e0b;animation:blink 1s infinite}
+.step-dot.done{background:var(--green)}
+.step-dot.error{background:#ef4444}
+.step-dot.skipped{background:#6b7280}
+.step-name{color:#a78bfa;font-weight:600}
+.step-status{color:var(--muted)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* cursor */
+.cursor::after{content:"▋";animation:blink 1s step-start infinite;color:var(--accent)}
+
+/* audio player */
+.audio-row{margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+audio{height:32px;flex:1;min-width:160px}
+.dl-btn{padding:4px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:.72rem;text-decoration:none;transition:opacity .2s}
+.dl-btn:hover{opacity:.7}
+
+/* input */
+#input-bar{flex-shrink:0;padding:12px 20px;border-top:1px solid var(--border);background:var(--surface)}
+.input-inner{max-width:720px;margin:0 auto;display:flex;gap:8px;align-items:flex-end}
+.textarea-wrap{flex:1;display:flex;align-items:flex-end;border-radius:14px;padding:10px 14px;background:var(--bg);border:1px solid var(--border);transition:border-color .2s}
+.textarea-wrap:focus-within{border-color:var(--accent)}
+.textarea-wrap.abl:focus-within{border-color:var(--green)}
+textarea{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-size:.875rem;resize:none;line-height:1.5;max-height:120px;font-family:inherit}
+.send-btn{width:40px;height:40px;border-radius:12px;border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:opacity .2s;flex-shrink:0}
+.send-btn:disabled{opacity:.3;cursor:default}
+.send-btn:hover:not(:disabled){opacity:.8}
+.hint{text-align:center;font-size:.7rem;color:var(--dim);margin-top:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="/">🎵 TOMI Music Agent <span class="logo-badge">PulseFormer</span></a>
+  <div class="mode-toggle">
+    <button class="mode-btn active-gen" id="btn-gen" onclick="setMode('generate')">生成模式</button>
+    <button class="mode-btn" id="btn-abl" onclick="setMode('ableton')">Ableton 编辑</button>
+  </div>
+  <div class="header-right">
+    <a class="btn-sm" href="/">项目介绍</a>
+    <button class="btn-sm" onclick="resetSession()">新对话</button>
+  </div>
+</header>
+
+<!-- ableton track bar -->
+<div id="abl-bar">
+  <span>Ableton 轨道</span>
+  <div id="abl-tracks"><span style="color:var(--dim)">未检测到轨道</span></div>
+</div>
+
+<!-- messages -->
+<div id="messages">
+  <div class="msgs-inner" id="msgs"></div>
+</div>
+
+<!-- input -->
+<div id="input-bar">
+  <div class="input-inner">
+    <div class="textarea-wrap" id="tw">
+      <textarea id="inp" rows="1" placeholder="描述你想要的音乐，或问一个问题…" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    </div>
+    <button class="send-btn" id="send-btn" onclick="send()" style="background:linear-gradient(135deg,#7c6af7,#e066c8)">↑</button>
+  </div>
+  <p class="hint" id="hint">Enter 发送 · Shift+Enter 换行 · 生成约需 10–30 秒</p>
+</div>
+
+<script>
+const API = '';  // same origin
+let mode = 'generate';
+let sessionId = '';
+let busy = false;
+let abortCtrl = null;
+
+const GEN_SUGS = [
+  '生成一首 128BPM 的 House 音乐，带强劲的底鼓和合成弦',
+  '用能量渐进的方式生成一首 Techno，开头轻柔结尾爆炸',
+  '侧链压缩怎么用？',
+  '把刚才生成的贝斯轨重新生成，更暗一些',
+];
+const ABL_SUGS = [
+  '让旋律更稀疏，去掉大概一半的音符',
+  '鼓加点人性化的随机感，不要太机械',
+  '整体音量调小，bass 下移一个八度',
+  '39-49小节出现完全空白 帮我加入鼓组的pattern完善',
+];
+
+// ── mode ──────────────────────────────────────────────────────────────────────
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-gen').className = 'mode-btn' + (m==='generate' ? ' active-gen' : '');
+  document.getElementById('btn-abl').className = 'mode-btn' + (m==='ableton'  ? ' active-abl' : '');
+  document.getElementById('tw').className = 'textarea-wrap' + (m==='ableton' ? ' abl' : '');
+  document.getElementById('send-btn').style.background = m==='ableton'
+    ? 'var(--green)' : 'linear-gradient(135deg,#7c6af7,#e066c8)';
+  document.getElementById('inp').placeholder = m==='ableton'
+    ? '输入 Ableton 编辑指令，例如：让旋律更稀疏，bass 下移八度…'
+    : '描述你想要的音乐，或问一个问题…';
+  document.getElementById('hint').textContent = m==='ableton'
+    ? 'Enter 发送 · LLM 自动决定修改哪些轨道'
+    : 'Enter 发送 · Shift+Enter 换行 · 生成约需 10–30 秒';
+
+  const bar = document.getElementById('abl-bar');
+  if (m==='ableton') { bar.classList.add('show'); refreshAbletonState(); }
+  else bar.classList.remove('show');
+
+  showWelcome();
+}
+
+// ── welcome screen ────────────────────────────────────────────────────────────
+function showWelcome() {
+  const msgs = document.getElementById('msgs');
+  if (msgs.querySelector('.bubble')) return; // already has messages
+  const sugs = mode==='ableton' ? ABL_SUGS : GEN_SUGS;
+  msgs.innerHTML = `
+    <div class="welcome">
+      <div class="welcome-icon">${mode==='ableton'?'🎛️':'🎹'}</div>
+      <h2>${mode==='ableton'?'Ableton 编辑模式':'你好，我是 TOMI'}</h2>
+      <p>${mode==='ableton'?'用自然语言修改 Ableton 中的 MIDI 轨道':'AI 音乐创作助手 · 由 PulseFormer 驱动'}</p>
+      <div class="suggestions">
+        ${sugs.map(s=>`<button class="sug-btn" onclick="useSuggestion(this)">${s}</button>`).join('')}
+      </div>
+    </div>`;
+}
+
+function useSuggestion(btn) {
+  document.getElementById('inp').value = btn.textContent;
+  send();
+}
+
+// ── messages ──────────────────────────────────────────────────────────────────
+function clearWelcome() {
+  const w = document.querySelector('.welcome');
+  if (w) w.remove();
+}
+
+function addBubble(role, text, id) {
+  clearWelcome();
+  const msgs = document.getElementById('msgs');
+  const div = document.createElement('div');
+  div.className = `bubble ${role}`;
+  div.id = id || '';
+  div.innerHTML = `
+    <div class="avatar ${role==='user'?'av-user':'av-ai'}">${role==='user'?'🧑':'🎵'}</div>
+    <div class="bubble-body">
+      <div class="bubble-text${role==='ai'&&!text?' cursor':''}">${escHtml(text)||''}</div>
+      <div class="steps" id="steps-${div.id}"></div>
+    </div>`;
+  msgs.appendChild(div);
+  scrollBottom();
+  return div;
+}
+
+function setBubbleText(id, text, cursor=false) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const bt = el.querySelector('.bubble-text');
+  bt.className = 'bubble-text' + (cursor ? ' cursor' : '');
+  bt.innerHTML = escHtml(text) || (cursor ? '' : '…');
+}
+
+function addStep(bubbleId, name, status) {
+  const container = document.getElementById('steps-' + bubbleId);
+  if (!container) return;
+  const existing = container.querySelector(`[data-step="${name}"]`);
+  if (existing) {
+    existing.querySelector('.step-dot').className = `step-dot ${status}`;
+    existing.querySelector('.step-status').textContent = status==='done'?'完成':status==='error'?'失败':status==='skipped'?'已跳过':'进行中';
+    return;
+  }
+  const div = document.createElement('div');
+  div.className = 'step';
+  div.dataset.step = name;
+  div.innerHTML = `<span class="step-dot ${status}"></span><span class="step-name">${stepLabel(name)}</span><span class="step-status">${status==='done'?'完成':status==='error'?'失败':status==='skipped'?'已跳过':'进行中…'}</span>`;
+  container.appendChild(div);
+  scrollBottom();
+}
+
+function addAudio(bubbleId, audioUrl, midiUrl) {
+  const el = document.getElementById(bubbleId);
+  if (!el) return;
+  const body = el.querySelector('.bubble-body');
+  const row = document.createElement('div');
+  row.className = 'audio-row';
+  if (audioUrl) row.innerHTML += `<audio controls src="${audioUrl}"></audio>`;
+  if (midiUrl)  row.innerHTML += `<a class="dl-btn" href="${midiUrl}" download>⬇ MIDI</a>`;
+  body.appendChild(row);
+  scrollBottom();
+}
+
+function scrollBottom() {
+  const el = document.getElementById('messages');
+  el.scrollTop = el.scrollHeight;
+}
+
+// ── send ──────────────────────────────────────────────────────────────────────
+async function send() {
+  const inp = document.getElementById('inp');
+  const text = inp.value.trim();
+  if (!text || busy) return;
+  inp.value = ''; autoResize(inp); setBusy(true);
+
+  addBubble('user', text);
+  const aId = 'ai-' + Date.now();
+  addBubble('ai', '', aId);
+
+  if (mode === 'ableton') {
+    await sendAbleton(text, aId);
+  } else {
+    await sendGenerate(text, aId);
+  }
+  setBusy(false);
+  refreshAbletonState();
+}
+
+async function sendGenerate(text, aId) {
+  abortCtrl = new AbortController();
+  let fullText = '';
+  try {
+    const res = await fetch('/chat/stream', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({message:text, session_id:sessionId}),
+      signal: abortCtrl.signal,
+    });
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let buf = '';
+
+    while (true) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, {stream:true});
+      const parts = buf.split('\n\n');
+      buf = parts.pop() || '';
+      for (const part of parts) {
+        const data = part.replace(/^data:\s*/, '').trim();
+        if (!data) continue;
+        try {
+          const evt = JSON.parse(data);
+          if (evt.type==='session')      { sessionId = evt.session_id; }
+          else if (evt.type==='tool_call')    { addStep(aId, evt.name, 'running'); }
+          else if (evt.type==='tool_result')  { addStep(aId, evt.name, evt.status === 'error' ? 'error' : evt.status === 'skipped' ? 'skipped' : 'done'); }
+          else if (evt.type==='done') {
+            fullText = evt.text || '';
+            setBubbleText(aId, fullText, false);
+            if (evt.audio_url || evt.midi_url) addAudio(aId, evt.audio_url, evt.midi_url);
+          } else if (evt.type==='error') {
+            setBubbleText(aId, '错误: ' + evt.message, false);
+          }
+        } catch(e) {}
+      }
+      if (!fullText) setBubbleText(aId, '', true); // keep cursor
+    }
+  } catch(e) {
+    if (e.name !== 'AbortError')
+      setBubbleText(aId, '连接失败，请确认后端服务已启动 (port 7860)', false);
+  }
+  if (!fullText) setBubbleText(aId, fullText || '（无回复）', false);
+}
+
+async function sendAbleton(text, aId) {
+  setBubbleText(aId, '正在分析指令并修改 Ableton…', true);
+  try {
+    const res = await fetch('/ableton/edit', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({instruction:text, seed:0}),
+    });
+    const data = await res.json();
+    if (!res.ok) { setBubbleText(aId, '错误: ' + (data.detail||'未知'), false); return; }
+
+    if (data.status === 'no_edits') {
+      setBubbleText(aId, 'LLM 判断这条指令不需要修改任何轨道。', false);
+    } else {
+      const lines = (data.results||[]).map(r => {
+        if (r.status==='ok') {
+          const ops = (r.ops_applied||[]).map(o=>o.op).join(', ');
+          return `✓ ${r.track}  [${ops}]  ${r.notes_before} → ${r.notes_after} 音符`;
+        }
+        return `✗ ${r.track}: ${r.status}`;
+      });
+      setBubbleText(aId, lines.join('\n'), false);
+    }
+  } catch(e) {
+    setBubbleText(aId, '错误: ' + e.message, false);
+  }
+}
+
+// ── ableton state ─────────────────────────────────────────────────────────────
+async function refreshAbletonState() {
+  try {
+    const r = await fetch('/ableton/state');
+    const d = await r.json();
+    const tracks = d.tracks || {};
+    const wrap = document.getElementById('abl-tracks');
+    const keys = Object.keys(tracks);
+    if (keys.length === 0) {
+      wrap.innerHTML = '<span style="color:var(--dim)">未检测到轨道，请先生成音乐</span>';
+    } else {
+      wrap.innerHTML = keys.map(k =>
+        `<span class="track-chip">${k.replace('TOMI-','')} · ${tracks[k].notes}音符</span>`
+      ).join('');
+    }
+  } catch(e) {}
+}
+
+// ── utils ─────────────────────────────────────────────────────────────────────
+function setBusy(b) {
+  busy = b;
+  const btn = document.getElementById('send-btn');
+  btn.disabled = b;
+  btn.textContent = b ? '⏹' : '↑';
+  if (b) btn.onclick = () => { abortCtrl?.abort(); setBusy(false); };
+  else   btn.onclick = send;
+}
+
+function resetSession() {
+  if (sessionId) fetch(`/session/${sessionId}`, {method:'DELETE'}).catch(()=>{});
+  sessionId = '';
+  document.getElementById('msgs').innerHTML = '';
+  showWelcome();
+}
+
+function handleKey(e) {
+  if (e.key==='Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+}
+
+function autoResize(ta) {
+  ta.style.height = 'auto';
+  ta.style.height = Math.min(ta.scrollHeight, 120) + 'px';
+}
+
+function escHtml(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+}
+
+const STEP_LABELS = {
+  understand_intent:'意图分类', rag_retrieve:'RAG 检索', plan_with_rag:'规划蓝图',
+  generate:'生成 MIDI', reflect:'质量评审', ableton:'写入 Ableton',
+  render_audio:'渲染音频', compose_response:'生成回复',
+  plan_song:'规划歌曲', generate_music:'PulseFormer 生成',
+  ask_knowledge:'知识检索', recall_memory:'读取记忆', update_memory:'更新记忆',
+  import_stems_to_ableton:'导入 Ableton', setup_ableton_template:'创建模板',
+};
+function stepLabel(name) { return STEP_LABELS[name] || name; }
+
+// ── init ──────────────────────────────────────────────────────────────────────
+showWelcome();
+</script>
+</body>
+</html>

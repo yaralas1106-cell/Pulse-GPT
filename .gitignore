@@ -1,0 +1,64 @@
+# ── Research / paper files (not part of the deployed product) ─────────────────
+analysis/
+data_pipeline/
+training/
+evaluation/
+visualization/
+docs/
+scratch/
+tools/
+eval/
+eval_out/
+experiments/
+archive/
+
+# Most inference scripts — only tomi_pipeline.py is kept
+inference/
+!inference/tomi_pipeline.py
+
+# Root-level research scripts
+giga*.py
+test_retrieve.py
+
+# ── Large runtime data ─────────────────────────────────────────────────────────
+checkpoints/
+dataset/
+rag/data/
+agent/midi_cache/
+agent/audio_cache/
+data/bridge_state.json
+
+# ── Build artifacts & deps ─────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/.next/
+frontend/.turbo/
+.venv*/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# ── Logs & temp ───────────────────────────────────────────────────────────────
+logs/
+*.log
+frontend_dev.log
+outputs/
+
+# ── Binaries & secrets ────────────────────────────────────────────────────────
+cloudflared.exe
+cpolar.exe
+soundfonts/*.sf2
+soundfonts/*.sf3
+.env
+*.env
+
+# ── Local tooling ─────────────────────────────────────────────────────────────
+.claude/
+.idea/
+.vscode/
+*.suo
+*.user
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak

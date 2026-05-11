@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOMI Music Agent</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f0f13;
+      color: #e0e0e8;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 14px 24px;
+      background: #1a1a22;
+      border-bottom: 1px solid #2e2e3a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header h1 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: #c084fc;
+    }
+
+    header span.badge {
+      font-size: .7rem;
+      background: #7c3aed33;
+      color: #a78bfa;
+      border: 1px solid #7c3aed55;
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+
+    #chat-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .msg {
+      max-width: 76%;
+      padding: 12px 16px;
+      border-radius: 14px;
+      line-height: 1.55;
+      font-size: .95rem;
+      white-space: pre-wrap;
+    }
+
+    .msg.user {
+      align-self: flex-end;
+      background: #7c3aed;
+      color: #f0e6ff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .msg.agent {
+      align-self: flex-start;
+      background: #1e1e2a;
+      border: 1px solid #2e2e3e;
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg.thinking {
+      align-self: flex-start;
+      background: transparent;
+      color: #666;
+      font-style: italic;
+      font-size: .85rem;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    .player-card {
+      align-self: flex-start;
+      background: #1e1e2a;
+      border: 1px solid #7c3aed55;
+      border-radius: 12px;
+      padding: 14px 16px;
+      max-width: 400px;
+    }
+
+    .player-card .track-name {
+      font-size: .8rem;
+      color: #a78bfa;
+      margin-bottom: 8px;
+    }
+
+    .player-card audio {
+      width: 100%;
+    }
+
+    .player-card .dl-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: .78rem;
+      color: #a78bfa;
+      text-decoration: none;
+    }
+
+    .player-card .dl-link:hover { text-decoration: underline; }
+
+    #input-bar {
+      padding: 12px 16px;
+      background: #1a1a22;
+      border-top: 1px solid #2e2e3a;
+      display: flex;
+      gap: 8px;
+    }
+
+    #user-input {
+      flex: 1;
+      background: #0f0f13;
+      border: 1px solid #2e2e3a;
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: #e0e0e8;
+      font-size: .95rem;
+      resize: none;
+      height: 44px;
+      line-height: 1.4;
+      transition: border-color .2s;
+    }
+
+    #user-input:focus {
+      outline: none;
+      border-color: #7c3aed;
+    }
+
+    #send-btn {
+      background: #7c3aed;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0 18px;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    #send-btn:hover { background: #6d28d9; }
+    #send-btn:disabled { background: #3f2e5a; cursor: default; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #2e2e3e; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎵 TOMI Music Agent</h1>
+    <span class="badge">PulseFormer</span>
+  </header>
+
+  <div id="chat-area">
+    <div class="msg agent">你好！我是 TOMI Music Agent。\n请告诉我你想要什么样的音乐，比如：\n• "生成一首 140BPM 的 EDM Drop，A小调，充满能量"\n• "帮我做一段轻柔的钢琴 Intro"\n• "我想要一首完整的电子舞曲，从 Intro 到 Outro"</div>
+  </div>
+
+  <div id="input-bar">
+    <textarea id="user-input" placeholder="描述你想要的音乐..." rows="1"></textarea>
+    <button id="send-btn">发送</button>
+  </div>
+
+  <script>
+    const chatArea = document.getElementById('chat-area');
+    const input    = document.getElementById('user-input');
+    const sendBtn  = document.getElementById('send-btn');
+    let sessionId  = '';
+
+    function appendMsg(role, text) {
+      const el = document.createElement('div');
+      el.className = `msg ${role}`;
+      el.textContent = text;
+      chatArea.appendChild(el);
+      chatArea.scrollTop = chatArea.scrollHeight;
+      return el;
+    }
+
+    function appendPlayer(audioUrl, fileId) {
+      const card = document.createElement('div');
+      card.className = 'player-card';
+      card.innerHTML = `
+        <div class="track-name">🎵 生成的音乐 · ${fileId}</div>
+        <audio controls src="${audioUrl}"></audio>
+        <a class="dl-link" href="${audioUrl}" download="${fileId}.mp3">⬇ 下载 MP3</a>
+      `;
+      chatArea.appendChild(card);
+      chatArea.scrollTop = chatArea.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = '';
+      sendBtn.disabled = true;
+      appendMsg('user', text);
+
+      const thinking = appendMsg('thinking', '⏳ 正在生成中，请稍候……');
+
+      try {
+        const res = await fetch('/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ session_id: sessionId, message: text }),
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.detail || '服务器错误');
+        }
+
+        const data = await res.json();
+        sessionId = data.session_id;
+
+        thinking.remove();
+        if (data.text) appendMsg('agent', data.text);
+        if (data.audio_url) {
+          const fileId = data.audio_url.split('/').pop().replace(/\.\w+$/, '');
+          appendPlayer(data.audio_url, fileId);
+        }
+      } catch (err) {
+        thinking.remove();
+        appendMsg('agent', `❌ 出错了：${err.message}`);
+      } finally {
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>
