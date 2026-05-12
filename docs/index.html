@@ -7,135 +7,154 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0d0f14;--surface:#161921;--border:#232630;
+  --bg:#0a0b0f;--surface:#12141a;--surface2:#1a1d26;--border:#1e2230;
   --accent:#7c6af7;--accent2:#e066c8;--cyan:#06b6d4;
   --green:#22c55e;--amber:#f59e0b;--red:#ef4444;
-  --text:#e8eaf0;--muted:#6b7280;--dim:#374151;
+  --text:#e8eaf0;--muted:#8892a4;--dim:#3d4455;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:"Inter",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
 
-/* ── orbs ── */
-.orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
-.orb1{width:500px;height:500px;top:-150px;left:-150px;background:radial-gradient(circle,#7c6af740,transparent);animation:drift1 12s ease-in-out infinite alternate}
-.orb2{width:400px;height:400px;top:50%;right:-120px;background:radial-gradient(circle,#e066c830,transparent);animation:drift2 10s ease-in-out infinite alternate}
-.orb3{width:350px;height:350px;bottom:10%;left:30%;background:radial-gradient(circle,#06b6d420,transparent);animation:drift3 14s ease-in-out infinite alternate}
-@keyframes drift1{to{transform:translate(40px,60px)}}
-@keyframes drift2{to{transform:translate(-40px,50px)}}
-@keyframes drift3{to{transform:translate(30px,-40px)}}
+/* orbs */
+.orb{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0;opacity:.6}
+.orb1{width:600px;height:600px;top:-200px;left:-200px;background:radial-gradient(circle,#7c6af730,transparent);animation:drift1 14s ease-in-out infinite alternate}
+.orb2{width:500px;height:500px;top:40%;right:-180px;background:radial-gradient(circle,#e066c825,transparent);animation:drift2 11s ease-in-out infinite alternate}
+.orb3{width:400px;height:400px;bottom:5%;left:20%;background:radial-gradient(circle,#06b6d418,transparent);animation:drift3 16s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(50px,70px)}}
+@keyframes drift2{to{transform:translate(-50px,60px)}}
+@keyframes drift3{to{transform:translate(40px,-50px)}}
 
-/* ── layout ── */
-.wrap{max-width:960px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-section{padding:80px 0}
+/* layout */
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+section{padding:88px 0}
 
-/* ── fade-in on scroll ── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
-.reveal.visible{opacity:1;transform:none}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(10,11,15,.8);border-bottom:1px solid var(--border)}
+.nav-logo{font-weight:900;font-size:.95rem;background:linear-gradient(135deg,#a78bfa,#e066c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.01em}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{font-size:.8rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:7px 18px;border-radius:10px;font-size:.78rem;font-weight:700;background:linear-gradient(135deg,#7c6af7,#e066c8);color:#fff;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+@media(max-width:640px){.nav-links{display:none}}
 
-/* ── hero ── */
-.hero{text-align:center;padding:120px 0 80px}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;font-size:.75rem;background:#7c6af718;border:1px solid #7c6af744;color:#a78bfa;margin-bottom:24px}
-h1{font-size:clamp(3rem,10vw,5.5rem);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:20px;background:linear-gradient(135deg,#7c6af7,#e066c8,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:1.15rem;color:#9ca3af;max-width:540px;margin:0 auto 10px}
-.hero-desc{font-size:.875rem;color:var(--muted);max-width:580px;margin:0 auto 36px}
+/* hero */
+.hero{padding:140px 0 80px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;font-size:.72rem;font-weight:600;background:linear-gradient(135deg,#7c6af712,#e066c812);border:1px solid #7c6af740;color:#a78bfa;margin-bottom:28px;letter-spacing:.02em}
+h1{font-size:clamp(3.5rem,12vw,6.5rem);font-weight:900;letter-spacing:-.04em;line-height:.95;margin-bottom:24px;background:linear-gradient(135deg,#a78bfa 0%,#e066c8 50%,#67e8f9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.2rem;font-weight:600;color:var(--text);margin-bottom:12px}
+.hero-desc{font-size:.9rem;color:var(--muted);max-width:580px;margin:0 auto 40px;line-height:1.75}
 .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-primary{padding:12px 28px;border-radius:12px;font-weight:700;font-size:.875rem;background:linear-gradient(135deg,#7c6af7,#e066c8);color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity .2s}
-.btn-secondary{padding:12px 28px;border-radius:12px;font-weight:700;font-size:.875rem;background:var(--surface);border:1px solid var(--border);color:var(--text);text-decoration:none;display:inline-block;transition:opacity .2s}
-.btn-primary:hover,.btn-secondary:hover{opacity:.8}
+.btn-primary{padding:13px 30px;border-radius:14px;font-weight:700;font-size:.875rem;background:linear-gradient(135deg,#7c6af7,#e066c8);color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;box-shadow:0 4px 24px #7c6af730}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px);box-shadow:0 8px 32px #7c6af740}
+.btn-secondary{padding:13px 30px;border-radius:14px;font-weight:700;font-size:.875rem;background:var(--surface);border:1px solid var(--border);color:var(--text);text-decoration:none;display:inline-block;transition:all .2s}
+.btn-secondary:hover{border-color:#7c6af750;transform:translateY(-1px)}
 
-/* ── metrics strip ── */
-.metrics-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 0}
-.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+/* metrics */
+.metrics-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 0;background:linear-gradient(180deg,var(--surface)00,var(--surface)88)}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
 @media(min-width:640px){.metrics-grid{grid-template-columns:repeat(6,1fr)}}
-.metric-val{font-size:1.75rem;font-weight:900;background:linear-gradient(135deg,#7c6af7,#e066c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
-.metric-label{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:2px}
-.metric-sub{font-size:.65rem;color:var(--dim)}
+.metric-val{font-size:2rem;font-weight:900;background:linear-gradient(135deg,#a78bfa,#e066c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.metric-label{font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.metric-sub{font-size:.62rem;color:var(--dim);line-height:1.4}
 
-/* ── section headers ── */
-.sec-tag{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
-.sec-title{font-size:2rem;font-weight:800;margin-bottom:12px}
-.sec-desc{font-size:.9rem;color:var(--muted);max-width:480px;margin:0 auto}
-.sec-header{text-align:center;margin-bottom:56px}
+/* section headers */
+.sec-tag{font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.sec-title{font-size:2.2rem;font-weight:900;margin-bottom:14px;letter-spacing:-.02em}
+.sec-desc{font-size:.9rem;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.7}
+.sec-header{text-align:center;margin-bottom:60px}
 
-/* ── pipeline ── */
-.pipeline-nodes{display:flex;gap:8px;align-items:flex-start;margin-bottom:24px;position:relative}
-.pipeline-nodes::before{content:'';position:absolute;top:28px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#7c6af744,#7c6af7,#7c6af744,transparent)}
-.pnode{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:transform .2s}
-.pnode:hover{transform:translateY(-2px)}
-.pnode-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2px solid var(--border);background:var(--surface);position:relative;z-index:1;transition:all .3s}
-.pnode.active .pnode-icon{border-color:var(--node-color);box-shadow:0 0 24px var(--node-glow)}
-.pnode-label{font-size:.75rem;font-weight:600;color:var(--muted);transition:color .3s}
+/* pipeline */
+.pipeline-nodes{display:flex;gap:6px;align-items:flex-start;margin-bottom:20px;position:relative}
+.pipeline-nodes::before{content:'';position:absolute;top:27px;left:28px;right:28px;height:2px;background:linear-gradient(90deg,var(--accent)00,var(--accent)60,var(--accent2)60,var(--accent2)00)}
+.pnode{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:transform .25s}
+.pnode:hover{transform:translateY(-3px)}
+.pnode-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2px solid var(--border);background:var(--surface);position:relative;z-index:1;transition:all .35s}
+.pnode.active .pnode-icon{border-color:var(--node-color);box-shadow:0 0 28px var(--node-glow);background:var(--node-bg)}
+.pnode-label{font-size:.7rem;font-weight:700;color:var(--muted);transition:color .3s;text-align:center}
 .pnode.active .pnode-label{color:var(--node-color)}
-.pnode-sub{font-size:.6rem;color:var(--dim);text-align:center;display:none}
-@media(min-width:600px){.pnode-sub{display:block}}
-
-@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
-.pnode-ring{position:absolute;inset:-2px;border-radius:18px;border:2px solid var(--node-color);animation:ring 1.2s cubic-bezier(.2,.6,.4,1) infinite}
-
-.pipeline-detail{border-radius:20px;padding:20px;background:var(--surface)}
-.pd-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.pd-icon{font-size:1.5rem}
-.pd-title{font-size:.95rem;font-weight:700}
-.pd-sub{font-size:.75rem;color:var(--muted)}
-.pd-desc{font-size:.875rem;color:#9ca3af;line-height:1.6}
+.pnode-sub{font-size:.58rem;color:var(--dim);text-align:center;display:none}
+@media(min-width:560px){.pnode-sub{display:block}}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.pnode-ring{position:absolute;inset:-2px;border-radius:18px;border:2px solid var(--node-color);animation:ring 1.4s cubic-bezier(.2,.6,.4,1) infinite}
+.pipeline-detail{border-radius:20px;padding:24px 28px;background:var(--surface2);border:1px solid var(--border)}
+.pd-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.pd-icon-big{font-size:2rem}
+.pd-title{font-size:1rem;font-weight:800;margin-bottom:2px}
+.pd-sub{font-size:.78rem;color:var(--muted)}
+.pd-desc{font-size:.875rem;color:#9ca3af;line-height:1.75}
+.pd-badge{padding:3px 10px;border-radius:8px;font-size:.68rem;font-weight:700}
 .pd-controls{margin-left:auto;display:flex;gap:8px}
-.pd-btn{padding:4px 12px;border-radius:8px;font-size:.75rem;border:none;cursor:pointer;font-weight:600}
+.pd-btn{padding:5px 14px;border-radius:9px;font-size:.75rem;border:none;cursor:pointer;font-weight:700;transition:opacity .2s}
+.pd-btn:hover{opacity:.8}
 
-/* ── feature cards ── */
+/* features */
 .features-grid{display:grid;gap:16px}
 @media(min-width:640px){.features-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.features-grid{grid-template-columns:1fr 1fr 1fr}}
-.feat-card{background:var(--surface);border-radius:20px;padding:20px;border:1px solid #ffffff08;transition:transform .25s,border-color .25s}
-.feat-card:hover{transform:translateY(-3px)}
-.feat-icon-wrap{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:12px}
-.feat-title{font-size:.9rem;font-weight:700;margin-bottom:10px}
-.feat-list{list-style:none}
-.feat-list li{font-size:.8rem;color:#9ca3af;display:flex;gap:6px;margin-bottom:6px}
-.feat-bullet{margin-top:2px;flex-shrink:0}
+.feat-card{background:var(--surface);border-radius:20px;padding:22px;border:1px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
+.feat-card::before{content:'';position:absolute;inset:0;background:var(--card-glow);opacity:0;transition:opacity .3s;border-radius:20px}
+.feat-card:hover{transform:translateY(-4px);border-color:var(--card-color);box-shadow:0 8px 32px var(--card-shadow)}
+.feat-card:hover::before{opacity:1}
+.feat-icon-wrap{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;position:relative;z-index:1}
+.feat-title{font-size:.9rem;font-weight:800;margin-bottom:12px;position:relative;z-index:1}
+.feat-list{list-style:none;position:relative;z-index:1}
+.feat-list li{font-size:.78rem;color:#9ca3af;display:flex;gap:7px;margin-bottom:7px;line-height:1.5}
+.feat-bullet{flex-shrink:0;margin-top:1px;font-size:.65rem}
 
-/* ── architecture ── */
-.arch-box{background:#0d1117;border-radius:20px;padding:32px;border:1px solid var(--border);font-family:monospace;font-size:.78rem;overflow-x:auto}
-.arch-row{display:flex;gap:12px;justify-content:center;margin-bottom:8px;flex-wrap:wrap}
-.arch-node{padding:8px 16px;border-radius:12px;text-align:center;font-size:.72rem;line-height:1.4;min-width:120px}
-.arch-arrow{text-align:center;color:var(--dim);margin:4px 0;font-size:.8rem}
+/* architecture */
+.arch-box{background:#080a0d;border-radius:24px;padding:36px;border:1px solid var(--border);overflow-x:auto}
+.arch-row{display:flex;gap:12px;justify-content:center;margin-bottom:6px;flex-wrap:wrap}
+.arch-node{padding:10px 18px;border-radius:14px;text-align:center;font-size:.72rem;line-height:1.5;min-width:120px}
+.arch-arrow{text-align:center;color:var(--dim);margin:6px 0;font-size:.85rem;letter-spacing:.1em}
+.arch-label{font-size:.68rem;margin-top:3px}
 
-/* ── bad cases ── */
+/* bad cases */
 .bc-grid{display:grid;gap:14px}
 @media(min-width:640px){.bc-grid{grid-template-columns:1fr 1fr}}
-.bc-card{background:var(--surface);border-radius:16px;padding:18px}
-.bc-tag{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700;margin-bottom:10px}
-.bc-row{font-size:.8rem;margin-bottom:6px;line-height:1.5}
-.bc-label{font-weight:700;margin-right:4px}
+.bc-card{background:var(--surface);border-radius:18px;padding:20px;border:1px solid var(--border);transition:all .3s}
+.bc-card:hover{transform:translateY(-2px)}
+.bc-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.bc-num{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0}
+.bc-tag{font-size:.75rem;font-weight:800}
+.bc-section{margin-bottom:10px}
+.bc-section-label{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.bc-text{font-size:.8rem;color:#9ca3af;line-height:1.65;padding:10px 12px;border-radius:10px;background:var(--surface2)}
 
-/* ── tech stack ── */
-.stack-wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.stack-item{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:12px;background:var(--surface);border:1px solid #ffffff08;font-size:.82rem}
-.stack-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.stack-name{font-weight:600}
-.stack-desc{color:var(--dim);font-size:.72rem}
+/* tech stack */
+.stack-grid{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:560px){.stack-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:800px){.stack-grid{grid-template-columns:repeat(4,1fr)}}
+.stack-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:12px;transition:all .3s}
+.stack-card:hover{transform:translateY(-2px);border-color:var(--s-color);box-shadow:0 4px 20px var(--s-shadow)}
+.stack-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.stack-info{min-width:0}
+.stack-name{font-size:.82rem;font-weight:800;margin-bottom:2px}
+.stack-desc{font-size:.68rem;color:var(--muted);line-height:1.4}
+.stack-role{font-size:.62rem;color:var(--dim);margin-top:2px}
 
-/* ── CTA ── */
-.cta-box{border-radius:28px;padding:64px 32px;text-align:center;background:linear-gradient(135deg,#7c6af710,#e066c810);border:1px solid #7c6af730}
-.cta-emoji{font-size:3rem;margin-bottom:16px}
-.cta-title{font-size:1.75rem;font-weight:800;margin-bottom:10px}
-.cta-desc{color:var(--muted);font-size:.9rem;margin-bottom:28px}
+/* CTA */
+.cta-box{border-radius:28px;padding:72px 32px;text-align:center;background:linear-gradient(135deg,#7c6af710,#e066c812);border:1px solid #7c6af730;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,#7c6af720,transparent 70%)}
+.cta-emoji{font-size:3.5rem;margin-bottom:18px}
+.cta-title{font-size:2rem;font-weight:900;margin-bottom:12px;letter-spacing:-.02em}
+.cta-desc{color:var(--muted);font-size:.9rem;margin-bottom:32px;max-width:440px;margin-left:auto;margin-right:auto}
+.cta-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-/* ── footer ── */
-footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-size:.78rem;color:var(--dim)}
+/* footer */
+footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;font-size:.75rem;color:var(--dim)}
 
-/* ── nav ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);background:#0d0f14bb;border-bottom:1px solid #ffffff08}
-.nav-logo{font-weight:800;font-size:1rem;background:linear-gradient(135deg,#7c6af7,#e066c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.nav-links{display:flex;gap:20px;list-style:none}
-.nav-links a{font-size:.82rem;color:var(--muted);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{padding:6px 16px;border-radius:10px;font-size:.8rem;font-weight:600;background:linear-gradient(135deg,#7c6af7,#e066c8);color:#fff;text-decoration:none;transition:opacity .2s}
-.nav-cta:hover{opacity:.8}
+/* divider */
+.gradient-line{height:1px;background:linear-gradient(90deg,transparent,#7c6af740,#e066c840,transparent);margin:0 auto}
 </style>
 </head>
 <body>
 
-<!-- nav -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAV -->
 <nav>
   <span class="nav-logo">🎵 TOMI-GPT</span>
   <ul class="nav-links">
@@ -144,245 +163,412 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:fl
     <li><a href="#badcases">Bad Cases</a></li>
     <li><a href="#stack">技术栈</a></li>
   </ul>
-  <a class="nav-cta" href="/chat/stream" onclick="alert('请在本地访问 Agent 对话界面')">体验 Demo</a>
+  <a class="nav-cta" href="https://github.com/yaralas1106-cell/yaralas" target="_blank">GitHub →</a>
 </nav>
 
-<!-- orbs -->
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
-
-<!-- ── HERO ── -->
+<!-- HERO -->
 <div class="wrap">
-  <div class="hero reveal">
-    <div class="badge">🎵 AI Music Creation Agent &nbsp;·&nbsp; PulseFormer + LangGraph + Ableton MCP</div>
+  <div class="hero">
+    <div class="badge">🎵 AI Music Creation Agent &nbsp;·&nbsp; PulseFormer · LangGraph · Ableton MCP</div>
     <h1>TOMI-GPT</h1>
     <p class="hero-sub">全链路 AI 音乐创作智能体</p>
-    <p class="hero-desc">自然语言 → RAG 知识检索 → LangGraph 多节点规划 → PulseFormer 生成 → LLM-as-Judge 评审 → Ableton MCP 实时写入</p>
+    <p class="hero-desc">自然语言 → RAG 风格检索 → LangGraph 多节点规划 → PulseFormer 多轨生成 → LLM-as-Judge 评审 → Ableton MCP 实时写入 DAW</p>
     <div class="btns">
       <a class="btn-primary" href="#pipeline">查看工作流 ↓</a>
-      <a class="btn-secondary" href="https://github.com" target="_blank">GitHub →</a>
+      <a class="btn-secondary" href="https://github.com/yaralas1106-cell/yaralas" target="_blank">GitHub →</a>
     </div>
   </div>
 </div>
 
-<!-- ── METRICS ── -->
+<!-- METRICS -->
 <div class="metrics-strip">
   <div class="wrap">
     <div class="metrics-grid">
-      <div class="reveal"><div class="metric-val">10</div><div class="metric-label">Agent 工具</div><div class="metric-sub">覆盖生成/编辑/知识/记忆/DAW</div></div>
-      <div class="reveal"><div class="metric-val">8</div><div class="metric-label">LangGraph 节点</div><div class="metric-sub">含条件路由与自动重试</div></div>
-      <div class="reveal"><div class="metric-val">12</div><div class="metric-label">MIDI 原子操作</div><div class="metric-sub">多轨并行精细编辑</div></div>
-      <div class="reveal"><div class="metric-val">6</div><div class="metric-label">Bad Case 解决</div><div class="metric-sub">工程复杂度的核心体现</div></div>
-      <div class="reveal"><div class="metric-val">&lt;1ms</div><div class="metric-label">规则路由延迟</div><div class="metric-sub">规则引擎绕过 LLM</div></div>
-      <div class="reveal"><div class="metric-val">4</div><div class="metric-label">音乐风格</div><div class="metric-sub">House/Techno/Trance/Dubstep</div></div>
+      <div><div class="metric-val">10</div><div class="metric-label">Agent 工具</div><div class="metric-sub">生成/编辑/知识/记忆/DAW</div></div>
+      <div><div class="metric-val">6</div><div class="metric-label">LangGraph 节点</div><div class="metric-sub">含条件路由与自动重试</div></div>
+      <div><div class="metric-val">12</div><div class="metric-label">MIDI 原子操作</div><div class="metric-sub">多轨并行精细编辑</div></div>
+      <div><div class="metric-val">6</div><div class="metric-label">Bad Case 解决</div><div class="metric-sub">工程复杂度的核心体现</div></div>
+      <div><div class="metric-val">&lt;1ms</div><div class="metric-label">规则路由延迟</div><div class="metric-sub">规则引擎绕过 LLM</div></div>
+      <div><div class="metric-val">4</div><div class="metric-label">音乐风格</div><div class="metric-sub">House · Techno · Trance · Dubstep</div></div>
     </div>
   </div>
 </div>
 
-<!-- ── PIPELINE ── -->
+<!-- PIPELINE -->
 <section id="pipeline">
   <div class="wrap">
-    <div class="sec-header reveal">
+    <div class="sec-header">
       <div class="sec-tag" style="color:var(--accent)">LangGraph 工作流</div>
       <div class="sec-title">六节点推理链路</div>
-      <p class="sec-desc">点击节点查看详情 · 每个节点独立流式输出 · LLM-as-Judge 自动评审 + 回溯重试</p>
+      <p class="sec-desc">每个节点独立流式输出 · LLM-as-Judge 自动质量评审 · 低分自动回溯重试</p>
     </div>
-    <div class="reveal" id="pipeline-ui">
+    <div id="pipeline-ui">
       <div class="pipeline-nodes" id="pnodes"></div>
-      <div class="pipeline-detail" id="pdetail" style="border:1px solid #7c6af744"></div>
+      <div class="pipeline-detail" id="pdetail"></div>
     </div>
   </div>
 </section>
 
-<!-- ── FEATURES ── -->
+<!-- FEATURES -->
 <section id="features">
   <div class="wrap">
-    <div class="sec-header reveal">
+    <div class="sec-header">
       <div class="sec-tag" style="color:var(--cyan)">核心模块</div>
       <div class="sec-title">六大技术创新</div>
+      <p class="sec-desc">从 RAG 知识检索到 DAW 实时写入，每个模块独立可扩展</p>
     </div>
-    <div class="features-grid" id="feat-grid"></div>
+    <div class="features-grid">
+
+      <div class="feat-card" style="--card-color:#06b6d4;--card-glow:linear-gradient(135deg,#06b6d408,transparent);--card-shadow:#06b6d415">
+        <div class="feat-icon-wrap" style="background:#06b6d418">📚</div>
+        <div class="feat-title" style="color:#06b6d4">RAG 音乐知识库</div>
+        <ul class="feat-list">
+          <li><span class="feat-bullet" style="color:#06b6d4">▸</span>Qdrant 向量检索，覆盖混音 / EQ / 侧链 / EDM 理论</li>
+          <li><span class="feat-bullet" style="color:#06b6d4">▸</span>双路径：咨询直答 + 注入规划节点增强生成参数</li>
+          <li><span class="feat-bullet" style="color:#06b6d4">▸</span>LLM Query Rewriting，提升检索召回率</li>
+        </ul>
+      </div>
+
+      <div class="feat-card" style="--card-color:#22c55e;--card-glow:linear-gradient(135deg,#22c55e08,transparent);--card-shadow:#22c55e15">
+        <div class="feat-icon-wrap" style="background:#22c55e18">🎛️</div>
+        <div class="feat-title" style="color:#22c55e">Ableton MCP 集成</div>
+        <ul class="feat-list">
+          <li><span class="feat-bullet" style="color:#22c55e">▸</span>Socket RPC 直连 Ableton Live Remote Script（端口 9877）</li>
+          <li><span class="feat-bullet" style="color:#22c55e">▸</span>生成结果自动写入 Arrangement View，保留轨道元数据</li>
+          <li><span class="feat-bullet" style="color:#22c55e">▸</span>自然语言精细编辑已有 MIDI clip</li>
+        </ul>
+      </div>
+
+      <div class="feat-card" style="--card-color:#7c6af7;--card-glow:linear-gradient(135deg,#7c6af708,transparent);--card-shadow:#7c6af715">
+        <div class="feat-icon-wrap" style="background:#7c6af718">⚙️</div>
+        <div class="feat-title" style="color:#7c6af7">12 种 MIDI 原子操作</div>
+        <ul class="feat-list">
+          <li><span class="feat-bullet" style="color:#7c6af7">▸</span>transpose · octave_shift · humanize · quantize · reverse</li>
+          <li><span class="feat-bullet" style="color:#7c6af7">▸</span>fill_drums_pattern：空段自动补鼓（four_on_floor / minimal / breakbeat）</li>
+          <li><span class="feat-bullet" style="color:#7c6af7">▸</span>fill_chord_loop：和弦 pattern 循环铺满全曲</li>
+        </ul>
+      </div>
+
+      <div class="feat-card" style="--card-color:#f59e0b;--card-glow:linear-gradient(135deg,#f59e0b08,transparent);--card-shadow:#f59e0b15">
+        <div class="feat-icon-wrap" style="background:#f59e0b18">🧠</div>
+        <div class="feat-title" style="color:#f59e0b">用户偏好记忆</div>
+        <ul class="feat-list">
+          <li><span class="feat-bullet" style="color:#f59e0b">▸</span>Session 持久化：BPM / 调性 / 风格偏好自动记录</li>
+          <li><span class="feat-bullet" style="color:#f59e0b">▸</span>规划节点三路融合：RAG + 记忆 + 用户当前需求</li>
+          <li><span class="feat-bullet" style="color:#f59e0b">▸</span>跨对话记忆保留，越用越了解你的风格</li>
+        </ul>
+      </div>
+
+      <div class="feat-card" style="--card-color:#ef4444;--card-glow:linear-gradient(135deg,#ef444408,transparent);--card-shadow:#ef444415">
+        <div class="feat-icon-wrap" style="background:#ef444418">⚖️</div>
+        <div class="feat-title" style="color:#ef4444">LLM-as-Judge 评审</div>
+        <ul class="feat-list">
+          <li><span class="feat-bullet" style="color:#ef4444">▸</span>三维度打分：参数匹配度 / 内容完整性 / 能量曲线合理性</li>
+          <li><span class="feat-bullet" style="color:#ef4444">▸</span>score &lt; 6 自动将 issues 反馈给规划节点，最多重试 2 次</li>
+          <li><span class="feat-bullet" style="color:#ef4444">▸</span>闭环质量保证，拒绝静默失败</li>
+        </ul>
+      </div>
+
+      <div class="feat-card" style="--card-color:#e066c8;--card-glow:linear-gradient(135deg,#e066c808,transparent);--card-shadow:#e066c815">
+        <div class="feat-icon-wrap" style="background:#e066c818">🔌</div>
+        <div class="feat-title" style="color:#e066c8">10 工具 Agent 体系</div>
+        <ul class="feat-list">
+          <li><span class="feat-bullet" style="color:#e066c8">▸</span>plan_song · generate_music · render_audio · ask_knowledge</li>
+          <li><span class="feat-bullet" style="color:#e066c8">▸</span>regenerate_track：单轨锁定重生成，其他轨道保持不变</li>
+          <li><span class="feat-bullet" style="color:#e066c8">▸</span>recall_memory · update_memory · setup_ableton_template</li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- ── ARCHITECTURE ── -->
+<!-- ARCHITECTURE -->
 <section id="arch">
   <div class="wrap">
-    <div class="sec-header reveal">
+    <div class="sec-header">
       <div class="sec-tag" style="color:var(--accent2)">系统架构</div>
       <div class="sec-title">服务拓扑</div>
     </div>
-    <div class="arch-box reveal">
+    <div class="arch-box">
       <div class="arch-row">
-        <div class="arch-node" style="background:#7c6af718;border:1px solid #7c6af755;color:#a78bfa;min-width:320px">
-          🌐 用户浏览器<br><span style="color:#4b5563;font-size:.65rem">Next.js :3000 (可选) 或直接访问 :7860</span>
+        <div class="arch-node" style="background:#7c6af714;border:1px solid #7c6af750;color:#a78bfa;min-width:340px">
+          🌐 &nbsp;用户浏览器
+          <div class="arch-label" style="color:#4b5563">chat.html · showcase.html（纯静态，零框架）</div>
         </div>
       </div>
-      <div class="arch-arrow">│ SSE 流式 / REST</div>
+      <div class="arch-arrow">↕ &nbsp;SSE 流式 / REST API</div>
       <div class="arch-row">
-        <div class="arch-node" style="background:#1e293b;border:1px solid #7c6af755;color:#a78bfa">
-          ⚡ Web Server<br><span style="color:#4b5563">FastAPI :7860</span>
+        <div class="arch-node" style="background:#1e293b;border:1px solid #7c6af750;color:#a78bfa">
+          ⚡ &nbsp;Web Server
+          <div class="arch-label" style="color:#4b5563">FastAPI · port 7860</div>
         </div>
-        <div class="arch-node" style="background:#0d1a0d;border:1px solid #22c55e55;color:#86efac">
-          🎛️ Ableton Bridge<br><span style="color:#4b5563">FastAPI :8002</span>
+        <div class="arch-node" style="background:#0d1a0d;border:1px solid #22c55e50;color:#86efac">
+          🎛️ &nbsp;Ableton Bridge
+          <div class="arch-label" style="color:#4b5563">FastAPI · port 8002</div>
         </div>
       </div>
-      <div class="arch-arrow">│ LangGraph 节点 / Socket RPC</div>
+      <div class="arch-arrow">↕ &nbsp;LangGraph 节点 / Socket RPC</div>
       <div class="arch-row">
-        <div class="arch-node" style="background:#7c6af711;border:1px solid #7c6af744;color:#a78bfa">🤖 LangGraph Agent</div>
-        <div class="arch-node" style="background:#06b6d411;border:1px solid #06b6d444;color:#67e8f9">📚 RAG Service :8001</div>
-        <div class="arch-node" style="background:#e066c811;border:1px solid #e066c844;color:#f0abfc">🎹 PulseFormer :8000</div>
-        <div class="arch-node" style="background:#22c55e11;border:1px solid #22c55e44;color:#86efac">🎵 Ableton MCP :9877</div>
+        <div class="arch-node" style="background:#7c6af710;border:1px solid #7c6af745;color:#a78bfa">
+          🤖 LangGraph Agent
+          <div class="arch-label" style="color:#4b5563">6节点工作流</div>
+        </div>
+        <div class="arch-node" style="background:#06b6d410;border:1px solid #06b6d445;color:#67e8f9">
+          📚 RAG Service
+          <div class="arch-label" style="color:#4b5563">Qdrant · port 8001</div>
+        </div>
+        <div class="arch-node" style="background:#e066c810;border:1px solid #e066c845;color:#f0abfc">
+          🎹 PulseFormer API
+          <div class="arch-label" style="color:#4b5563">GPU推理 · port 8000</div>
+        </div>
+        <div class="arch-node" style="background:#22c55e10;border:1px solid #22c55e45;color:#86efac">
+          🎵 Ableton MCP
+          <div class="arch-label" style="color:#4b5563">Socket RPC · port 9877</div>
+        </div>
       </div>
-      <div class="arch-arrow">│ OpenAI-compatible API</div>
+      <div class="arch-arrow">↕ &nbsp;OpenAI-compatible API</div>
       <div class="arch-row">
-        <div class="arch-node" style="background:#1c1a00;border:1px solid #f59e0b44;color:#fbbf24;min-width:300px">
-          🦙 Ollama :11434 — qwen2.5:7b 本地推理
+        <div class="arch-node" style="background:#1c1a00;border:1px solid #f59e0b45;color:#fbbf24;min-width:320px">
+          🦙 &nbsp;Ollama · port 11434
+          <div class="arch-label" style="color:#4b5563">qwen2.5:7b-instruct-q4_K_M · 本地推理</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── BAD CASES ── -->
+<!-- BAD CASES -->
 <section id="badcases">
   <div class="wrap">
-    <div class="sec-header reveal">
+    <div class="sec-header">
       <div class="sec-tag" style="color:var(--red)">工程复杂度</div>
       <div class="sec-title">Bad Case 处理</div>
-      <p class="sec-desc">每个 Bad Case 都是从现象到根因的工程判断，而不是绕过问题</p>
+      <p class="sec-desc">从现象到根因的工程判断，每个问题都有针对性解法而不是绕过</p>
     </div>
-    <div class="bc-grid" id="bc-grid"></div>
+    <div class="bc-grid">
+
+      <div class="bc-card" style="border-color:#ef444430">
+        <div class="bc-header">
+          <div class="bc-num" style="background:#ef444420;color:#ef4444">01</div>
+          <div class="bc-tag" style="color:#ef4444">LLM 不遵循指令格式</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#ef4444">⚠ 问题</div>
+          <div class="bc-text">7B 模型忽略 system prompt 中的操作词表，对"39-49小节空白帮我加鼓"自行发明 <code style="color:#f87171">{"bar_39":[{"time":"b39.00","note":"Kick"}]}</code> 格式，无法被系统解析执行</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#22c55e">✓ 解决</div>
+          <div class="bc-text">引入规则优先引擎：正则匹配"N-M小节 + 空白/加鼓"模式，直接构造 fill_drums_pattern 操作绕过 LLM 调用，延迟从 5-8s 降至 &lt;1ms</div>
+        </div>
+      </div>
+
+      <div class="bc-card" style="border-color:#f59e0b30">
+        <div class="bc-header">
+          <div class="bc-num" style="background:#f59e0b20;color:#f59e0b">02</div>
+          <div class="bc-tag" style="color:#f59e0b">BPM 估算 2× 误差</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#ef4444">⚠ 问题</div>
+          <div class="bc-text">pretty_midi 的 estimate_tempo() 对 EDM 四四拍 Kick 鼓型估算始终是真实 BPM 的 2 倍（128BPM 返回 256），导致生成的节拍与用户预期完全错误</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#22c55e">✓ 解决</div>
+          <div class="bc-text">改用 get_tempo_changes()[1][0] 直接读取 MIDI 文件头中的 tempo 事件，获取 μs/beat 精确值换算，完全绕开信号估算</div>
+        </div>
+      </div>
+
+      <div class="bc-card" style="border-color:#06b6d430">
+        <div class="bc-header">
+          <div class="bc-num" style="background:#06b6d420;color:#06b6d4">03</div>
+          <div class="bc-tag" style="color:#06b6d4">Ableton API 命令边界未知</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#ef4444">⚠ 问题</div>
+          <div class="bc-text">代码调用了 get_tempo / load_drum_rack 等命令，但 Ableton Remote Script 仅支持有限命令集，社区版命令边界没有官方文档，运行时才发现报错</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#22c55e">✓ 解决</div>
+          <div class="bc-text">逐一测试可用命令集，建立白名单并实现能力降级机制：不支持的命令 best-effort 跳过并记录日志，不阻断主流程</div>
+        </div>
+      </div>
+
+      <div class="bc-card" style="border-color:#7c6af730">
+        <div class="bc-header">
+          <div class="bc-num" style="background:#7c6af720;color:#7c6af7">04</div>
+          <div class="bc-tag" style="color:#7c6af7">Prompt 花括号语法冲突</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#ef4444">⚠ 问题</div>
+          <div class="bc-text">LangGraph prompt 内嵌 JSON schema 示例（如 <code style="color:#a78bfa">{"op":"transpose"}</code>），Python str.format() 将 {} 解析为变量占位符，导致 KeyError 崩溃</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#22c55e">✓ 解决</div>
+          <div class="bc-text">全面排查并将 prompt 中的 JSON 示例花括号统一改为 {{}} 双重转义，intent / plan / reflect 三个核心节点全部修复</div>
+        </div>
+      </div>
+
+      <div class="bc-card" style="border-color:#22c55e30">
+        <div class="bc-header">
+          <div class="bc-num" style="background:#22c55e20;color:#22c55e">05</div>
+          <div class="bc-tag" style="color:#22c55e">进程重启丢失轨道状态</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#ef4444">⚠ 问题</div>
+          <div class="bc-text">Ableton Bridge 重启后，内存中的 track_state 清零，已生成的 1306 条 DRUMS 音符数据全部丢失，后续编辑指令无法执行</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#22c55e">✓ 解决</div>
+          <div class="bc-text">设计 JSON 磁盘持久化层（data/bridge_state.json），每次注入 Ableton 后同步写盘，启动时自动加载，实现无感热重启</div>
+        </div>
+      </div>
+
+      <div class="bc-card" style="border-color:#e066c830">
+        <div class="bc-header">
+          <div class="bc-num" style="background:#e066c820;color:#e066c8">06</div>
+          <div class="bc-tag" style="color:#e066c8">Clip 边界截断音符</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#ef4444">⚠ 问题</div>
+          <div class="bc-text">填充 bars 39-49 对应 beats 152-196，超出 clip 默认 32 beat 长度，注入时被 Ableton 静默丢弃，实际 DAW 中无声无息</div>
+        </div>
+        <div class="bc-section">
+          <div class="bc-section-label" style="color:#22c55e">✓ 解决</div>
+          <div class="bc-text">注入前计算 required_len = max(start + duration)，若超出当前 clip 长度则先调用 set_clip_length 扩容，再执行音符注入</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- ── TECH STACK ── -->
+<!-- TECH STACK -->
 <section id="stack">
   <div class="wrap">
-    <div class="sec-header reveal">
+    <div class="sec-header">
       <div class="sec-tag" style="color:var(--amber)">技术选型</div>
       <div class="sec-title">Tech Stack</div>
+      <p class="sec-desc">每项技术都有明确的选型理由，没有冗余依赖</p>
     </div>
-    <div class="stack-wrap reveal" id="stack-wrap"></div>
+    <div class="stack-grid">
+
+      <div class="stack-card" style="--s-color:#e066c8;--s-shadow:#e066c815">
+        <div class="stack-dot" style="background:#e066c8"></div>
+        <div class="stack-info">
+          <div class="stack-name" style="color:#e066c8">PulseFormer</div>
+          <div class="stack-desc">自研 CP-FiLM Transformer 音乐生成模型</div>
+          <div class="stack-role">多轨 MIDI · 能量条件化 · GPU 推理</div>
+        </div>
+      </div>
+
+      <div class="stack-card" style="--s-color:#7c6af7;--s-shadow:#7c6af715">
+        <div class="stack-dot" style="background:#7c6af7"></div>
+        <div class="stack-info">
+          <div class="stack-name" style="color:#7c6af7">LangGraph</div>
+          <div class="stack-desc">有状态 Agent 工作流框架</div>
+          <div class="stack-role">6节点 · 条件路由 · 流式输出</div>
+        </div>
+      </div>
+
+      <div class="stack-card" style="--s-color:#f59e0b;--s-shadow:#f59e0b15">
+        <div class="stack-dot" style="background:#f59e0b"></div>
+        <div class="stack-info">
+          <div class="stack-name" style="color:#f59e0b">Ollama</div>
+          <div class="stack-desc">本地 LLM 推理服务</div>
+          <div class="stack-role">qwen2.5:7b · OpenAI-compatible API</div>
+        </div>
+      </div>
+
+      <div class="stack-card" style="--s-color:#06b6d4;--s-shadow:#06b6d415">
+        <div class="stack-dot" style="background:#06b6d4"></div>
+        <div class="stack-info">
+          <div class="stack-name" style="color:#06b6d4">Qdrant</div>
+          <div class="stack-desc">向量数据库</div>
+          <div class="stack-role">音乐制作知识 RAG 检索</div>
+        </div>
+      </div>
+
+      <div class="stack-card" style="--s-color:#22c55e;--s-shadow:#22c55e15">
+        <div class="stack-dot" style="background:#22c55e"></div>
+        <div class="stack-info">
+          <div class="stack-name" style="color:#22c55e">Ableton MCP</div>
+          <div class="stack-desc">DAW 实时控制集成</div>
+          <div class="stack-role">Socket RPC · Remote Script · 双向通信</div>
+        </div>
+      </div>
+
+      <div class="stack-card" style="--s-color:#6366f1;--s-shadow:#6366f115">
+        <div class="stack-dot" style="background:#6366f1"></div>
+        <div class="stack-info">
+          <div class="stack-name" style="color:#6366f1">FastAPI</div>
+          <div class="stack-desc">异步 Web 框架</div>
+          <div class="stack-role">SSE 流式 · 多服务编排</div>
+        </div>
+      </div>
+
+      <div class="stack-card" style="--s-color:#f97316;--s-shadow:#f9731615">
+        <div class="stack-dot" style="background:#f97316"></div>
+        <div class="stack-info">
+          <div class="stack-name" style="color:#f97316">pretty_midi</div>
+          <div class="stack-desc">Python MIDI 处理库</div>
+          <div class="stack-role">音符解析 · FluidSynth 渲染 · WAV 导出</div>
+        </div>
+      </div>
+
+      <div class="stack-card" style="--s-color:#e2e8f0;--s-shadow:#e2e8f010">
+        <div class="stack-dot" style="background:#e2e8f0"></div>
+        <div class="stack-info">
+          <div class="stack-name" style="color:#e2e8f0">原生 HTML/JS</div>
+          <div class="stack-desc">零框架前端</div>
+          <div class="stack-role">SSE 流 · 无 Node.js · 极低内存占用</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- ── CTA ── -->
+<!-- CTA -->
 <section>
   <div class="wrap">
-    <div class="cta-box reveal">
-      <div class="cta-emoji">🎵</div>
+    <div class="cta-box">
+      <div class="cta-emoji">🎹</div>
       <div class="cta-title">立即体验 TOMI-GPT</div>
       <p class="cta-desc">用自然语言描述音乐想法，AI 自动完成作曲、编排和 DAW 写入</p>
-      <a class="btn-primary" href="/">🎹 打开 Agent 对话 →</a>
+      <div class="cta-links">
+        <a class="btn-primary" href="https://github.com/yaralas1106-cell/yaralas" target="_blank">GitHub 仓库 →</a>
+        <a class="btn-secondary" href="/chat-ui">🎵 本地 Agent 对话</a>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">TOMI-GPT · Built with PulseFormer + LangGraph + Ableton MCP</div>
+  <div class="wrap">TOMI-GPT &nbsp;·&nbsp; PulseFormer + LangGraph + Ableton MCP &nbsp;·&nbsp; Built with ❤️</div>
 </footer>
 
 <script>
-// ── Data ──────────────────────────────────────────────────────────────────────
 const NODES = [
-  {id:"intent",label:"Intent",sub:"意图分类",color:"#7c6af7",icon:"🧠",
-   desc:"LLM 解析用户输入，识别 generate / modify / consult / ableton_edit 四种意图，提取 BPM、调性、风格等槽位，结合用户历史记忆输出意图 JSON。"},
-  {id:"rag",label:"RAG",sub:"知识检索",color:"#06b6d4",icon:"📚",
-   desc:"向量检索音乐制作知识库（混音/EQ/侧链压缩/EDM理论/PulseFormer论文），为规划节点提供专业 context，同时支持直接咨询路径。"},
-  {id:"plan",label:"Plan",sub:"RAG 增强规划",color:"#f59e0b",icon:"📐",
-   desc:"LLM + RAG context + 用户记忆三路融合，生成完整歌曲蓝图 JSON：BPM / 调性 / 多段落结构 / e_level(1-8) 能量曲线 / 采样温度。"},
-  {id:"gen",label:"Generate",sub:"PulseFormer 生成",color:"#e066c8",icon:"🎹",
-   desc:"调用自研 PulseFormer 大模型，基于 CP Token 多轨表示 + FiLM 能量条件化，生成四轨 MIDI（DRUMS / BASS / CHORD / MELODY）。支持全曲生成或单轨锁定重生成。"},
-  {id:"reflect",label:"Reflect",sub:"LLM-as-Judge",color:"#ef4444",icon:"⚖️",
-   desc:"自动评审生成质量：参数匹配度 / 内容完整性 / 能量曲线合理性，score ≥ 6 通过，< 6 则将 issues + suggestions 反馈给 Plan 节点重试，最多 2 次。"},
-  {id:"ableton",label:"Ableton",sub:"MCP 写入",color:"#22c55e",icon:"🎛️",
-   desc:"通过 Socket RPC 将多轨 MIDI 实时注入 Ableton Live Arrange View，保留音轨索引 / clip 位置 / BPM 元数据，支持后续 LLM 精细编辑。"},
+  {id:"intent",label:"Intent",sub:"意图分类",color:"#a78bfa",icon:"🧠",
+   desc:"LLM 解析用户输入，识别 generate / modify / consult / ableton_edit 四种意图，提取 BPM、调性、风格、能量等槽位，结合用户历史记忆输出结构化意图 JSON。"},
+  {id:"rag",label:"RAG",sub:"知识检索",color:"#67e8f9",icon:"📚",
+   desc:"Qdrant 向量检索音乐制作知识库（混音/EQ/侧链压缩/EDM理论/PulseFormer论文），LLM Query Rewriting 提升召回率，为规划节点注入专业 context，同时支持咨询直答路径。"},
+  {id:"plan",label:"Plan",sub:"RAG 增强规划",color:"#fbbf24",icon:"📐",
+   desc:"三路融合：RAG context + 用户记忆 + 当前需求，LLM 生成完整歌曲蓝图 JSON：BPM / 调性 / 多段落结构 / 每段 e_level(1-8) 能量曲线 / 采样温度。"},
+  {id:"gen",label:"Generate",sub:"PulseFormer",color:"#f0abfc",icon:"🎹",
+   desc:"调用自研 PulseFormer（CP-FiLM Transformer），基于多轨 CP Token 表示 + FiLM 能量条件化，生成四轨 MIDI（DRUMS / BASS / CHORD / MELODY）。支持全曲生成或单轨锁定重生成。"},
+  {id:"reflect",label:"Reflect",sub:"LLM-as-Judge",color:"#f87171",icon:"⚖️",
+   desc:"三维度自动评审：参数匹配度 / 内容完整性 / 能量曲线合理性。score ≥ 6 通过进入渲染，< 6 则将具体 issues + suggestions 反馈给 Plan 节点触发重试，最多 2 次。"},
+  {id:"ableton",label:"Ableton",sub:"MCP 写入",color:"#86efac",icon:"🎛️",
+   desc:"通过 Socket RPC 将多轨 MIDI 实时注入 Ableton Live Arrangement View，保留轨道索引 / clip 位置 / BPM 元数据，状态磁盘持久化，支持后续自然语言精细编辑。"},
 ];
 
-const FEATURES = [
-  {icon:"📚",title:"RAG 音乐知识库",color:"#06b6d4",
-   points:["向量检索音乐制作知识（混音/侧链/EQ/EDM理论）","双路径：咨询直答 + 生成规划增强","LLM 组织回答并标注来源"]},
-  {icon:"🎛️",title:"Ableton MCP 集成",color:"#22c55e",
-   points:["Socket RPC 实时写入 DAW Arrange View","一键创建 EDM 4轨模板 + 音色","自动配置侧链压缩（Kick → Bass）"]},
-  {icon:"⚙️",title:"12 种原子操作",color:"#7c6af7",
-   points:["transpose / humanize / quantize / reverse","fill_drums_pattern 空段鼓组填充","多轨并行操作，LLM 自动路由"]},
-  {icon:"🧠",title:"用户偏好记忆",color:"#f59e0b",
-   points:["Session 级持久化：BPM / 调性 / 风格偏好","规划时自动融合历史偏好","跨对话记忆保留"]},
-  {icon:"⚖️",title:"LLM-as-Judge 评审",color:"#ef4444",
-   points:["三维度打分：匹配度 / 完整性 / 能量合理性","score < 6 自动重规划，最多重试 2 次","反馈 issues 定向修正下一轮"]},
-  {icon:"🔌",title:"10 工具 Agent",color:"#e066c8",
-   points:["plan_song / generate_music / render_audio","regenerate_track 单轨锁定重生成","ask_knowledge / recall_memory / update_memory"]},
-];
-
-const BADCASES = [
-  {tag:"LLM 不遵循指令",color:"#ef4444",
-   problem:"7B 模型忽略 system prompt，对"39-49小节空白加鼓"自行发明格式",
-   solution:"引入规则优先引擎，正则命中直接构造操作绕过 LLM，延迟 5-8s → <1ms"},
-  {tag:"BPM 2× 误差",color:"#f59e0b",
-   problem:"estimate_tempo() 对 EDM 四四拍 Kick 估算始终是真实 BPM 的 2 倍",
-   solution:"改用 get_tempo_changes()[1][0] 直接读 MIDI 文件头 tempo 事件"},
-  {tag:"Ableton API 边界",color:"#06b6d4",
-   problem:"代码调用 get_tempo，但社区版 Remote Script 仅支持有限命令集",
-   solution:"逐一测试可用命令边界，建立能力降级机制，不支持的命令 best-effort 跳过"},
-  {tag:"Prompt 花括号冲突",color:"#7c6af7",
-   problem:"LangGraph prompt 内嵌 JSON schema，Python .format() 将 {} 解析为占位符",
-   solution:"统一改为 {{}} 双花括号转义，三个核心节点（intent/plan/reflect）全部修复"},
-  {tag:"进程重启丢状态",color:"#22c55e",
-   problem:"Bridge 重启后内存 track_state 清零，1306 条 DRUMS 音符全部丢失",
-   solution:"设计 JSON 磁盘持久化 + 启动自动加载，实现无感热重启"},
-  {tag:"Clip 截断远端音符",color:"#e066c8",
-   problem:"bars 39-49 对应 beats 152-196，超出 32 beat clip 边界被静默丢弃",
-   solution:"注入前计算 required_len，先调 set_clip_length 扩容再注入"},
-];
-
-const STACK = [
-  {name:"PulseFormer",desc:"自研音乐生成大模型",color:"#e066c8"},
-  {name:"LangGraph",desc:"有状态 Agent 工作流",color:"#7c6af7"},
-  {name:"Ollama",desc:"本地 7B LLM 推理",color:"#f59e0b"},
-  {name:"RAG Service",desc:"音乐知识向量检索",color:"#06b6d4"},
-  {name:"Ableton MCP",desc:"DAW Socket RPC 集成",color:"#22c55e"},
-  {name:"FastAPI",desc:"SSE 流式 API 后端",color:"#6366f1"},
-  {name:"Next.js 14",desc:"双模式交互前端",color:"#e2e8f0"},
-  {name:"pretty_midi",desc:"Python MIDI 渲染",color:"#f97316"},
-];
-
-// ── Render features ───────────────────────────────────────────────────────────
-document.getElementById('feat-grid').innerHTML = FEATURES.map(f => `
-  <div class="feat-card reveal" style="border-color:${f.color}22">
-    <div class="feat-icon-wrap" style="background:${f.color}22">${f.icon}</div>
-    <div class="feat-title" style="color:${f.color}">${f.title}</div>
-    <ul class="feat-list">
-      ${f.points.map(p=>`<li><span class="feat-bullet" style="color:${f.color}">▸</span>${p}</li>`).join('')}
-    </ul>
-  </div>`).join('');
-
-// ── Render bad cases ──────────────────────────────────────────────────────────
-document.getElementById('bc-grid').innerHTML = BADCASES.map(bc => `
-  <div class="bc-card reveal" style="border:1px solid ${bc.color}33">
-    <span class="bc-tag" style="background:${bc.color}22;color:${bc.color}">${bc.tag}</span>
-    <div class="bc-row"><span class="bc-label" style="color:#ef4444">问题：</span><span style="color:#9ca3af">${bc.problem}</span></div>
-    <div class="bc-row"><span class="bc-label" style="color:#22c55e">解决：</span><span style="color:#9ca3af">${bc.solution}</span></div>
-  </div>`).join('');
-
-// ── Render tech stack ─────────────────────────────────────────────────────────
-document.getElementById('stack-wrap').innerHTML = STACK.map(s => `
-  <div class="stack-item">
-    <span class="stack-dot" style="background:${s.color}"></span>
-    <span class="stack-name" style="color:${s.color}">${s.name}</span>
-    <span class="stack-desc">${s.desc}</span>
-  </div>`).join('');
-
-// ── Pipeline ──────────────────────────────────────────────────────────────────
-let activeNode = 0;
-let playing = true;
-let timer;
+let activeNode = 0, playing = true, timer;
 
 function renderNodes() {
   document.getElementById('pnodes').innerHTML = NODES.map((n,i) => `
-    <div class="pnode ${i===activeNode?'active':''}" style="--node-color:${n.color};--node-glow:${n.color}55" onclick="selectNode(${i})">
-      <div class="pnode-icon" style="${i===activeNode?`background:${n.color};border-color:${n.color}`:''}">
+    <div class="pnode ${i===activeNode?'active':''}" style="--node-color:${n.color};--node-glow:${n.color}55;--node-bg:${n.color}18" onclick="selectNode(${i})">
+      <div class="pnode-icon">
         ${n.icon}
         ${i===activeNode?`<div class="pnode-ring"></div>`:''}
       </div>
@@ -393,13 +579,14 @@ function renderNodes() {
 
 function renderDetail() {
   const n = NODES[activeNode];
-  document.getElementById('pdetail').style.borderColor = n.color+'44';
-  document.getElementById('pdetail').innerHTML = `
+  const el = document.getElementById('pdetail');
+  el.style.borderColor = n.color+'44';
+  el.innerHTML = `
     <div class="pd-header">
-      <span class="pd-icon">${n.icon}</span>
+      <span class="pd-icon-big">${n.icon}</span>
       <div>
-        <div class="pd-title" style="color:${n.color}">${n.label} 节点</div>
-        <div class="pd-sub">${n.sub}</div>
+        <div class="pd-title" style="color:${n.color}">${n.label} — ${n.sub}</div>
+        <div class="pd-sub">节点 ${activeNode+1} / ${NODES.length}</div>
       </div>
       <div class="pd-controls">
         <button class="pd-btn" style="background:${playing?'#ef444422':'#22c55e22'};color:${playing?'#ef4444':'#22c55e'}"
@@ -409,24 +596,11 @@ function renderDetail() {
     <p class="pd-desc">${n.desc}</p>`;
 }
 
-function selectNode(i) { activeNode=i; playing=false; clearInterval(timer); renderNodes(); renderDetail(); }
-function togglePlay() {
-  playing=!playing;
-  if(playing) startTimer(); else clearInterval(timer);
-  renderDetail();
-}
-function startTimer() {
-  clearInterval(timer);
-  timer = setInterval(()=>{ activeNode=(activeNode+1)%NODES.length; renderNodes(); renderDetail(); }, 2000);
-}
+function selectNode(i){activeNode=i;playing=false;clearInterval(timer);renderNodes();renderDetail();}
+function togglePlay(){playing=!playing;if(playing)startTimer();else clearInterval(timer);renderDetail();}
+function startTimer(){clearInterval(timer);timer=setInterval(()=>{activeNode=(activeNode+1)%NODES.length;renderNodes();renderDetail();},2400);}
 
 renderNodes(); renderDetail(); startTimer();
-
-// ── Scroll reveal ─────────────────────────────────────────────────────────────
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
