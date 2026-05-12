@@ -121,6 +121,12 @@ h1{font-size:clamp(3.5rem,12vw,6.5rem);font-weight:900;letter-spacing:-.04em;lin
 .bc-section-label{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;display:flex;align-items:center;gap:5px}
 .bc-text{font-size:.8rem;color:#9ca3af;line-height:1.65;padding:10px 12px;border-radius:10px;background:var(--surface2)}
 
+/* screenshot */
+.screenshot-wrap{padding:48px 0 0}
+.screenshot-frame{border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 0 60px #7c6af720;position:relative}
+.screenshot-frame img{width:100%;display:block}
+.screenshot-label{text-align:center;margin-top:16px;font-size:.8rem;color:var(--muted)}
+
 /* tech stack */
 .stack-grid{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
 @media(min-width:560px){.stack-grid{grid-template-columns:repeat(3,1fr)}}
@@ -191,6 +197,16 @@ footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;font-
       <div><div class="metric-val">&lt;1ms</div><div class="metric-label">规则路由延迟</div><div class="metric-sub">规则引擎绕过 LLM</div></div>
       <div><div class="metric-val">4</div><div class="metric-label">音乐风格</div><div class="metric-sub">House · Techno · Trance · Dubstep</div></div>
     </div>
+  </div>
+</div>
+
+<!-- SCREENSHOT -->
+<div class="wrap">
+  <div class="screenshot-wrap">
+    <div class="screenshot-frame">
+      <img src="assets/screenshot.png" alt="PULSE-GPT Chat UI - 生成 128BPM House 音乐示例">
+    </div>
+    <div class="screenshot-label">对话生成模式 · 六节点流式推理 · 多轨 MIDI + 音频实时输出</div>
   </div>
 </div>
 

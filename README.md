@@ -16,6 +16,8 @@
 
 展示页包含：系统工作流动画 · 核心功能介绍 · 架构拓扑图 · 典型 Bad Cases · 技术栈全览
 
+![PULSE-GPT Chat UI](docs/assets/screenshot.png)
+
 ---
 
 ## 系统架构
