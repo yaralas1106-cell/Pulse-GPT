@@ -4,6 +4,18 @@
 
 本项目是一个基于 PulseFormer 模型的 AI 音乐 Agent，支持通过对话生成多轨 MIDI、实时推送到 Ableton Live，并用自然语言指令编辑 DAW 中的 MIDI clip。
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-7c6af7?style=for-the-badge&logo=github)](https://yaralas1106-cell.github.io/Pulse-GPT/)
+[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10+-06b6d4?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+
+---
+
+## 🌐 在线展示
+
+**[→ 查看项目 Showcase](https://yaralas1106-cell.github.io/Pulse-GPT/)**
+
+展示页包含：系统工作流动画 · 核心功能介绍 · 架构拓扑图 · 典型 Bad Cases · 技术栈全览
+
 ---
 
 ## 系统架构
