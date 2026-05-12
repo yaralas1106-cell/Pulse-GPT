@@ -4,7 +4,7 @@ $ROOT  = $PSScriptRoot
 $PIDS_FILE = "$ROOT\logs\.pids"
 
 Write-Host ""
-Write-Host "  Stopping TOMI services..." -ForegroundColor Cyan
+Write-Host "  Stopping PULSE-GPT services..." -ForegroundColor Cyan
 
 # 方式1: 用保存的 PID 文件
 if (Test-Path $PIDS_FILE) {
@@ -40,5 +40,5 @@ foreach ($port in $ports) {
 }
 
 Write-Host ""
-Write-Host "  All TOMI services stopped." -ForegroundColor Cyan
+Write-Host "  All PULSE-GPT services stopped." -ForegroundColor Cyan
 Write-Host ""
