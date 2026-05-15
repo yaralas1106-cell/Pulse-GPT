@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会议助手 · MeetingFlow</title>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #f5f6f8;
+    --white:    #ffffff;
+    --border:   #e4e7ec;
+    --border2:  #d0d5dd;
+    --accent:   #2563eb;
+    --accent-h: #1d4ed8;
+    --accent-lt:#eff4ff;
+    --text:     #101828;
+    --sub:      #344054;
+    --muted:    #667085;
+    --muted2:   #98a2b3;
+    --success:  #039855;
+    --warn:     #b54708;
+    --danger:   #b42318;
+    --tag-bg:   #f9fafb;
+    --shadow-sm: 0 1px 3px rgba(16,24,40,.06), 0 1px 2px rgba(16,24,40,.04);
+    --shadow:   0 4px 8px -2px rgba(16,24,40,.08), 0 2px 4px -2px rgba(16,24,40,.05);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
+
+  input, textarea, select, button { font-family: inherit; }
+
+  /* ── Layout helpers ── */
+  .flex     { display: flex; }
+  .flex-col { display: flex; flex-direction: column; }
+  .flex1    { flex: 1; min-width: 0; }
+  .items-center { align-items: center; }
+  .items-start  { align-items: flex-start; }
+  .justify-between { justify-content: space-between; }
+  .wrap     { flex-wrap: wrap; }
+  .scroll   { overflow-y: auto; }
+  .w-full   { width: 100%; }
+  .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .gap1 { gap: 4px; }  .gap2 { gap: 8px; }
+  .gap3 { gap: 12px; } .gap4 { gap: 16px; } .gap5 { gap: 20px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  .mt1 { margin-top: 4px; }  .mt2 { margin-top: 8px; }
+  .mt3 { margin-top: 12px; } .mt4 { margin-top: 16px; }
+  .mb2 { margin-bottom: 8px; } .mb3 { margin-bottom: 12px; }
+
+  .bold    { font-weight: 700; }
+  .semibold{ font-weight: 600; }
+  .medium  { font-weight: 500; }
+  .text-xs { font-size: 12px; }
+  .text-sm { font-size: 13px; }
+  .text-base{ font-size: 14px; }
+  .text-lg { font-size: 16px; }
+  .text-xl { font-size: 18px; }
+  .text-2xl{ font-size: 22px; }
+  .muted   { color: var(--muted); }
+  .muted2  { color: var(--muted2); }
+  .sub     { color: var(--sub); }
+  .accent  { color: var(--accent); }
+
+  /* ── Card ── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .card-flat {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  /* ── Inputs ── */
+  .input-field {
+    background: var(--white);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 9px 13px;
+    color: var(--text);
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .input-field::placeholder { color: var(--muted2); }
+  .input-field:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #2563eb18; }
+
+  .textarea-field {
+    background: var(--white);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 10px 13px;
+    color: var(--text);
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+    resize: vertical;
+    line-height: 1.65;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .textarea-field::placeholder { color: var(--muted2); }
+  .textarea-field:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #2563eb18; }
+
+  select.input-field { cursor: pointer; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s, box-shadow .15s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-primary:hover { background: var(--accent-h); }
+  .btn-primary:disabled { opacity: .45; cursor: not-allowed; }
+
+  .btn-outline {
+    background: var(--white);
+    color: var(--sub);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-outline:hover { background: var(--bg); border-color: var(--muted2); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .btn-ghost:hover { background: var(--bg); color: var(--sub); }
+
+  .btn-danger-outline {
+    background: var(--white);
+    color: var(--danger);
+    border: 1px solid #fecdca;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .btn-success-outline {
+    background: var(--white);
+    color: var(--success);
+    border: 1px solid #a9efc5;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* ── Badge ── */
+  .badge {
+    display: inline-flex; align-items: center;
+    font-size: 11px; font-weight: 500;
+    padding: 2px 8px; border-radius: 6px;
+    border: 1px solid transparent;
+  }
+
+  /* ── Tabs ── */
+  .tab-bar {
+    display: flex; gap: 2px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    flex-shrink: 0;
+  }
+  .tab-btn {
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color .15s, border-color .15s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tab-btn:hover { color: var(--sub); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── Divider ── */
+  .divider { height: 1px; background: var(--border); margin: 12px 0; }
+
+  /* ── Meeting row ── */
+  .meeting-row {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .meeting-row:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+  .meeting-row.selected { border-color: var(--accent); background: var(--accent-lt); box-shadow: 0 0 0 3px #2563eb10; }
+
+  /* ── Kanban ── */
+  .kanban-col {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex; flex-direction: column; gap: 8px;
+    min-height: 100px;
+  }
+  .action-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow .15s;
+  }
+  .action-card:hover { box-shadow: var(--shadow); }
+
+  /* ── Checklist ── */
+  .check-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-circle {
+    width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+  }
+
+  /* ── Stat card ── */
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .stat-value { font-size: 28px; font-weight: 700; line-height: 1.2; }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .stat-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+
+  /* ── Section header ── */
+  .section-title {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .06em; color: var(--muted2); margin-bottom: 8px;
+  }
+
+  /* ── Field label ── */
+  .field-label {
+    font-size: 12px; font-weight: 500; color: var(--sub); margin-bottom: 5px;
+  }
+
+  /* ── Empty state ── */
+  .empty-state {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 56px 0; gap: 10px;
+    color: var(--muted2);
+  }
+  .empty-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--bg); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 4px;
+  }
+
+  /* ── Pill toggle ── */
+  .pill-toggle {
+    display: flex; gap: 2px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 3px;
+  }
+  .pill-btn {
+    padding: 5px 14px; font-size: 12px; font-weight: 500;
+    border: none; border-radius: 6px; cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .pill-btn.active { background: var(--white); color: var(--accent); box-shadow: var(--shadow-sm); }
+  .pill-btn:not(.active) { background: transparent; color: var(--muted); }
+
+  /* ── Spinner ── */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner { animation: spin .8s linear infinite; display: inline-block; }
+
+  /* ── Tag chip ── */
+  .chip {
+    display: inline-flex; align-items: center;
+    background: var(--accent-lt); color: var(--accent);
+    border: 1px solid #bfdbfe;
+    font-size: 12px; font-weight: 500;
+    padding: 3px 10px; border-radius: 6px;
+  }
+
+  /* ── Tip item ── */
+  .tip-item {
+    display: flex; gap: 8px; align-items: flex-start;
+    padding: 6px 0; border-bottom: 1px solid var(--border);
+    font-size: 12px; color: var(--sub);
+  }
+  .tip-item:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+// ─── Data & Helpers ───────────────────────────────────────────────
+const uid = () => Math.random().toString(36).slice(2, 9);
+const STORAGE_KEY = "meetingflow_v1";
+const load = () => { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; } };
+const save = d => localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+
+const fmt = iso => {
+  if (!iso) return "—";
+  return new Date(iso).toLocaleString("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" });
+};
+
+const PCOLOR = { high: ["#b42318","#fef3f2","#fecdca"], medium: ["#b54708","#fffaeb","#fedf89"], low: ["#027a48","#ecfdf3","#a9efc5"] };
+const PLABEL = { high: "紧急", medium: "普通", low: "低优先" };
+const SLABEL = { todo: "待处理", in_progress: "进行中", done: "已完成" };
+const SCOL   = { todo: ["#344054","#f9fafb","#e4e7ec"], in_progress: ["#2563eb","#eff4ff","#bfdbfe"], done: ["#027a48","#ecfdf3","#a9efc5"] };
+const TICON  = { task: "✅", decision: "⚡", followup: "🔄" };
+const TLABEL = { task: "任务", decision: "决策", followup: "跟进" };
+
+function Badge({ label, colors }) {
+  const [text, bg, border] = colors;
+  return <span className="badge" style={{ color: text, background: bg, borderColor: border }}>{label}</span>;
+}
+
+function PBadge({ priority }) {
+  return <Badge label={PLABEL[priority]} colors={PCOLOR[priority]} />;
+}
+function SBadge({ status }) {
+  return <Badge label={SLABEL[status]} colors={SCOL[status]} />;
+}
+function StatusBadge({ status }) {
+  const m = {
+    upcoming: ["#344054","#f9fafb","#e4e7ec","即将开始"],
+    live:     ["#027a48","#ecfdf3","#a9efc5","进行中"],
+    ended:    ["#667085","#f9fafb","#e4e7ec","已结束"],
+  };
+  const [text,bg,border,label] = m[status]||m.ended;
+  return <Badge label={label} colors={[text,bg,border]} />;
+}
+
+// ─── AI (mock) ────────────────────────────────────────────────────
+async function aiSummarize(notes, agenda) {
+  await new Promise(r => setTimeout(r, 1400));
+  const lines = notes.split("\n").filter(l => l.trim());
+  const actions = lines
+    .filter(l => /需要|待办|负责|跟进|完成|确认|安排/.test(l))
+    .slice(0, 4)
+    .map(l => ({ id: uid(), title: l.replace(/^[-•*\d.]\s*/,"").slice(0,60), type:"task", priority:"medium", status:"todo", assignee:"", dueDate:"" }));
+  if (!actions.length) {
+    actions.push({ id:uid(), title:"跟进会议决策执行情况", type:"followup", priority:"medium", status:"todo", assignee:"", dueDate:"" });
+    actions.push({ id:uid(), title:"24小时内整理并发送会议纪要", type:"task", priority:"high", status:"todo", assignee:"", dueDate:"" });
+  }
+  return {
+    summary: `**主要讨论内容**\n${lines.slice(0,4).map(l=>`• ${l}`).join("\n")}\n\n**关键结论**\n团队就核心议题达成共识，后续将按计划推进各项任务。\n\n**待办汇总**\n共提取 ${actions.length} 项任务，已同步至任务看板。`,
+    actions
+  };
+}
+
+// ─── Field ────────────────────────────────────────────────────────
+function Field({ label, children }) {
+  return <div><div className="field-label">{label}</div>{children}</div>;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// Tab 1 · 会议管理
+// ══════════════════════════════════════════════════════════════════
+function MeetingsTab({ meetings, selected, onSelect, onAdd }) {
+  const [form, setForm] = useState({ title:"", startTime:"", duration:"60", participants:"", agenda:"" });
+  const f = k => e => setForm(p => ({ ...p, [k]: e.target.value }));
+
+  const submit = e => {
+    e.preventDefault();
+    const m = {
+      id: uid(), title: form.title, startTime: form.startTime,
+      duration: parseInt(form.duration)||60,
+      participants: form.participants.split(/[，,]+/).map(s=>s.trim()).filter(Boolean),
+      agenda: form.agenda, notes:"", summary:"", status:"upcoming", actions:[], createdAt: new Date().toISOString()
+    };
+    onAdd(m);
+    setForm({ title:"", startTime:"", duration:"60", participants:"", agenda:"" });
+  };
+
+  const live     = meetings.filter(m => m.status==="live");
+  const upcoming = meetings.filter(m => m.status==="upcoming");
+  const ended    = meetings.filter(m => m.status==="ended");
+  const totalOpen = meetings.reduce((n,m) => n + m.actions.filter(a=>a.status!=="done").length, 0);
+
+  return (
+    <div style={{ display:"grid", gridTemplateColumns:"1fr 300px", gap:20, height:"100%", overflow:"hidden" }}>
+      {/* List */}
+      <div className="flex-col gap4 scroll" style={{ paddingRight:4 }}>
+        {/* Stats row */}
+        <div className="grid3">
+          {[
+            ["总会议数", meetings.length, "#2563eb", "#eff4ff", "📋"],
+            ["进行中", live.length, "#027a48", "#ecfdf3", "🎯"],
+            ["待办事项", totalOpen, "#b54708", "#fffaeb", "⏳"],
+          ].map(([label, val, color, bg, icon]) => (
+            <div key={label} className="stat-card flex items-center gap3">
+              <div className="stat-icon" style={{ background: bg }}>
+                <span>{icon}</span>
+              </div>
+              <div>
+                <div className="stat-value" style={{ color }}>{val}</div>
+                <div className="stat-label">{label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {live.length > 0     && <MeetingSection title="进行中" dot="#027a48" meetings={live}     selected={selected} onSelect={onSelect} />}
+        {upcoming.length > 0 && <MeetingSection title="即将开始" dot="#2563eb" meetings={upcoming} selected={selected} onSelect={onSelect} />}
+        {ended.length > 0    && <MeetingSection title="已结束"  dot="#98a2b3" meetings={ended}    selected={selected} onSelect={onSelect} />}
+
+        {meetings.length === 0 && (
+          <div className="empty-state">
+            <div className="empty-icon">📅</div>
+            <div className="semibold sub">暂无会议记录</div>
+            <div className="text-sm">在右侧表单创建第一个会议</div>
+          </div>
+        )}
+      </div>
+
+      {/* Create form */}
+      <div className="card scroll" style={{ alignSelf:"start" }}>
+        <div className="semibold text-base mb3" style={{ color:"var(--text)" }}>新建会议</div>
+        <form onSubmit={submit} className="flex-col gap3">
+          <Field label="会议标题 *"><input className="input-field" value={form.title} onChange={f("title")} placeholder="例：Q2 产品评审" required /></Field>
+          <Field label="开始时间 *"><input className="input-field" type="datetime-local" value={form.startTime} onChange={f("startTime")} required /></Field>
+          <div className="grid2" style={{ gap:12 }}>
+            <Field label="时长（分钟）"><input className="input-field" type="number" value={form.duration} onChange={f("duration")} min="5" max="480" /></Field>
+          </div>
+          <Field label="参会人员"><input className="input-field" value={form.participants} onChange={f("participants")} placeholder="张三, 李四, 王五" /></Field>
+          <Field label="会议议程"><textarea className="textarea-field" value={form.agenda} onChange={f("agenda")} placeholder={"1. 开场\n2. 进展同步\n3. 问题讨论\n4. 待办分配"} rows={4} /></Field>
+          <button type="submit" className="btn-primary w-full mt1">创建会议</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function MeetingSection({ title, dot, meetings, selected, onSelect }) {
+  return (
+    <div>
+      <div className="flex items-center gap2 mb2">
+        <span style={{ width:7, height:7, borderRadius:"50%", background:dot, display:"inline-block" }} />
+        <span className="section-title" style={{ margin:0 }}>{title}</span>
+      </div>
+      <div className="flex-col gap2">
+        {meetings.map(m => {
+          const open = m.actions.filter(a=>a.status!=="done").length;
+          return (
+            <div key={m.id} className={"meeting-row"+(selected?.id===m.id?" selected":"")} onClick={()=>onSelect(m)}>
+              <div className="flex items-center justify-between gap2">
+                <span className="semibold text-sm truncate">{m.title}</span>
+                <div className="flex gap2 items-center" style={{ flexShrink:0 }}>
+                  {open > 0 && <Badge label={`${open} 待办`} colors={["#b54708","#fffaeb","#fedf89"]} />}
+                  <StatusBadge status={m.status} />
+                </div>
+              </div>
+              <div className="flex gap3 mt1 text-xs muted">
+                <span>{fmt(m.startTime)}</span>
+                <span>·</span>
+                <span>{m.duration} 分钟</span>
+                {m.participants.length > 0 && <><span>·</span><span>{m.participants.slice(0,2).join("、")}{m.participants.length>2?` 等${m.participants.length}人`:""}</span></>}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════
+// Tab 2 · 会前准备
+// ══════════════════════════════════════════════════════════════════
+function PrepTab({ meeting, onUpdate }) {
+  const [agenda, setAgenda] = useState(meeting?.agenda||"");
+  useEffect(() => setAgenda(meeting?.agenda||""), [meeting?.id]);
+
+  if (!meeting) return (
+    <div className="empty-state">
+      <div className="empty-icon">🎯</div>
+      <div className="semibold sub">请先选择一个会议</div>
+      <div className="text-sm">在「会议管理」中点击会议行即可</div>
+    </div>
+  );
+
+  const checks = [
+    ["确认并填写会议议程", !!meeting.agenda],
+    ["通知参会人员", meeting.participants.length > 0],
+    ["准备相关材料与文档链接", false],
+    ["提前 15 分钟测试音视频设备", false],
+    ["打开会议记录模板", false],
+  ];
+  const done = checks.filter(c=>c[1]).length;
+
+  return (
+    <div className="grid2 scroll" style={{ height:"100%", alignItems:"start" }}>
+      <div className="flex-col gap4">
+        {/* Meeting info */}
+        <div className="card">
+          <div className="flex items-start justify-between gap3">
+            <div>
+              <div className="text-xl semibold">{meeting.title}</div>
+              <div className="flex gap3 mt1 text-sm muted">
+                <span>{fmt(meeting.startTime)}</span>
+                <span>·</span>
+                <span>{meeting.duration} 分钟</span>
+              </div>
+            </div>
+            <StatusBadge status={meeting.status} />
+          </div>
+          {meeting.participants.length > 0 && <>
+            <div className="divider" />
+            <div className="field-label mb2">参会人员</div>
+            <div className="flex wrap gap2">
+              {meeting.participants.map(p => <span key={p} className="chip">{p}</span>)}
+            </div>
+          </>}
+        </div>
+
+        {/* Checklist */}
+        <div className="card">
+          <div className="flex items-center justify-between mb3">
+            <span className="semibold">会前检查清单</span>
+            <span className="text-xs" style={{ color: done===checks.length ? "var(--success)" : "var(--muted)" }}>
+              {done} / {checks.length} 完成
+            </span>
+          </div>
+          {checks.map(([label, checked]) => (
+            <div key={label} className="check-item">
+              <div className="check-circle" style={{
+                background: checked ? "#ecfdf3" : "var(--bg)",
+                border: `1.5px solid ${checked ? "var(--success)" : "var(--border2)"}`,
+                color: checked ? "var(--success)" : "transparent"
+              }}>✓</div>
+              <span className="text-sm" style={{ color: checked ? "var(--muted)" : "var(--sub)", textDecoration: checked ? "line-through" : "none" }}>{label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Tips */}
+        <div className="card">
+          <div className="semibold mb3">高效会议建议</div>
+          {[
+            "每个议题明确预期产出，避免讨论无结论",
+            "给每个议题设定时间上限，超时提醒",
+            "决策类议题优先排在议程前半段",
+            "每项待办需有明确负责人和截止日期",
+            "会后 24 小时内发出书面纪要",
+          ].map((t,i) => (
+            <div key={i} className="tip-item">
+              <span style={{ color:"var(--accent)", fontWeight:600, flexShrink:0 }}>{i+1}.</span>
+              <span>{t}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Agenda editor */}
+      <div className="card flex-col gap3">
+        <div className="semibold">编辑议程</div>
+        <textarea className="textarea-field" value={agenda} onChange={e=>setAgenda(e.target.value)} rows={14}
+          placeholder={"建议格式：\n1. 开场与签到（5 分钟）\n2. 上周进展回顾（15 分钟）\n3. 核心议题讨论（25 分钟）\n4. 决策与待办分配（10 分钟）\n5. 闭会"} />
+        <button className="btn-primary" onClick={()=>onUpdate(meeting.id,{agenda})}>保存议程</button>
+      </div>
+    </div>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════
+// Tab 3 · 实时记录
+// ══════════════════════════════════════════════════════════════════
+function NotesTab({ meeting, onUpdate }) {
+  const [notes, setNotes] = useState(meeting?.notes||"");
+  const [view, setView] = useState("notes");
+  const [loading, setLoading] = useState(false);
+  useEffect(() => { setNotes(meeting?.notes||""); setView("notes"); }, [meeting?.id]);
+
+  if (!meeting) return (
+    <div className="empty-state">
+      <div className="empty-icon">📝</div>
+      <div className="semibold sub">请先选择一个会议</div>
+      <div className="text-sm">在「会议管理」中点击会议行即可</div>
+    </div>
+  );
+
+  const handleAI = async () => {
+    if (!notes.trim()) return;
+    setLoading(true);
+    onUpdate(meeting.id, { notes });
+    try {
+      const { summary, actions } = await aiSummarize(notes, meeting.agenda);
+      const newActions = actions.map(a => ({ ...a, id:uid(), meetingId:meeting.id }));
+      onUpdate(meeting.id, { notes, summary, status:"ended", actions:[...meeting.actions, ...newActions] });
+      setView("summary");
+    } finally { setLoading(false); }
+  };
+
+  return (
+    <div className="flex-col gap4 scroll" style={{ height:"100%" }}>
+      {/* Header card */}
+      <div className="card">
+        <div className="flex items-start justify-between gap4">
+          <div className="flex1">
+            <div className="text-xl semibold">{meeting.title}</div>
+            <div className="flex gap3 mt1 text-sm muted">
+              <span>{fmt(meeting.startTime)}</span>
+              <span>·</span>
+              <span>{meeting.duration} 分钟</span>
+              {meeting.participants.length > 0 && <><span>·</span><span>{meeting.participants.join("、")}</span></>}
+            </div>
+          </div>
+          <div className="flex gap2 items-center" style={{ flexShrink:0 }}>
+            {meeting.status==="upcoming" && <button className="btn-success-outline" onClick={()=>onUpdate(meeting.id,{status:"live"})}>开始会议</button>}
+            {meeting.status==="live"     && <button className="btn-danger-outline"  onClick={()=>onUpdate(meeting.id,{status:"ended"})}>结束会议</button>}
+            <StatusBadge status={meeting.status} />
+          </div>
+        </div>
+        {meeting.agenda && <>
+          <div className="divider" />
+          <div className="field-label mb1">会议议程</div>
+          <div className="text-sm sub" style={{ whiteSpace:"pre-line", lineHeight:1.7 }}>{meeting.agenda}</div>
+        </>}
+      </div>
+
+      {/* View toggle */}
+      <div className="pill-toggle" style={{ width:"fit-content" }}>
+        {[["notes","实时记录"],["summary","AI 纪要"]].map(([k,l])=>(
+          <button key={k} className={"pill-btn"+(view===k?" active":"")} onClick={()=>setView(k)}>{l}</button>
+        ))}
+      </div>
+
+      {view==="notes" && <>
+        <textarea className="textarea-field" value={notes} onChange={e=>setNotes(e.target.value)} rows={13}
+          placeholder={"在此记录会议内容…\n\n提示：包含「需要」「待办」「负责」「跟进」等关键词的行，\nAI 将自动识别为待办任务。"} />
+        <div className="flex gap3">
+          <button className="btn-outline flex1" onClick={()=>onUpdate(meeting.id,{notes})}>保存记录</button>
+          <button className="btn-primary flex1" disabled={!notes.trim()||loading} onClick={handleAI}>
+            {loading ? <><span className="spinner">⏳</span> 生成中…</> : "AI 生成纪要与任务"}
+          </button>
+        </div>
+        <div className="text-xs muted" style={{ textAlign:"center" }}>AI 将从记录中提取关键结论与待办，自动同步到任务看板</div>
+      </>}
+
+      {view==="summary" && <>
+        {meeting.summary ? <>
+          <div className="card">
+            <div className="semibold mb3 accent">AI 生成纪要</div>
+            <div className="text-sm sub" style={{ whiteSpace:"pre-line", lineHeight:1.8 }}>{meeting.summary}</div>
+          </div>
+          <div className="card">
+            <div className="semibold mb3" style={{ color:"var(--warn)" }}>自动提取的待办事项（{meeting.actions.length} 项）</div>
+            <div className="flex-col gap2">
+              {meeting.actions.map(a => (
+                <div key={a.id} className="flex items-center gap3 card-flat">
+                  <span style={{ fontSize:16 }}>{TICON[a.type]}</span>
+                  <div className="flex1"><div className="text-sm medium">{a.title}</div>{a.assignee&&<div className="text-xs muted mt1">负责人：{a.assignee}</div>}</div>
+                  <PBadge priority={a.priority} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </> : (
+          <div className="empty-state">
+            <div className="empty-icon">🤖</div>
+            <div className="semibold sub">尚未生成纪要</div>
+            <div className="text-sm">请先切换到「实时记录」输入会议内容</div>
+          </div>
+        )}
+      </>}
+    </div>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════
+// Tab 4 · 任务看板
+// ══════════════════════════════════════════════════════════════════
+function ActionsTab({ meetings, onMoveAction }) {
+  const [fMeeting, setFMeeting] = useState("all");
+  const [fPri, setFPri] = useState("all");
+
+  const all = meetings
+    .filter(m => fMeeting==="all" || m.id===fMeeting)
+    .flatMap(m => m.actions.map(a => ({ ...a, meetingTitle:m.title, meetingId:m.id })))
+    .filter(a => fPri==="all" || a.priority===fPri);
+
+  const cols = ["todo","in_progress","done"];
+  const nextStatus = { todo:"in_progress", in_progress:"done", done:null };
+
+  return (
+    <div className="flex-col gap4" style={{ height:"100%" }}>
+      {/* Filter bar */}
+      <div className="flex items-center gap3">
+        <select className="input-field" style={{ width:"auto" }} value={fMeeting} onChange={e=>setFMeeting(e.target.value)}>
+          <option value="all">全部会议</option>
+          {meetings.map(m=><option key={m.id} value={m.id}>{m.title}</option>)}
+        </select>
+        <select className="input-field" style={{ width:"auto" }} value={fPri} onChange={e=>setFPri(e.target.value)}>
+          <option value="all">全部优先级</option>
+          <option value="high">紧急</option>
+          <option value="medium">普通</option>
+          <option value="low">低优先</option>
+        </select>
+        <div className="flex1" />
+        <span className="text-xs muted">
+          共 {all.length} 项 · 未完成 <span style={{ color:"var(--warn)", fontWeight:600 }}>{all.filter(a=>a.status!=="done").length}</span> 项
+        </span>
+      </div>
+
+      {/* Kanban */}
+      <div className="grid3 flex1 scroll" style={{ alignItems:"start" }}>
+        {cols.map(col => {
+          const cards = all.filter(a => a.status===col);
+          const [tc, bg, bd] = SCOL[col];
+          return (
+            <div key={col} className="flex-col gap2">
+              <div className="flex items-center gap2 mb1">
+                <span style={{ width:8, height:8, borderRadius:"50%", background:tc, display:"inline-block" }} />
+                <span className="semibold text-sm">{SLABEL[col]}</span>
+                <Badge label={String(cards.length)} colors={[tc,bg,bd]} />
+              </div>
+              <div className="kanban-col">
+                {cards.map(a => (
+                  <div key={a.id} className="action-card">
+                    <div className="flex items-start gap2">
+                      <span style={{ fontSize:14, flexShrink:0, marginTop:1 }}>{TICON[a.type]}</span>
+                      <p className="text-sm medium flex1" style={{ lineHeight:1.5 }}>{a.title}</p>
+                    </div>
+                    <div className="flex wrap gap1 mt2">
+                      <PBadge priority={a.priority} />
+                      <Badge label={TLABEL[a.type]} colors={["#344054","#f9fafb","#e4e7ec"]} />
+                    </div>
+                    <p className="text-xs muted mt2 truncate">来源：{a.meetingTitle}</p>
+                    {a.assignee && <p className="text-xs muted">负责人：{a.assignee}</p>}
+                    {nextStatus[col] && (
+                      <button className="btn-ghost w-full mt2" style={{ fontSize:11, padding:"5px", background:"var(--bg)", borderRadius:6 }}
+                        onClick={()=>onMoveAction(a.meetingId, a.id, nextStatus[col])}>
+                        移至 {SLABEL[nextStatus[col]]} →
+                      </button>
+                    )}
+                  </div>
+                ))}
+                {cards.length===0 && (
+                  <div style={{ textAlign:"center", padding:"20px 0", color:"var(--muted2)", fontSize:12 }}>暂无</div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ══════════════════════════════════════════════════════════════════
+// App Shell
+// ══════════════════════════════════════════════════════════════════
+const TABS = [
+  { id:"meetings", label:"会议管理", icon:"📅" },
+  { id:"prep",     label:"会前准备", icon:"🎯" },
+  { id:"notes",    label:"实时记录", icon:"📝" },
+  { id:"actions",  label:"任务看板", icon:"✅" },
+];
+
+function App() {
+  const [meetings, setMeetings] = useState([]);
+  const [selected, setSelected] = useState(null);
+  const [tab, setTab] = useState("meetings");
+
+  useEffect(() => {
+    const d = load(); setMeetings(d);
+    if (d.length > 0) setSelected(d[0]);
+  }, []);
+
+  const persist = u => { setMeetings(u); save(u); };
+
+  const addMeeting = m => { const u=[m,...meetings]; persist(u); setSelected(m); };
+
+  const selectMeeting = m => { setSelected(m); setTab("prep"); };
+
+  const updateMeeting = (id, patch) => {
+    const u = meetings.map(m => {
+      if (m.id!==id) return m;
+      const n = { ...m, ...patch };
+      if (selected?.id===id) setSelected(n);
+      return n;
+    });
+    persist(u);
+  };
+
+  const moveAction = (meetingId, actionId, newStatus) => {
+    const m = meetings.find(m=>m.id===meetingId);
+    if (!m) return;
+    updateMeeting(meetingId, { actions: m.actions.map(a=>a.id===actionId?{...a,status:newStatus}:a) });
+  };
+
+  return (
+    <div style={{ display:"flex", flexDirection:"column", height:"100vh", background:"var(--bg)" }}>
+
+      {/* ── Header ── */}
+      <header style={{
+        background: "var(--white)", borderBottom: "1px solid var(--border)",
+        padding: "0 24px", height: 56, display:"flex", alignItems:"center",
+        justifyContent:"space-between", flexShrink:0, boxShadow:"0 1px 3px rgba(16,24,40,.04)"
+      }}>
+        <div className="flex items-center gap3">
+          <div style={{ width:32, height:32, borderRadius:8, background:"#eff4ff", border:"1px solid #bfdbfe", display:"flex", alignItems:"center", justifyContent:"center", fontSize:16 }}>📹</div>
+          <div>
+            <span style={{ fontWeight:700, fontSize:15, color:"var(--text)", letterSpacing:"-.01em" }}>MeetingFlow</span>
+            <span style={{ marginLeft:8, fontSize:11, color:"var(--muted)", fontWeight:500 }}>视频会议助手</span>
+          </div>
+        </div>
+        <div className="flex items-center gap3">
+          {selected && (
+            <div className="flex items-center gap2" style={{ background:"var(--bg)", border:"1px solid var(--border)", borderRadius:8, padding:"5px 12px" }}>
+              <StatusBadge status={selected.status} />
+              <span className="text-sm sub" style={{ maxWidth:160, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{selected.title}</span>
+            </div>
+          )}
+          <span className="text-xs muted">数据本地存储</span>
+        </div>
+      </header>
+
+      {/* ── Tab bar ── */}
+      <div className="tab-bar">
+        {TABS.map(t => (
+          <button key={t.id} className={"tab-btn"+(tab===t.id?" active":"")} onClick={()=>setTab(t.id)}>
+            <span>{t.icon}</span>{t.label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Content ── */}
+      <main style={{ flex:1, padding:"20px 24px", overflow:"hidden", display:"flex", flexDirection:"column" }}>
+        {tab==="meetings" && <MeetingsTab meetings={meetings} selected={selected} onSelect={selectMeeting} onAdd={addMeeting} />}
+        {tab==="prep"     && <PrepTab     meeting={selected}  onUpdate={updateMeeting} />}
+        {tab==="notes"    && <NotesTab    meeting={selected}  onUpdate={updateMeeting} />}
+        {tab==="actions"  && <ActionsTab  meetings={meetings} onMoveAction={moveAction} />}
+      </main>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
